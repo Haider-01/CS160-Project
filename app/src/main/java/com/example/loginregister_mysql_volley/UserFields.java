@@ -42,7 +42,7 @@ public class UserFields extends AppCompatActivity {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent finishIntent = new Intent(UserFields.this, MainActivity.class);
+                Intent finishIntent = new Intent(UserFields.this, Login.class);
                 startActivity(finishIntent);
             }
         });
