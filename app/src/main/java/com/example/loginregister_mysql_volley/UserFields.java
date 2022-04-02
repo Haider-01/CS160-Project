@@ -30,6 +30,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserFields extends AppCompatActivity {
+    EditText totalBudget, billsBudget, foodBudget, entertainmentBudget, otherBudget;
+    EditText currentBillsCost, currentFoodCost, currentEntertainmentCost, currentOthersCost;
     Button finish;
 
     @Override
@@ -37,6 +39,15 @@ public class UserFields extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userfields);
 
+        totalBudget = (EditText) findViewById(R.id.userFieldsTotalBudget);
+        billsBudget = (EditText) findViewById(R.id.userFieldsBillsBudget);
+        foodBudget = (EditText) findViewById(R.id.userFieldsFoodBudget);
+        entertainmentBudget = (EditText) findViewById(R.id.userFieldsEntertainmentBudget);
+        otherBudget = (EditText) findViewById(R.id.userFieldsOtherBudget);
+        currentBillsCost = (EditText) findViewById(R.id.userFieldsCurrentBillsCost);
+        currentFoodCost = (EditText) findViewById(R.id.userFieldsCurrentFoodCost);
+        currentEntertainmentCost = (EditText) findViewById(R.id.userFieldsCurrentEntertainmentCosts);
+        currentOthersCost = (EditText) findViewById(R.id.userFieldsCurrentOthersCost);
         finish = (Button) findViewById(R.id.finishUserFields);
 
         finish.setOnClickListener(new View.OnClickListener() {
