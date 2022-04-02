@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText username, email, passsword, confPassword;
+    EditText username, email, password, confPassword;
     Button login, register;
     ProgressDialog progressDialog;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         username = (EditText) findViewById(R.id.edt_usernameRegister);
         email = (EditText) findViewById(R.id.edt_emailRegister);
-        passsword = (EditText) findViewById(R.id.edt_passwordRegister);
+        password = (EditText) findViewById(R.id.edt_passwordRegister);
         confPassword = (EditText) findViewById(R.id.edt_confPasswordRegister);
         login = (Button) findViewById(R.id.btn_loginRegister);
         register = (Button) findViewById(R.id.btn_registerRegister);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String sUsername = username.getText().toString();
                 String sEmail = email.getText().toString();
-                String sPassword = passsword.getText().toString();
+                String sPassword = password.getText().toString();
                 String sConfPassword = confPassword.getText().toString();
 
                 if (sPassword.equals(sConfPassword) && !sPassword.equals("")) {
