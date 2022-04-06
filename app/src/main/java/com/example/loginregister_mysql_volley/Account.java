@@ -52,15 +52,15 @@ public class Account extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position==1){
+                if (position==0){
                     Intent chgPassIntent = new Intent(Account.this, changePass.class);
                     startActivity(chgPassIntent);
                 }
-                else if (position==2){
+                else if (position==1){
                     Intent chgNameIntent = new Intent(Account.this, changeName.class);
                     startActivity(chgNameIntent);
                 }
-                else if (position==3){
+                else if (position==2){
                     //delete account from DB
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "Account deleted", Toast.LENGTH_SHORT);
