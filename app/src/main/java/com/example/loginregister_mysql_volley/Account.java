@@ -69,19 +69,6 @@ public class Account extends AppCompatActivity {
             }
         });
 
-        dashboard = (Button) findViewById(R.id.backToDashboard);
-
-        dashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent dashboardIntent = new Intent(Account.this, Dashboard.class);
-                startActivity(dashboardIntent);
-            }
-        });
-
-
-
-
     }
 }
 
