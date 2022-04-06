@@ -54,17 +54,11 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        totalBudget = (TextView) findViewById(R.id.TotalBudget);
-        billsBudget = (TextView) findViewById(R.id.BillsBudget);
-        foodBudget = (TextView) findViewById(R.id.FoodBudget);
-        entertainmentBudget = (TextView) findViewById(R.id.EntertainmentBudget);
-        otherBudget = (TextView) findViewById(R.id.OtherBudget);
-
-        edtTotalBudget = (EditText) findViewById(R.id.editTotalBudget);
-        edtBillsBudget = (EditText) findViewById(R.id.editBillsBudget);
-        edtFoodBudget = (EditText) findViewById(R.id.editFoodBudget);
-        edtEntertainmentBudget = (EditText) findViewById(R.id.editEntertainmentBudget);
-        edtOtherBudget = (EditText) findViewById(R.id.editOtherBudget);
+        edtTotalBudget = (EditText) findViewById(R.id.settingsTotalBudget);
+        edtBillsBudget = (EditText) findViewById(R.id.settingsBillsBudget);
+        edtFoodBudget = (EditText) findViewById(R.id.settingsFoodBudget);
+        edtEntertainmentBudget = (EditText) findViewById(R.id.settingsEntertainmentBudget);
+        edtOtherBudget = (EditText) findViewById(R.id.settingsOtherBudget);
 
         edtTotalBudget.setOnClickListener(new View.OnClickListener() {
             @Override

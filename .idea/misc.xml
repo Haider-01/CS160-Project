@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_settings.xml" value="0.2421875" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_userfields.xml" value="0.2" />
       </map>
     </option>
   </component>
