@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 if (sPassword.equals(sConfPassword) && !sPassword.equals("")) {
                     CreateDataToServer(sUsername, sEmail, sPassword);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Gagal! Pasword tidak cocok!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Invalid Password", Toast.LENGTH_SHORT).show();
                 }
 
                 Intent signUp = new Intent(MainActivity.this, UserFields.class);
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(response);
                                 String resp = jsonObject.getString("server_response");
                                 if (resp.equals("[{\"status\":\"OK\"}]")) {
-                                    Toast.makeText(getApplicationContext(), "Registrasi Berhasil", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Signup Success", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(getApplicationContext(), resp, Toast.LENGTH_SHORT).show();
                                 }
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }, 2000);
         } else {
-            Toast.makeText(getApplicationContext(), "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
     }
 

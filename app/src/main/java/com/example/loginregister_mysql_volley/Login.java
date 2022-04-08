@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(response);
                                 String resp = jsonObject.getString("server_response");
                                 if (resp.equals("[{\"status\":\"OK\"}]")) {
-                                    Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
                                     Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
                                     startActivity(dashboardIntent);
                                 } else {
@@ -111,7 +111,7 @@ public class Login extends AppCompatActivity {
                 }
             }, 2000);
         } else {
-            Toast.makeText(getApplicationContext(), "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
     }
 

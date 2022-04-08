@@ -20,6 +20,8 @@
         <activity android:name=".Account" />
         <activity android:name=".GraphView" />
         <activity android:name=".Settings" />
+        <activity android:name=".changeName" />
+        <activity android:name=".changePass" />
         <activity android:name=".UserFields" />
         <activity android:name=".MainActivity">
             <intent-filter>
