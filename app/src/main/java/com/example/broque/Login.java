@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
 public class Login extends AppCompatActivity {
     Button buttonLogin, buttonSignup;
     EditText editUser, editPass;
@@ -46,10 +48,9 @@ public class Login extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = username;
                             data[1] = password;
-                            PutData putData = new PutData("https://warm-fjord-97762.herokuapp.com/login.php", "POST", field, data);
+                            PutData putData = new PutData("//database link here", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
-                                    progressBar.setVisibility(View.GONE);
                                     String result = putData.getResult();
                                     //End ProgressBar (Set visibility to GONE)
                                     if(result.equals("Login Success")) {
