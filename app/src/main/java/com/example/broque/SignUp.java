@@ -32,7 +32,7 @@ public class SignUp extends AppCompatActivity{
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fullname, username, password, phonenumber;
+                final String fullname, username, password, phonenumber;
                 fullname = String.valueOf(editFullname.getText());
                 username = String.valueOf(editUsername.getText());
                 password = String.valueOf(editPassword.getText());
