@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username, password;
+                final String username, password;
                 username = String.valueOf(editUser.getText());
                 password = String.valueOf(editPass.getText());
 
