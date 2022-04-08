@@ -24,11 +24,14 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:translationX="@dimen/activity_horizontal_margin"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:navGraph="@navigation/mobile_navigation" />
 
     <Button
@@ -38,10 +41,10 @@
         android:text="GRAPHVIEW"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <Button
         android:id="@+id/settings"
@@ -50,10 +53,10 @@
         android:text="SETTINGS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
+        app:layout_constraintVertical_bias="0.873" />
 
     <Button
         android:id="@+id/account"
@@ -62,10 +65,71 @@
         android:text="ACCOUNT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854" />
+        app:layout_constraintVertical_bias="0.873" />
+
+    <RadioButton
+        android:id="@+id/Food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food"
+        android:translationX="90dp"
+        android:translationY="140dp"
+        tools:layout_editor_absoluteX="253dp"
+        tools:layout_editor_absoluteY="299dp" />
+
+    <RadioButton
+        android:id="@+id/Entertainment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entertainment"
+        android:translationX="90dp"
+        android:translationY="100dp"
+        tools:layout_editor_absoluteX="350dp"
+        tools:layout_editor_absoluteY="464dp" />
+
+    <RadioButton
+        android:id="@+id/Bills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bills"
+        android:translationX="90dp"
+        android:translationY="180dp"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="583dp" />
+
+    <RadioButton
+        android:id="@+id/Other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other"
+        android:translationX="90dp"
+        android:translationY="220dp"
+        tools:layout_editor_absoluteX="340dp"
+        tools:layout_editor_absoluteY="583dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:translationX="100dp"
+        android:translationY="350dp"
+        tools:layout_editor_absoluteX="317dp"
+        tools:layout_editor_absoluteY="626dp" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:translationX="90dp"
+        android:translationY="30dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="115dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
