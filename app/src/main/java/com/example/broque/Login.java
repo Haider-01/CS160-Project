@@ -27,6 +27,14 @@ public class Login extends AppCompatActivity {
         editUser = findViewById(R.id.edt_usernameLogin);
         editPass = findViewById(R.id.edt_passwordLogin);
 
+        buttonSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SignUp.class);
+                startActivity(intent);
+            }
+        });
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
