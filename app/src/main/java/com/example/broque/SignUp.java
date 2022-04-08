@@ -1,4 +1,5 @@
 package com.example.broque;
 
-public class Signup {
+public class SignUp {
+
 }

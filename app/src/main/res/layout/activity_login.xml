@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
     android:padding="20dp">
 
     <LinearLayout
@@ -48,14 +47,14 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_registerLogin"
+                    android:id="@+id/btn_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:text="Sign Up" />
 
                 <Button
-                    android:id="@+id/btn_loginLogin"
+                    android:id="@+id/btn_login"
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
