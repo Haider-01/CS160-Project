@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/activity_accountscreen.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/activity_dashboard.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/activity_graphscreen.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/activity_login.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/activity_main.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/activity_settings.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/activity_userfields.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/changename.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/changepass.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/fragment_dashboard.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/fragment_home.xml" value="0.2651975683890577" />
+        <entry key="..\:/Users/Crispino/StudioProjects/CS160-Project/app/src/main/res/layout/fragment_notifications.xml" value="0.2651975683890577" />
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_settings.xml" value="0.2421875" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.loginregister_mysql_volley">
+    package="broque">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,24 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity
-            android:name=".Dashboard"
-            android:label="@string/title_activity_dashboard"></activity>
-        <activity android:name=".Login" />
-        <activity android:name=".Account" />
-        <activity android:name=".GraphView" />
-        <activity android:name=".Settings" />
-        <activity android:name=".changeName" />
-        <activity android:name=".changePass" />
-        <activity android:name=".UserFields" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+        android:usesCleartextTraffic="true"></application>
 
 </manifest>
