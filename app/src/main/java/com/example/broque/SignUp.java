@@ -24,10 +24,10 @@ public class SignUp extends AppCompatActivity{
 
         buttonLogin = findViewById(R.id.btn_login);
         buttonSignup = findViewById(R.id.btn_register);
-        editFullname = findViewById(R.id.edt_fullnameRegister);
-        editUsername = findViewById(R.id.edt_usernameRegister);
-        editPassword = findViewById(R.id.edt_passwordRegister);
-        editPhone = findViewById(R.id.edt_confPasswordRegister);
+        editFullname = findViewById(R.id.edt_fullname);
+        editUsername = findViewById(R.id.edt_username);
+        editPassword = findViewById(R.id.edt_password);
+        editPhone = findViewById(R.id.edt_phonenumber);
 
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
