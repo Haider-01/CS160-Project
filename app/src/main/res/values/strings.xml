@@ -5,4 +5,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="back"> Back to Dashboard</string>
+    <string-array name="cat">
+        <item>Food</item>
+        <item>Bills</item>
+        <item>Entertainment</item>
+        <item>Other</item>
+    </string-array>
 </resources>
+
+
