@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }, 2000);
         } else {
-            Toast.makeText(getApplicationContext(), "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
     }
 
