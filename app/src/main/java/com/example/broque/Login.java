@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
                             String[] data = new String[2];
                             data[0] = username;
                             data[1] = password;
-                            PutData putData = new PutData("//database link here", "POST", field, data);
+                            PutData putData = new PutData("http://192.168.86.37/broquedb/signup.php", "POST", field, data);
                             if (putData.startPut()) {
                                 if (putData.onComplete()) {
                                     String result = putData.getResult();
