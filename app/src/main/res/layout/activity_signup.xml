@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_fullname"
+                android:id="@+id/edt_fullnameRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_phonenumber"
+                android:id="@+id/edt_phoneRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_username"
+                android:id="@+id/edt_usernameRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_password"
+                android:id="@+id/edt_passwordRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"

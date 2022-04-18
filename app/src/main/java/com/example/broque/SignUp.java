@@ -32,19 +32,20 @@ public class SignUp extends AppCompatActivity{
 
         buttonLogin = findViewById(R.id.btn_login);
         buttonSignup = findViewById(R.id.btn_register);
+
         editFullname = findViewById(R.id.edt_fullnameRegister);
+        editPhone = findViewById(R.id.edt_phoneRegister);
         editUsername = findViewById(R.id.edt_usernameRegister);
         editPassword = findViewById(R.id.edt_passwordRegister);
-        editPhone = findViewById(R.id.edt_phoneRegister);
 
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String fullname, username, password, phonenumber;
                 fullname = String.valueOf(editFullname.getText());
+                phonenumber = String.valueOf(editPhone.getText());
                 username = String.valueOf(editUsername.getText());
                 password = String.valueOf(editPassword.getText());
-                phonenumber = String.valueOf(editPhone.getText());
 
                 if (!fullname.equals("") && !username.equals("") && !password.equals("") && !phonenumber.equals("") && phonenumber.length() == 10) {
                     Handler handler = new Handler(Looper.getMainLooper());
