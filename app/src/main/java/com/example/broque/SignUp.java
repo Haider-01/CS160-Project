@@ -12,6 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.net.URI;
+import java.net.URL;
+
 
 public class SignUp extends AppCompatActivity{
     Button buttonLogin, buttonSignup;
@@ -27,12 +35,12 @@ public class SignUp extends AppCompatActivity{
         editFullname = findViewById(R.id.edt_fullnameRegister);
         editUsername = findViewById(R.id.edt_usernameRegister);
         editPassword = findViewById(R.id.edt_passwordRegister);
-        editPhone = findViewById(R.id.edt_confPasswordRegister);
+        editPhone = findViewById(R.id.edt_phoneRegister);
 
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fullname, username, password, phonenumber;
+                final String fullname, username, password, phonenumber;
                 fullname = String.valueOf(editFullname.getText());
                 username = String.valueOf(editUsername.getText());
                 password = String.valueOf(editPassword.getText());
@@ -43,35 +51,16 @@ public class SignUp extends AppCompatActivity{
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            //Starting Write and Read data with URL
-                            //Creating array for parameters
-                            String[] field = new String[4];
-                            field[0] = "name";
-                            field[1] = "phonenumber";
-                            field[2] = "username";
-                            field[3] = "password";
-                            //Creating array for data
-                            String[] data = new String[4];
-                            data[0] = fullname;
-                            data[1] = phonenumber;
-                            data[2] = username;
-                            data[3] = password;
-                            PutData putData = new PutData("http://192.168.86.37/broquedb/signup.php", "POST", field, data);
-                            if (putData.startPut()) {
-                                if (putData.onComplete()) {
-                                    String result = putData.getResult();
-                                    if(result.equals("Sign Up Success")) {
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                    else {
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                                    }
-                                }
+                            try {
+                                String link = "http://myphpmysqlweb.hostei.com/login.php?fullname="+fullname+"& username="+username+"& password="+password+"& phonenumber="+phonenumber;
+                                URL url = new URL(link);
+                                HttpClient client = new DefaultHttpClient();
+                                HttpPost request = new HttpPost();
+                                request.setURI(new URI(link));
+                                HttpResponse response = client.execute(request);
+                            } catch (Exception e) {
+                                System.out.println(e);
                             }
-                            //End Write and Read data with URL
                         }
                     });
 
