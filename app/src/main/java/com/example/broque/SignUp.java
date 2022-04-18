@@ -14,9 +14,12 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 
@@ -28,10 +31,10 @@ public class SignUp extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signup);
 
-        buttonLogin = findViewById(R.id.btn_login);
-        buttonSignup = findViewById(R.id.btn_register);
+        buttonLogin = findViewById(R.id.btn_loginRegister);
+        buttonSignup = findViewById(R.id.btn_registerRegister);
 
         editFullname = findViewById(R.id.edt_fullnameRegister);
         editPhone = findViewById(R.id.edt_phoneRegister);
@@ -53,12 +56,25 @@ public class SignUp extends AppCompatActivity{
                         @Override
                         public void run() {
                             try {
-                                String link = "http://myphpmysqlweb.hostei.com/login.php?fullname="+fullname+"& username="+username+"& password="+password+"& phonenumber="+phonenumber;
+                                String link = "https://broke-test.herokuapp.com/signup.php?fullname="+fullname+"& username="+username+"& password="+password+"& phonenumber="+phonenumber;
                                 URL url = new URL(link);
                                 HttpClient client = new DefaultHttpClient();
-                                HttpPost request = new HttpPost();
+                                HttpGet request = new HttpGet();
                                 request.setURI(new URI(link));
                                 HttpResponse response = client.execute(request);
+                                BufferedReader in = new BufferedReader(new
+                                        InputStreamReader(response.getEntity().getContent()));
+
+                                StringBuffer sb = new StringBuffer("");
+                                String line="";
+
+                                while ((line = in.readLine()) != null) {
+                                    sb.append(line);
+                                    break;
+                                }
+
+                                in.close();
+                                sb.toString();
                             } catch (Exception e) {
                                 System.out.println(e);
                             }
