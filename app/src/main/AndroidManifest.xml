@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
         <activity
-            android:name=".Login"
+            android:name=".SignUp"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
@@ -23,12 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignUp"
-            android:exported="true"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
-        </activity>
-        <activity android:name=".MainActivity"/>
+<!--        <activity-->
+<!--            android:name=".SignUp"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/Theme.Design.Light.NoActionBar">-->
+<!--        </activity>-->
+<!--        <activity android:name=".MainActivity"/>-->
     </application>
 
 </manifest>
