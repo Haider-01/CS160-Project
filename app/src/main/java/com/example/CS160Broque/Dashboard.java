@@ -1,23 +1,30 @@
-package com.example.loginregister_mysql_volley;
+package com.example.CS160Broque;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 public class Dashboard extends AppCompatActivity {
 
     Button account, graphView, settings, addExpense;
+    int totalbudgetBudget = 10000;
+    int billsBudget = 2500;
+    int foodBudget = 2500;
+    int entertainmentBudget = 2500;
+    int othersBudget = 2500;
+    int totalBudgetSpent = 4000;
+    int billsSpent = 1000;
+    int foodSpent = 1000;
+    int entertainmentSpent = 1000;
+    int othersSpent = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,47 +36,41 @@ public class Dashboard extends AppCompatActivity {
         settings = (Button) findViewById(R.id.settings);
         addExpense = (Button) findViewById(R.id.userFieldsAddExpense);
 
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+        String dateString = formatter.format(date);
+
+        //Toast.makeText(getApplicationContext(),dateString.substring(0, 2), Toast.LENGTH_SHORT).show();
+
+        if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
+            totalBudgetSpent = 0;
+            billsSpent = 0;
+            foodSpent = 0;
+            entertainmentSpent = 0;
+            othersSpent = 0;
+        }
+
         TextView budgetHint = (TextView) findViewById(R.id.userFieldsTotalBudget);
-        int totalBudget = 10000;
-        int totalBudgetSpent = 4000;
         String budgetString = "Total Budget: " + totalBudgetSpent
-                + " out of " + totalBudget + " remaining";
+                + " out of " + totalbudgetBudget + " remaining";
         budgetHint.setHint(budgetString);
 
         TextView billsHint = (TextView) findViewById(R.id.userFieldsBillsBudget);
-        int bills = 2500;
-        int billsSpent = 1000;
-        String billsString = "Bills: " + billsSpent + " out of " + bills + " remaining";
+        String billsString = "Bills: " + billsSpent + " out of " + billsBudget + " remaining";
         billsHint.setHint(billsString);
 
         TextView foodHint = (TextView) findViewById(R.id.userFieldsFoodBudget);
-        int food = 2500;
-        int foodSpent = 1000;
-        String foodString = "Food: " + foodSpent + " out of " + food + " remaining";
+        String foodString = "Food: " + foodSpent + " out of " + foodBudget + " remaining";
         foodHint.setHint(foodString);
 
         TextView entertainmentHint = (TextView) findViewById(R.id.userFieldsEntertainmentBudget);
-        int entertainment = 2500;
-        int entertainmentSpent = 1000;
         String entertainmentString = "Entertainment: " + entertainmentSpent
-                + " out of " + entertainment + " remaining";
+                + " out of " + entertainmentBudget + " remaining";
         entertainmentHint.setHint(entertainmentString);
 
         TextView othersHint = (TextView) findViewById(R.id.userFieldsOtherBudget);
-        int others = 2500;
-        int othersSpent = 1000;
-        String othersString = "Others: " + othersSpent + " out of " + others + " remaining";
+        String othersString = "Others: " + othersSpent + " out of " + othersBudget + " remaining";
         othersHint.setHint(othersString);
-
-//        BottomNavigationView navView = findViewById(R.id.nav_view);
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(navView, navController);
 
 
         account.setOnClickListener(new View.OnClickListener() { //take to account screen
@@ -83,7 +84,7 @@ public class Dashboard extends AppCompatActivity {
         graphView.setOnClickListener(new View.OnClickListener() {   //take to graphview screen
             @Override
             public void onClick(View v) {
-                Intent graphViewIntent = new Intent(Dashboard.this, GraphView.class);
+                Intent graphViewIntent = new Intent(Dashboard.this, GraphViewables.class);
                 startActivity(graphViewIntent);
             }
         });

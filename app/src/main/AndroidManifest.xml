@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.loginregister_mysql_volley">
+    package="com.example.CS160Broque">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,17 +16,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".Dashboard"
+            android:name="com.example.CS160Broque.Dashboard"
             android:label="@string/title_activity_dashboard" />
-        <activity android:name=".Login" />
-        <activity android:name=".Account" />
-        <activity android:name=".GraphView" />
-        <activity android:name=".Settings" />
-        <activity android:name=".changeName" />
-        <activity android:name=".changePass" />
-        <activity android:name=".UserFields" />
-        <activity android:name=".addExpense"/>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.CS160Broque.MainActivity" />
+        <activity android:name="com.example.CS160Broque.Account" />
+        <activity android:name="com.example.CS160Broque.GraphViewables" />
+        <activity android:name="com.example.CS160Broque.Settings" />
+        <activity android:name="com.example.CS160Broque.changeName" />
+        <activity android:name="com.example.CS160Broque.changePass" />
+        <activity android:name="com.example.CS160Broque.UserFields" />
+        <activity android:name="com.example.CS160Broque.addExpense"/>
+        <activity android:name="com.example.CS160Broque.forgetPass"/>
+        <activity android:name="com.example.CS160Broque.GraphViewCategories"/>
+        <activity android:name="com.example.CS160Broque.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

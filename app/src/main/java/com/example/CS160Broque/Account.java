@@ -1,42 +1,24 @@
-package com.example.loginregister_mysql_volley;
+package com.example.CS160Broque;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ListActivity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.example.loginregister_mysql_volley.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Account extends AppCompatActivity {
     Button dashboard;
     ListView listview;
-
     String[] action = {"Change Password", "Change Name", "Delete Account"};
 
     @Override
@@ -65,10 +47,31 @@ public class Account extends AppCompatActivity {
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "Account deleted", Toast.LENGTH_SHORT);
                     toast.show();
+
+                    Intent backToLogin = new Intent(Account.this, Login.class);
+                    startActivity(backToLogin);
                 }
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            Intent logOut = new Intent(Account.this, Login.class);
+            logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(logOut);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

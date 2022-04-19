@@ -7,17 +7,17 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/nav_view"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="0dp"-->
+<!--        android:layout_marginEnd="0dp"-->
+<!--        android:background="?android:attr/windowBackground"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:menu="@menu/bottom_nav_menu" />-->
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,102 +26,101 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259">
+        app:layout_constraintVertical_bias="0.0">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="375dp"
+            android:layout_height="63.2dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
                 android:id="@+id/userFieldsTotalBudget"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_width="375dp"
+                android:layout_height="63.2dp"
+                android:layout_centerInParent="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="24sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="375dp"
+            android:layout_height="63.2dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
                 android:id="@+id/userFieldsBillsBudget"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
+                android:layout_width="375dp"
+                android:layout_height="63.2dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="24sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="375dp"
+            android:layout_height="63.2dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
                 android:id="@+id/userFieldsFoodBudget"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
+                android:layout_width="375dp"
+                android:layout_height="63.2dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="24sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="375dp"
+            android:layout_height="63.2dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
                 android:id="@+id/userFieldsEntertainmentBudget"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
+                android:layout_width="375dp"
+                android:layout_height="63.2dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="24sp" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="375dp"
+            android:layout_height="63.2dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
                 android:id="@+id/userFieldsOtherBudget"
-                android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_width="375dp"
+                android:layout_height="63.2dp"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="24sp" />
         </RelativeLayout>
 
     </LinearLayout>
-
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:translationX="@dimen/activity_horizontal_margin"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:navGraph="@navigation/mobile_navigation" />
 
     <Button
         android:id="@+id/graphView"
@@ -130,10 +129,10 @@
         android:text="GRAPHVIEW"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <Button
         android:id="@+id/settings"
@@ -142,33 +141,33 @@
         android:text="SETTINGS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintHorizontal_bias=".92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <Button
         android:id="@+id/account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
         android:text="ACCOUNT"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
-        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <Button
         android:id="@+id/userFieldsAddExpense"
         android:layout_width="153dp"
         android:layout_height="87dp"
         android:text="Add Expense"
-        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        app:layout_constraintVertical_bias="0.754" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
