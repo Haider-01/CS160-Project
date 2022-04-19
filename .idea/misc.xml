@@ -3,10 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_accountscreen.xml" value="0.2421875" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_graphscreen.xml" value="0.2421875" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_graphviewscreen.xml" value="0.21920289855072464" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_settings.xml" value="0.2421875" />
         <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/activity_userfields.xml" value="0.2" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/appbar_menu.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/changename.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/changepass.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/expense.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/forgetpass.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/fragment_dashboard.xml" value="0.13858695652173914" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/fragment_home.xml" value="0.13858695652173914" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/layout/fragment_notifications.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/menu/appbar_menu.xml" value="0.2421875" />
+        <entry key="..\:/Users/haide/CS160/Project/loginRegister_mysql_volley/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2421875" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.1571685791015625" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.182518115942029" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.182518115942029" />
