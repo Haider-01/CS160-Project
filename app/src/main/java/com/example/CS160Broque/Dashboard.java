@@ -105,5 +105,23 @@ public class Dashboard extends AppCompatActivity {
             }
         });
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            Intent logOut = new Intent(Dashboard.this, Login.class);
+            logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(logOut);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
