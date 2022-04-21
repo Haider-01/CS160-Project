@@ -19,7 +19,7 @@
             android:name="com.example.CS160Broque.Dashboard"
             android:label="@string/title_activity_dashboard" />
         <activity android:name="com.example.CS160Broque.MainActivity" />
-        <activity android:name="com.example.CS160Broque.Account" />
+        <activity android:name="com.example.CS160Broque.AccountScreen" />
         <activity android:name="com.example.CS160Broque.GraphViewables" />
         <activity android:name="com.example.CS160Broque.Settings" />
         <activity android:name="com.example.CS160Broque.changeName" />

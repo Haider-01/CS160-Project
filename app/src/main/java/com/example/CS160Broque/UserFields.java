@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 
 public class UserFields extends AppCompatActivity {
-    EditText totalBudget, billsBudget, foodBudget, entertainmentBudget, otherBudget,monthlyIncome;
+    EditText totalBudget, billsBudget, foodBudget, entertainmentBudget, otherBudget, monthlyIncome;
     Spinner spinner;
     Button finish;
 

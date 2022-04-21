@@ -64,14 +64,18 @@ public class MainActivity extends AppCompatActivity {
                     confPassword.requestFocus();
                 }
 
-                else if (sPassword.equals(sConfPassword) && !sPassword.equals("")) {
-                    Toast.makeText(getApplicationContext(), "Account created", Toast.LENGTH_SHORT).show();
+                if (sPassword.equals(sConfPassword) && !sPassword.equals("")) {
+                    Toast.makeText(getApplicationContext(), "Account created",
+                            Toast.LENGTH_SHORT).show();
 
                     Intent signUp = new Intent(MainActivity.this, UserFields.class);
                     startActivity(signUp);
                 } else if (!sPassword.equals(sConfPassword)) {
-                    Toast.makeText(getApplicationContext(), "Password doesn't match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Password doesn't match",
+                            Toast.LENGTH_SHORT).show();
                 }
+
+                //Account myAccount = new Account(sUsername, sPassword, sEmail);
             }
         });
     }

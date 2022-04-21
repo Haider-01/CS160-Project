@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -76,7 +75,7 @@ public class Dashboard extends AppCompatActivity {
         account.setOnClickListener(new View.OnClickListener() { //take to account screen
             @Override
             public void onClick(View v) {
-                Intent accountIntent = new Intent(Dashboard.this, Account.class);
+                Intent accountIntent = new Intent(Dashboard.this, AccountScreen.class);
                 startActivity(accountIntent);
             }
         });

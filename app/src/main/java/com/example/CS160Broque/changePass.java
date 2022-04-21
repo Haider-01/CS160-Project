@@ -34,7 +34,7 @@ public class changePass extends AppCompatActivity {
                 }
                 else if (newPass.getText().toString().trim().length()==0 && confirmPass.getText().toString().trim().length()==0) {
                     Toast.makeText(changePass.this, "No changes made", Toast.LENGTH_SHORT).show();
-                    Intent backToAccount = new Intent(changePass.this, Account.class);
+                    Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
                     startActivity(backToAccount);
                 }else if (newPass.getText().toString().trim().length()==0 && confirmPass.getText().toString().trim().length()!=0){
                     newPass.setError("Enter the new password!");
@@ -50,7 +50,7 @@ public class changePass extends AppCompatActivity {
                     toast.show();
 
 
-                    Intent backToAccount = new Intent(changePass.this, Account.class);
+                    Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
                     startActivity(backToAccount);
                 }else{
                     Toast.makeText(changePass.this, "Password doesn't match!", Toast.LENGTH_SHORT).show();

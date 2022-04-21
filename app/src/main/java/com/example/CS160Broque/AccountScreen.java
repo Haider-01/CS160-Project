@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 
 
-public class Account extends AppCompatActivity {
+public class AccountScreen extends AppCompatActivity {
     Button dashboard;
     ListView listview;
     String[] action = {"Change Password", "Change Name", "Delete Account"};
@@ -35,11 +35,11 @@ public class Account extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position==0){
-                    Intent chgPassIntent = new Intent(Account.this, changePass.class);
+                    Intent chgPassIntent = new Intent(AccountScreen.this, changePass.class);
                     startActivity(chgPassIntent);
                 }
                 else if (position==1){
-                    Intent chgNameIntent = new Intent(Account.this, changeName.class);
+                    Intent chgNameIntent = new Intent(AccountScreen.this, changeName.class);
                     startActivity(chgNameIntent);
                 }
                 else if (position==2){
@@ -48,7 +48,7 @@ public class Account extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, "Account deleted", Toast.LENGTH_SHORT);
                     toast.show();
 
-                    Intent backToLogin = new Intent(Account.this, Login.class);
+                    Intent backToLogin = new Intent(AccountScreen.this, Login.class);
                     startActivity(backToLogin);
                 }
             }
@@ -66,7 +66,7 @@ public class Account extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_logout) {
-            Intent logOut = new Intent(Account.this, Login.class);
+            Intent logOut = new Intent(AccountScreen.this, Login.class);
             logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(logOut);
             return true;

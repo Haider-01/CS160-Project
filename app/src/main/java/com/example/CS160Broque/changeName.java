@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.CS160Broque.R;
-
 public class changeName extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +37,7 @@ public class changeName extends AppCompatActivity{
                     toast.show();
                 }
 
-                Intent backToAccount = new Intent(changeName.this, Account.class);
+                Intent backToAccount = new Intent(changeName.this, AccountScreen.class);
                 startActivity(backToAccount);
             }
         });
