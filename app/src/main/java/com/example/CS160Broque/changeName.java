@@ -17,9 +17,8 @@ public class changeName extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changename);
-        final EditText firstname = (EditText) findViewById(R.id.firstName);
-        final EditText middlename = (EditText) findViewById(R.id.middleName);
-        final EditText lastname = (EditText) findViewById(R.id.lastName);
+        final EditText currUser = (EditText) findViewById(R.id.currUsername);
+        final EditText newUser = (EditText) findViewById(R.id.newUsername);
         Button chgName = (Button) findViewById(R.id.chgNameButton);
 
 
@@ -29,7 +28,7 @@ public class changeName extends AppCompatActivity{
             public void onClick(View v) {
                 //change the name in the db, if succesful:
 
-                if (firstname.getText().toString().trim().length()==0 && lastname.getText().toString().trim().length()==0 && middlename.getText().toString().trim().length()==0){
+                if (currUser.getText().toString().trim().length()==0 && newUser.getText().toString().trim().length()==0){
                     Toast.makeText(changeName.this, "No changes made",Toast.LENGTH_SHORT).show();
                 }else {
                     Context context = getApplicationContext();
