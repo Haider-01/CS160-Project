@@ -74,7 +74,8 @@ public class SignUp extends AppCompatActivity{
                 String username = (String)arg[1];
                 String password = (String)arg[2];
                 String phonenumber = (String)arg[3];
-                String link = "https://broke-test.herokuapp.com/signup.php?fullname="+fullname+"&username="+username+"&password="+password+"&phonenumber="+phonenumber;
+                //String link = "https://broke-test.herokuapp.com/signup.php?fullname="+fullname+"&username="+username+"&password="+password+"&phonenumber="+phonenumber;
+                String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22this%22&username=%22isfrom%22&password=%22android%22&phonenumber=%22studio%22";
                 System.out.println(link);
                 URL url = new URL(link);
                 HttpClient client = new DefaultHttpClient();
