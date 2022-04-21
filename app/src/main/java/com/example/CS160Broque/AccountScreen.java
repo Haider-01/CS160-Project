@@ -19,7 +19,7 @@ import android.widget.Toast;
 public class AccountScreen extends AppCompatActivity {
     Button dashboard;
     ListView listview;
-    String[] action = {"Change Password", "Change Name", "Delete Account"};
+    String[] action = {"Change Password", "Change Username", "Delete Account"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
