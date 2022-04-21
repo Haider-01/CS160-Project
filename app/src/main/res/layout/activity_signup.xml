@@ -75,7 +75,6 @@
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="register"
                     android:text="Back to Login"/>
 
                 <Button
@@ -83,6 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:onClick="register"
                     android:text="Create Account" />
             </LinearLayout>
         </RelativeLayout>
