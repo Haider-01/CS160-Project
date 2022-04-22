@@ -57,6 +57,10 @@ public class forgetPass extends AppCompatActivity {
 
                 NotificationManagerCompat not = NotificationManagerCompat.from(forgetPass.this);
                 not.notify(1,notify.build());
+                
+                
+                Intent finishIntent = new Intent(forgetPass.this, Login.class);
+                startActivity(finishIntent);
 
             }
         });
