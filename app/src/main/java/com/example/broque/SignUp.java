@@ -1,5 +1,6 @@
 package com.example.broque;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -68,14 +69,16 @@ public class SignUp extends AppCompatActivity{
         @Override
         protected Void doInBackground(String... arg) {
             try{
+                // check inputs
+
                 System.out.println("inside try block");
                 String fullname = (String)arg[0];
-                System.out.println(fullname);
+                //System.out.println(fullname);
                 String username = (String)arg[1];
                 String password = (String)arg[2];
                 String phonenumber = (String)arg[3];
-                //String link = "https://broke-test.herokuapp.com/signup.php?fullname="+fullname+"&username="+username+"&password="+password+"&phonenumber="+phonenumber;
-                String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22this%22&username=%22isfrom%22&password=%22android%22&phonenumber=%22studio%22";
+                String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22"+fullname+"%22&username=%22"+username+"%22&password=%22"+password+"%22&phonenumber=%22"+phonenumber+"%22";
+                //String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22this%22&username=%22isfrom%22&password=%22android%22&phonenumber=%22studio%22";
                 System.out.println(link);
                 URL url = new URL(link);
                 HttpClient client = new DefaultHttpClient();
@@ -88,9 +91,9 @@ public class SignUp extends AppCompatActivity{
 
                 while ((line = in.readLine()) != null) {
                     sb.append(line);
+                    System.out.println("From sb" + sb);
                     break;
                 }
-
                 in.close();
                 //Toast.makeText(getApplicationContext(), sb.toString(), Toast.LENGTH_SHORT).show();
                 System.out.println("account created");
