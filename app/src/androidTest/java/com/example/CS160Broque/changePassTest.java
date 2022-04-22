@@ -20,12 +20,16 @@ import android.app.Instrumentation;
 public class changePassTest {
 
     private Instrumentation.ActivityMonitor am;
+    String newPass, confPass,currPass;
 
     @Rule
     public ActivityTestRule<changePass> rule = new ActivityTestRule<>(changePass.class);
 
     @Before
     public void init(){
+        currPass="sos";
+        newPass="sos";
+        confPass="sos";
         am = getInstrumentation().addMonitor(AccountScreen.class.getName(), null, true);
     }
 
@@ -33,6 +37,10 @@ public class changePassTest {
     // Rationale: Testing the activity
     @Test
     public void changePassBtnTest(){
+        onView(withId(R.id.currPass)).perform(typeText(currPass));
+        onView(withId(R.id.newPass)).perform(typeText(newPass));
+        onView(withId(R.id.confirmPass)).perform(typeText(confPass));
+        closeSoftKeyboard();
         onView(withId(R.id.chgPassButton)).perform(click());
 
         assertEquals(1, am.getHits());
