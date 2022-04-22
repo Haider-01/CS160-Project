@@ -43,21 +43,28 @@ public class UserFieldsTest {
         choice2 = "Manual Input";
         am = getInstrumentation().addMonitor(Login.class.getName(), null, true);
     }
-
+    
+    // Description: Check if Login Activity is launched
+    // Rationale: Test the activity
     @Test
     public void UserFieldsBtnTest(){
         onView(withId(R.id.finishUserFields)).perform(click());
 
         assertEquals(1, am.getHits());
     }
-
+    
+    
+    //Desc: Check if user can choose the default option
+    // Rationale: Making sure functionality works
     @Test
     public void defaultOptionTest(){
         onView(withId(R.id.spinner)).perform(click());
         onData(allOf(is(instanceOf(String.class)), is(choice))).perform(click());
         onView(withId(R.id.spinner)).check(matches(withSpinnerText(containsString(choice))));
     }
-
+    
+    // Desc: Check if fields are disabled if user choose default option
+    // Rationale: Making sure user can't enter budget manually
     @Test
     public void defaultOptionTest2(){
         onView(withId(R.id.spinner)).perform(click());
@@ -69,7 +76,10 @@ public class UserFieldsTest {
         onView(withId(R.id.userFieldsEntertainmentBudget)).check(matches(not(isEnabled())));
         onView(withId(R.id.userFieldsOtherBudget)).check(matches(not(isEnabled())));
     }
-
+    
+    
+    //Desc: Check if user can choose the manual option
+    // Rationale: Making sure functionality works
     @Test
     public void manualOptionTest(){
         onView(withId(R.id.spinner)).perform(click());
@@ -77,6 +87,9 @@ public class UserFieldsTest {
         onView(withId(R.id.spinner)).check(matches(withSpinnerText(containsString(choice2))));
     }
 
+    
+    // Desc: Check if fields are enabled if user choose manual option
+    // Rationale: Making sure user can enter budget manually
     @Test
     public void manualOptionTest2(){
         onView(withId(R.id.spinner)).perform(click());
