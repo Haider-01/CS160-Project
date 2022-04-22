@@ -1,5 +1,6 @@
 package com.example.broque;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -29,9 +30,6 @@ public class SignUp extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-//        buttonLogin = findViewById(R.id.btn_logSignup);
-//        buttonSignup = findViewById(R.id.btn_createSignup);
-
         editFullname = findViewById(R.id.fullnameSignup);
         editUsername = findViewById(R.id.usernameSignup);
         editPassword = findViewById(R.id.passwordSignup);
@@ -50,19 +48,18 @@ public class SignUp extends AppCompatActivity{
                 new RegisterButton().execute(fullname, username, password, phonenumber);
             }// onCLick
         });// setOnClickListener
+
+        buttonLogin = (Button) findViewById(R.id.btn_logSignup);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+
+
     }//onCreate
-
-    public void register(View view){
-//        System.out.println("register method invoked");
-//        String fullname = editFullname.getText().toString();
-//        String username = editUsername.getText().toString();
-//        String password = editPassword.getText().toString();
-//        String phonenumber = editPhone.getText().toString();
-//
-//        new RegisterButton().execute(fullname, username, password, phonenumber);
-//        System.out.println("executing registerbutton");
-
-    }//register
 
 
     private class RegisterButton extends AsyncTask<String, Void, Void> {
