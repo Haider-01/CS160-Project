@@ -29,7 +29,9 @@ public class SettingsTest {
     public void init(){
         am = getInstrumentation().addMonitor(Dashboard.class.getName(), null, true);
     }
-
+    
+    // Description: check if dashboard activity is launched after clicking the back button
+    // Rationale: Test the activity
     @Test
     public void SettingsBtnTest(){
         onView(withId(R.id.dashboardFromSettings)).perform(click());
