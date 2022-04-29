@@ -1,6 +1,5 @@
 package com.example.broque;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,6 +29,9 @@ public class SignUp extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+//        buttonLogin = findViewById(R.id.btn_logSignup);
+//        buttonSignup = findViewById(R.id.btn_createSignup);
+
         editFullname = findViewById(R.id.fullnameSignup);
         editUsername = findViewById(R.id.usernameSignup);
         editPassword = findViewById(R.id.passwordSignup);
@@ -48,23 +50,25 @@ public class SignUp extends AppCompatActivity{
                 new RegisterButton().execute(fullname, username, password, phonenumber);
             }// onCLick
         });// setOnClickListener
-
-        buttonLogin = (Button) findViewById(R.id.btn_logSignup);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-            }
-        });
-
-
     }//onCreate
 
+    public void register(View view){
+//        System.out.println("register method invoked");
+//        String fullname = editFullname.getText().toString();
+//        String username = editUsername.getText().toString();
+//        String password = editPassword.getText().toString();
+//        String phonenumber = editPhone.getText().toString();
+//
+//        new RegisterButton().execute(fullname, username, password, phonenumber);
+//        System.out.println("executing registerbutton");
 
-    private class RegisterButton extends AsyncTask<String, Void, Void> {
+    }//register
+
+
+    public class RegisterButton extends AsyncTask<String, String, String> {
         @Override
-        protected Void doInBackground(String... arg) {
+        protected String doInBackground(String... arg) {
+            String s = null;
             try{
                 // check inputs
 
@@ -74,6 +78,33 @@ public class SignUp extends AppCompatActivity{
                 String username = (String)arg[1];
                 String password = (String)arg[2];
                 String phonenumber = (String)arg[3];
+
+                // here we might want to do a select to let user know if username already taken
+
+                fullname = fullname.replaceAll(" ", "%20");
+                username = username.replaceAll(" ", "%20");
+                password = password.replaceAll(" ", "%20");
+
+                if(phonenumber.length() != 10){
+                    s = "phone number length not correct";
+                }
+
+                else if(!phonenumber.matches("[0-9]+")){
+                    s = "phone number should contain only numbers";
+                }
+
+                if(password.length() <= 4) {
+                    s = "password too weak, must be at least 4 characters long";
+                }
+
+                else if(!password.matches(".*[0-9].*")){
+                    s = "password must contain at least one number";
+                }
+
+                else if(!password.toLowerCase().matches(".*[a-z].*")){
+                    s = "password must contain at least one letter";
+                }
+
                 String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22"+fullname+"%22&username=%22"+username+"%22&password=%22"+password+"%22&phonenumber=%22"+phonenumber+"%22";
                 //String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22this%22&username=%22isfrom%22&password=%22android%22&phonenumber=%22studio%22";
                 System.out.println(link);
@@ -93,16 +124,15 @@ public class SignUp extends AppCompatActivity{
                 }
                 in.close();
                 //Toast.makeText(getApplicationContext(), sb.toString(), Toast.LENGTH_SHORT).show();
-                System.out.println("account created");
+                //System.out.println("account created");
             } catch(Exception e){
-                System.out.println(e);
-                System.out.println("account not created");
+                s = e.toString();
+                //System.out.println("account not created");
             }
-            return null;
+            return s;
         }//doInBackground
 
     }//RegisterButton
 
 }
-
 
