@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.CS160Broque.R;
-
 public class Settings extends AppCompatActivity {
     Button dashboard;
     TextView totalBudget;
@@ -27,7 +25,7 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        dashboard = (Button) findViewById(R.id.dashboardFromSettings);
+        dashboard = (Button) findViewById(R.id.btn_finish_settings);
 
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,11 +35,11 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        edtTotalBudget = (EditText) findViewById(R.id.settingsTotalBudget);
-        edtBillsBudget = (EditText) findViewById(R.id.settingsBillsBudget);
-        edtFoodBudget = (EditText) findViewById(R.id.settingsFoodBudget);
-        edtEntertainmentBudget = (EditText) findViewById(R.id.settingsEntertainmentBudget);
-        edtOtherBudget = (EditText) findViewById(R.id.settingsOtherBudget);
+        edtTotalBudget = (EditText) findViewById(R.id.edt_total_settings);
+        edtBillsBudget = (EditText) findViewById(R.id.edt_bill_settings);
+        edtFoodBudget = (EditText) findViewById(R.id.edt_food_settings);
+        edtEntertainmentBudget = (EditText) findViewById(R.id.edt_entertainment_settings);
+        edtOtherBudget = (EditText) findViewById(R.id.edt_other_settings);
 
         edtTotalBudget.setOnClickListener(new View.OnClickListener() {
             @Override

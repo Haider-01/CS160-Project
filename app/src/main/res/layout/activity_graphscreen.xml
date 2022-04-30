@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/dashboardFromGraph"
+        android:id="@+id/btn_dashboard_graphscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DASHBOARD"
@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.947" />
 
     <com.jjoe64.graphview.GraphView
-        android:id="@+id/totalBudgetGraph"
+        android:id="@+id/gv_totalBudgetGraph_graphscreen"
         android:layout_width="377dp"
         android:layout_height="303dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.324" />
 
     <Button
-        android:id="@+id/graphviewCategoriesfromGraphView"
+        android:id="@+id/btn_continue_graphscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="continue"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.947" />
 
     <TextView
-        android:id="@+id/messageToUser"
+        android:id="@+id/tv_message_graphscreen"
         android:layout_width="322dp"
         android:layout_height="64dp"
         android:gravity="center"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.745" />
 
     <TextView
-        android:id="@+id/totalBudgetGraphTitle"
+        android:id="@+id/tv_title_graphscreen"
         android:layout_width="236dp"
         android:layout_height="51dp"
         android:gravity="center"

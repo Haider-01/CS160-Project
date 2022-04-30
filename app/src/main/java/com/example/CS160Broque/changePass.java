@@ -18,10 +18,10 @@ public class changePass extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changepass);
-        final EditText currentPass = (EditText) findViewById(R.id.currPass);
-        final EditText newPass = (EditText) findViewById(R.id.newPass);
-        final EditText confirmPass = (EditText) findViewById(R.id.confirmPass);
-        Button chgPass = (Button) findViewById(R.id.chgPassButton);
+        final EditText currentPass = (EditText) findViewById(R.id.edt_currPass_changepass);
+        final EditText newPass = (EditText) findViewById(R.id.edt_newPass_changepass);
+        final EditText confirmPass = (EditText) findViewById(R.id.edt_confirmPass_changepass);
+        Button chgPass = (Button) findViewById(R.id.btn_changePass_changepass);
 
         // CODE HERE: confirm the password with db
 

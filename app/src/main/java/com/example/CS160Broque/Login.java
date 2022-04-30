@@ -22,12 +22,12 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username = (EditText) findViewById(R.id.edt_usernameLogin);
-        password = (EditText) findViewById(R.id.edt_passwordLogin);
-        login = (Button) findViewById(R.id.btn_loginLogin);
-        register = (Button) findViewById(R.id.btn_registerLogin);
+        username = (EditText) findViewById(R.id.edt_username_login);
+        password = (EditText) findViewById(R.id.edt_password_login);
+        login = (Button) findViewById(R.id.btn_login_login);
+        register = (Button) findViewById(R.id.btn_register_login);
         progressDialog = new ProgressDialog(Login.this);
-        forgetPass = (TextView) findViewById(R.id.forgetPass);
+        forgetPass = (TextView) findViewById(R.id.tv_forgetPass_login);
 
         forgetPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(Login.this, MainActivity.class);
+                Intent registerIntent = new Intent(Login.this, SignUp.class);
                 startActivity(registerIntent);
             }
         });

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/finishUserFields"
+        android:id="@+id/btn_finish_userfields"
         android:layout_width="155dp"
         android:layout_height="60dp"
         android:text="FINISH"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/monthlyIncome"
+                android:id="@+id/edt_monthlyincome_userfields"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/userFieldsTotalBudget"
+                android:id="@+id/edt_total_userfields"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/userFieldsBillsBudget"
+                android:id="@+id/edt_bill_userfields"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/userFieldsFoodBudget"
+                android:id="@+id/edt_food_userfields"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/userFieldsEntertainmentBudget"
+                android:id="@+id/edt_entertainment_userfields"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/userFieldsOtherBudget"
+                android:id="@+id/edt_other_userfields"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -114,7 +114,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/userFieldsTitle"
+        android:id="@+id/tv_title_userfields"
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:text="Enter Budgets And Costs: "

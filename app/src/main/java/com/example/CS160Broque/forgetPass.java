@@ -24,9 +24,11 @@ public class forgetPass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgetpass);
 
-        username = (EditText) findViewById(R.id.editTextTextPersonName2);
-        email = (EditText) findViewById(R.id.editTextTextEmailAddress);
-        sendPass = (Button) findViewById(R.id.sendPassButton);
+        username = (EditText) findViewById(R.id.edt_username_forgetpass);
+
+        // TODO Change to phonenumber
+        email = (EditText) findViewById(R.id.edt_phonenumber_forgetpass);
+        sendPass = (Button) findViewById(R.id.btn_sendPass_forgetpass);
 
 
 

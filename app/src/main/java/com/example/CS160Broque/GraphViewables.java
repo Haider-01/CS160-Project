@@ -23,7 +23,7 @@ public class GraphViewables extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphscreen);
 
-        graphview = findViewById(R.id.totalBudgetGraph);
+        graphview = findViewById(R.id.gv_totalBudgetGraph_graphscreen);
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 // on below line we are adding
@@ -47,8 +47,8 @@ public class GraphViewables extends AppCompatActivity {
         graphview.getViewport().setXAxisBoundsManual(true);
         graphview.getViewport().setYAxisBoundsManual(true);
 
-        dashboard = (Button) findViewById(R.id.dashboardFromGraph);
-        spending = (Button) findViewById(R.id.graphviewCategoriesfromGraphView);
+        dashboard = (Button) findViewById(R.id.btn_dashboard_graphscreen);
+        spending = (Button) findViewById(R.id.btn_continue_graphscreen);
 
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override

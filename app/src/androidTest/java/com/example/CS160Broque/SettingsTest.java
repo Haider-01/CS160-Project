@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.junit.Assert.*;
@@ -34,7 +33,7 @@ public class SettingsTest {
     // Rationale: Test the activity
     @Test
     public void SettingsBtnTest(){
-        onView(withId(R.id.dashboardFromSettings)).perform(click());
+        onView(withId(R.id.btn_finish_settings)).perform(click());
 
         assertEquals(1, am.getHits());
     }

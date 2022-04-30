@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".SignUp"
     android:padding="20dp">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_usernameRegister"
+                android:id="@+id/edt_username_signup"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_emailRegister"
+                android:id="@+id/edt_email_signup"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_passwordRegister"
+                android:id="@+id/edt_password_signup"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -54,12 +54,24 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_confPasswordRegister"
+                android:id="@+id/edt_confPassword_signup"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Verify Password"
                 android:password="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edt_phoneNumber_signup"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="Phone number" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -73,14 +85,14 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_loginRegister"
+                    android:id="@+id/btn_login_signup"
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOGIN"/>
 
                 <Button
-                    android:id="@+id/btn_registerRegister"
+                    android:id="@+id/btn_register_signup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"

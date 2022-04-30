@@ -26,7 +26,7 @@ public class AccountScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accountscreen);
 
-        listview = (ListView) findViewById(R.id.list);
+        listview = (ListView) findViewById(R.id.list_accountscreen);
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, action);
         listview.setAdapter(adapter);

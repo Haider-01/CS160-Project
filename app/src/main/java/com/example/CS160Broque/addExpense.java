@@ -37,8 +37,8 @@ public class addExpense extends AppCompatActivity {
         setContentView(R.layout.expense);
 
         spinner = (Spinner) findViewById(R.id.spinner);
-        addExpense = (Button) findViewById(R.id.addExpense);
-        amount = (EditText) findViewById(R.id.editTextNumber2);
+        addExpense = (Button) findViewById(R.id.btn_addExpense_expense);
+        amount = (EditText) findViewById(R.id.edt_expense_expense);
         String[] items = {"Select Budget Category","Food", "Bills", "Entertainment", "Other"};
 
 

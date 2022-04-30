@@ -28,13 +28,13 @@ public class UserFields extends AppCompatActivity {
         setContentView(R.layout.activity_userfields);
 
         spinner = (Spinner) findViewById(R.id.spinner);
-        monthlyIncome = (EditText) findViewById(R.id.monthlyIncome);
-        totalBudget = (EditText) findViewById(R.id.userFieldsTotalBudget);
-        billsBudget = (EditText) findViewById(R.id.userFieldsBillsBudget);
-        foodBudget = (EditText) findViewById(R.id.userFieldsFoodBudget);
-        entertainmentBudget = (EditText) findViewById(R.id.userFieldsEntertainmentBudget);
-        otherBudget = (EditText) findViewById(R.id.userFieldsOtherBudget);
-        finish = (Button) findViewById(R.id.finishUserFields);
+        monthlyIncome = (EditText) findViewById(R.id.edt_monthlyincome_userfields);
+        totalBudget = (EditText) findViewById(R.id.edt_total_userfields);
+        billsBudget = (EditText) findViewById(R.id.edt_bill_userfields);
+        foodBudget = (EditText) findViewById(R.id.edt_food_userfields);
+        entertainmentBudget = (EditText) findViewById(R.id.edt_entertainment_userfields);
+        otherBudget = (EditText) findViewById(R.id.edt_other_userfields);
+        finish = (Button) findViewById(R.id.btn_finish_userfields);
 
         monthlyIncome.setEnabled(true);
         totalBudget.setEnabled(false);
