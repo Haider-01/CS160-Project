@@ -22,13 +22,13 @@ public class GraphViewCategories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphviewscreen);
 
-        dashboard = (Button) findViewById(R.id.dashboardFromgraphViewScreen);
-        back = (Button) findViewById(R.id.graphviewfromGraphviewcategories);
+        dashboard = (Button) findViewById(R.id.btn_dashboard_graphviewscreen);
+        back = (Button) findViewById(R.id.btn_back_graphviewscreen);
 
-        billsGraph = findViewById(R.id.billsGraph);
-        foodGraph = findViewById(R.id.foodGraph);
-        entertainmentGraph = findViewById(R.id.entertainmentGraph);
-        othersGraph = findViewById(R.id.othersGraph);
+        billsGraph = findViewById(R.id.gv_billsGraph_graphviewscreen);
+        foodGraph = findViewById(R.id.gv_foodGraph_graphviewscreen);
+        entertainmentGraph = findViewById(R.id.gv_entertainmentGraph_graphviewscreen);
+        othersGraph = findViewById(R.id.gv_othersGraph_graphviewscreen);
 
         LineGraphSeries<DataPoint> billsSeries = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 // on below line we are adding

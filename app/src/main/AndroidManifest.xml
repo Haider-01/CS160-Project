@@ -15,10 +15,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity
             android:name="com.example.CS160Broque.Dashboard"
             android:label="@string/title_activity_dashboard" />
-        <activity android:name="com.example.CS160Broque.MainActivity" />
+        <activity android:name="com.example.CS160Broque.SignUp" />
         <activity android:name="com.example.CS160Broque.AccountScreen" />
         <activity android:name="com.example.CS160Broque.GraphViewables" />
         <activity android:name="com.example.CS160Broque.Settings" />

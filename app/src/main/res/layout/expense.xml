@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/userFieldsTitle"
+        android:id="@+id/tv_title_expense"
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:text="Add Expenses"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout_expense"
         android:layout_width="290dp"
         android:layout_height="184dp"
         android:orientation="vertical"
@@ -33,7 +33,7 @@
 
 
         <EditText
-            android:id="@+id/editTextNumber2"
+            android:id="@+id/edt_expense_expense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/addExpense"
+        android:id="@+id/btn_addExpense_expense"
         android:layout_width="286dp"
         android:layout_height="45dp"
         android:text="Add Expense"
@@ -55,6 +55,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_expense"
         app:layout_constraintVertical_bias="0.261" />
 </androidx.constraintlayout.widget.ConstraintLayout>

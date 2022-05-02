@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/userFieldsTitle"
+        android:id="@+id/tv_title_changepass"
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:text="Change Password"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout_changepass"
         android:layout_width="290dp"
         android:layout_height="184dp"
         android:orientation="vertical"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/currPass"
+                android:id="@+id/edt_currPass_changepass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/newPass"
+                android:id="@+id/edt_newPass_changepass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/confirmPass"
+                android:id="@+id/edt_confirmPass_changepass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -74,7 +74,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/chgPassButton"
+        android:id="@+id/btn_changePass_changepass"
         android:layout_width="286dp"
         android:layout_height="45dp"
         android:text="Change Password"
@@ -82,6 +82,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_changepass"
         app:layout_constraintVertical_bias="0.261" />
 </androidx.constraintlayout.widget.ConstraintLayout>

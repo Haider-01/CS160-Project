@@ -30,10 +30,10 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        account = (Button) findViewById(R.id.account);
-        graphView = (Button) findViewById(R.id.graphView);
-        settings = (Button) findViewById(R.id.settings);
-        addExpense = (Button) findViewById(R.id.userFieldsAddExpense);
+        account = (Button) findViewById(R.id.btn_account_dashboard);
+        graphView = (Button) findViewById(R.id.btn_graph_dashboard);
+        settings = (Button) findViewById(R.id.btn_settings_dashboard);
+        addExpense = (Button) findViewById(R.id.btn_addExpense_dashboard);
 
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
@@ -49,25 +49,25 @@ public class Dashboard extends AppCompatActivity {
             othersSpent = 0;
         }
 
-        TextView budgetHint = (TextView) findViewById(R.id.userFieldsTotalBudget);
+        TextView budgetHint = (TextView) findViewById(R.id.edt_total_userfields);
         String budgetString = "Total Budget: " + totalBudgetSpent
                 + " out of " + totalbudgetBudget + " remaining";
         budgetHint.setHint(budgetString);
 
-        TextView billsHint = (TextView) findViewById(R.id.userFieldsBillsBudget);
+        TextView billsHint = (TextView) findViewById(R.id.edt_bill_userfields);
         String billsString = "Bills: " + billsSpent + " out of " + billsBudget + " remaining";
         billsHint.setHint(billsString);
 
-        TextView foodHint = (TextView) findViewById(R.id.userFieldsFoodBudget);
+        TextView foodHint = (TextView) findViewById(R.id.edt_food_userfields);
         String foodString = "Food: " + foodSpent + " out of " + foodBudget + " remaining";
         foodHint.setHint(foodString);
 
-        TextView entertainmentHint = (TextView) findViewById(R.id.userFieldsEntertainmentBudget);
+        TextView entertainmentHint = (TextView) findViewById(R.id.edt_entertainment_userfields);
         String entertainmentString = "Entertainment: " + entertainmentSpent
                 + " out of " + entertainmentBudget + " remaining";
         entertainmentHint.setHint(entertainmentString);
 
-        TextView othersHint = (TextView) findViewById(R.id.userFieldsOtherBudget);
+        TextView othersHint = (TextView) findViewById(R.id.edt_other_userfields);
         String othersString = "Others: " + othersSpent + " out of " + othersBudget + " remaining";
         othersHint.setHint(othersString);
 

@@ -20,14 +20,14 @@ import static org.junit.Assert.*;
 import android.app.Instrumentation;
 
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest {
+public class SignUpTest {
 
 
     private String error1,error2,error3,error4,pass,confPass;
     private Instrumentation.ActivityMonitor am;
 
     @Rule
-    public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<SignUp> rule = new ActivityTestRule<>(SignUp.class);
 
     @Before
     public void init(){
@@ -46,10 +46,10 @@ public class MainActivityTest {
     // Rationale: Testing the activity and editText
     @Test
     public void MainActivityBtnTest(){
-        onView(withId(R.id.edt_passwordRegister)).perform(typeText(pass));
-        onView(withId(R.id.edt_confPasswordRegister)).perform(typeText(confPass));
+        onView(withId(R.id.edt_password_SignUp)).perform(typeText(pass));
+        onView(withId(R.id.edt_confPassword_SignUp)).perform(typeText(confPass));
 
-        onView(withId(R.id.btn_registerRegister)).perform(click());
+        onView(withId(R.id.btn_register_SignUp)).perform(click());
 
         assertEquals(1, am.getHits());
     }
@@ -60,12 +60,12 @@ public class MainActivityTest {
     @Test
     public void signUpBtnTest(){
 
-        onView(withId(R.id.btn_registerRegister)).perform(click());
+        onView(withId(R.id.btn_register_SignUp)).perform(click());
 
-        onView(withId(R.id.edt_usernameRegister)).check(matches(hasErrorText(error1)));
-        onView(withId(R.id.edt_emailRegister)).check(matches(hasErrorText(error2)));
-        onView(withId(R.id.edt_passwordRegister)).check(matches(hasErrorText(error3)));
-        onView(withId(R.id.edt_confPasswordRegister)).check(matches(hasErrorText(error4)));
+        onView(withId(R.id.edt_username_SignUp)).check(matches(hasErrorText(error1)));
+        onView(withId(R.id.edt_email_SignUp)).check(matches(hasErrorText(error2)));
+        onView(withId(R.id.edt_password_SignUp)).check(matches(hasErrorText(error3)));
+        onView(withId(R.id.edt_confPassword_SignUp)).check(matches(hasErrorText(error4)));
     }
 
 

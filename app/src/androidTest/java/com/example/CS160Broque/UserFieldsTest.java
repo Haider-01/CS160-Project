@@ -13,7 +13,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.isEnabled;
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSpinnerText;
@@ -48,7 +47,7 @@ public class UserFieldsTest {
     // Rationale: Test the activity
     @Test
     public void UserFieldsBtnTest(){
-        onView(withId(R.id.finishUserFields)).perform(click());
+        onView(withId(R.id.btn_finish_userfields)).perform(click());
 
         assertEquals(1, am.getHits());
     }
@@ -70,11 +69,11 @@ public class UserFieldsTest {
         onView(withId(R.id.spinner)).perform(click());
         onData(allOf(is(instanceOf(String.class)), is(choice))).perform(click());
         onView(withId(R.id.spinner)).check(matches(withSpinnerText(containsString(choice))));
-        onView(withId(R.id.userFieldsTotalBudget)).check(matches(not(isEnabled())));
-        onView(withId(R.id.userFieldsBillsBudget)).check(matches(not(isEnabled())));
-        onView(withId(R.id.userFieldsFoodBudget)).check(matches(not(isEnabled())));
-        onView(withId(R.id.userFieldsEntertainmentBudget)).check(matches(not(isEnabled())));
-        onView(withId(R.id.userFieldsOtherBudget)).check(matches(not(isEnabled())));
+        onView(withId(R.id.edt_total_userfields)).check(matches(not(isEnabled())));
+        onView(withId(R.id.edt_bill_userfields)).check(matches(not(isEnabled())));
+        onView(withId(R.id.edt_food_userfields)).check(matches(not(isEnabled())));
+        onView(withId(R.id.edt_entertainment_userfields)).check(matches(not(isEnabled())));
+        onView(withId(R.id.edt_other_userfields)).check(matches(not(isEnabled())));
     }
     
     
@@ -95,12 +94,12 @@ public class UserFieldsTest {
         onView(withId(R.id.spinner)).perform(click());
         onData(allOf(is(instanceOf(String.class)), is(choice2))).perform(click());
         onView(withId(R.id.spinner)).check(matches(withSpinnerText(containsString(choice2))));
-        onView(withId(R.id.userFieldsTotalBudget)).check(matches(isEnabled()));
-        onView(withId(R.id.userFieldsBillsBudget)).check(matches(isEnabled()));
-        onView(withId(R.id.userFieldsFoodBudget)).check(matches(isEnabled()));
-        onView(withId(R.id.userFieldsEntertainmentBudget)).check(matches(isEnabled()));
-        onView(withId(R.id.userFieldsOtherBudget)).check(matches(isEnabled()));
-        onView(withId(R.id.monthlyIncome)).check(matches(not(isEnabled())));
+        onView(withId(R.id.edt_total_userfields)).check(matches(isEnabled()));
+        onView(withId(R.id.edt_bill_userfields)).check(matches(isEnabled()));
+        onView(withId(R.id.edt_food_userfields)).check(matches(isEnabled()));
+        onView(withId(R.id.edt_entertainment_userfields)).check(matches(isEnabled()));
+        onView(withId(R.id.edt_other_userfields)).check(matches(isEnabled()));
+        onView(withId(R.id.edt_monthlyincome_userfields)).check(matches(not(isEnabled())));
 }
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/userFieldsTitle"
+        android:id="@+id/tv_title_forgetpass"
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:text="Forget Password"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout_forgetpass"
         android:layout_width="297dp"
         android:layout_height="96dp"
         android:orientation="vertical"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/edt_username_forgetpass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -49,11 +49,11 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/edt_phonenumber_forgetpass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Enter email"
+                android:hint="Enter phonenumber"
                 android:inputType="textEmailAddress" />
         </RelativeLayout>
 
@@ -61,7 +61,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/sendPassButton"
+        android:id="@+id/btn_sendPass_forgetpass"
         android:layout_width="286dp"
         android:layout_height="45dp"
         android:text="Send Password"
@@ -69,6 +69,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_forgetpass"
         app:layout_constraintVertical_bias="0.261" />
 </androidx.constraintlayout.widget.ConstraintLayout>

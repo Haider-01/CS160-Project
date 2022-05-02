@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <com.jjoe64.graphview.GraphView
-        android:id="@+id/billsGraph"
+        android:id="@+id/gv_billsGraph_graphviewscreen"
         android:layout_width="205dp"
         android:layout_height="191dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,7 +17,7 @@
         app:layout_constraintVertical_bias="0.137" />
 
     <com.jjoe64.graphview.GraphView
-        android:id="@+id/foodGraph"
+        android:id="@+id/gv_foodGraph_graphviewscreen"
         android:layout_width="205dp"
         android:layout_height="191dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,7 +28,7 @@
         app:layout_constraintVertical_bias="0.137" />
 
     <com.jjoe64.graphview.GraphView
-        android:id="@+id/entertainmentGraph"
+        android:id="@+id/gv_entertainmentGraph_graphviewscreen"
         android:layout_width="205dp"
         android:layout_height="191dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.714" />
 
     <com.jjoe64.graphview.GraphView
-        android:id="@+id/othersGraph"
+        android:id="@+id/gv_othersGraph_graphviewscreen"
         android:layout_width="205dp"
         android:layout_height="191dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.714" />
 
     <Button
-        android:id="@+id/graphviewfromGraphviewcategories"
+        android:id="@+id/btn_back_graphviewscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="back"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/dashboardFromgraphViewScreen"
+        android:id="@+id/btn_dashboard_graphviewscreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dashboard"
@@ -74,7 +74,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <TextView
-        android:id="@+id/billsGraphTitle"
+        android:id="@+id/tv_billsTitle_graphviewscreen"
         android:layout_width="158dp"
         android:layout_height="56dp"
         android:gravity="center"
@@ -89,7 +89,7 @@
         app:layout_constraintVertical_bias="0.026" />
 
     <TextView
-        android:id="@+id/foodGraphTitle"
+        android:id="@+id/tv_foodGraphTitle_graphviewscreen"
         android:layout_width="158dp"
         android:layout_height="56dp"
         android:gravity="center"
@@ -104,7 +104,7 @@
         app:layout_constraintVertical_bias="0.026" />
 
     <TextView
-        android:id="@+id/entertainmentGraphTitle"
+        android:id="@+id/tv_entertainmentGraphTitle_graphviewscreen"
         android:layout_width="158dp"
         android:layout_height="56dp"
         android:gravity="center"
@@ -119,7 +119,7 @@
         app:layout_constraintVertical_bias="0.46" />
 
     <TextView
-        android:id="@+id/othersGraphTitle"
+        android:id="@+id/tv_othersGraphTitle_graphviewscreen"
         android:layout_width="158dp"
         android:layout_height="56dp"
         android:gravity="center"
@@ -132,6 +132,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.46" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

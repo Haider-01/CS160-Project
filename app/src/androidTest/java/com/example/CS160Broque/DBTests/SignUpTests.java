@@ -1,4 +1,4 @@
-package com.example.broque;
+package com.example.CS160Broque.DBTests;
 
 import static org.junit.Assert.fail;
 

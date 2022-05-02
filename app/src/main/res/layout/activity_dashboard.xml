@@ -8,7 +8,7 @@
     android:paddingTop="?attr/actionBarSize">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_dashboard"
         android:layout_width="408dp"
         android:layout_height="316dp"
         android:orientation="vertical"
@@ -26,7 +26,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
-                android:id="@+id/userFieldsTotalBudget"
+                android:id="@+id/edt_total_dashboard"
                 android:layout_width="375dp"
                 android:layout_height="63.2dp"
                 android:layout_centerInParent="true"
@@ -44,7 +44,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
-                android:id="@+id/userFieldsBillsBudget"
+                android:id="@+id/edt_bill_dashboard"
                 android:layout_width="375dp"
                 android:layout_height="63.2dp"
                 android:layout_centerHorizontal="true"
@@ -62,7 +62,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
-                android:id="@+id/userFieldsFoodBudget"
+                android:id="@+id/edt_food_dashboard"
                 android:layout_width="375dp"
                 android:layout_height="63.2dp"
                 android:layout_centerHorizontal="true"
@@ -80,7 +80,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
-                android:id="@+id/userFieldsEntertainmentBudget"
+                android:id="@+id/edt_entertainment_dashboard"
                 android:layout_width="375dp"
                 android:layout_height="63.2dp"
                 android:layout_centerHorizontal="true"
@@ -98,7 +98,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin">
 
             <TextView
-                android:id="@+id/userFieldsOtherBudget"
+                android:id="@+id/edt_other_dashboard"
                 android:layout_width="375dp"
                 android:layout_height="63.2dp"
                 android:gravity="center_horizontal"
@@ -111,7 +111,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/graphView"
+        android:id="@+id/btn_graph_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GRAPHVIEW"
@@ -123,7 +123,7 @@
         app:layout_constraintVertical_bias="0.96" />
 
     <Button
-        android:id="@+id/settings"
+        android:id="@+id/btn_settings_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SETTINGS"
@@ -135,7 +135,7 @@
         app:layout_constraintVertical_bias="0.96" />
 
     <Button
-        android:id="@+id/account"
+        android:id="@+id/btn_account_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -147,7 +147,7 @@
         app:layout_constraintVertical_bias="0.96" />
 
     <Button
-        android:id="@+id/userFieldsAddExpense"
+        android:id="@+id/btn_addExpense_dashboard"
         android:layout_width="153dp"
         android:layout_height="87dp"
         android:text="Add Expense"

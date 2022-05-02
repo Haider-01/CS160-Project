@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:id="@+id/userFieldsTitle"
+        android:id="@+id/tv_title_changename"
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:text="Change Username"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout_changename"
         android:layout_width="314dp"
         android:layout_height="207dp"
         android:orientation="vertical"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/currUsername"
+                android:id="@+id/edt_currUsername_changename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/newUsername"
+                android:id="@+id/edt_newUsername_changename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -57,7 +57,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/chgNameButton"
+        android:id="@+id/btn_changeName_changename"
         android:layout_width="157dp"
         android:layout_height="38dp"
         android:text="Change Username"
@@ -65,6 +65,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_changename"
         app:layout_constraintVertical_bias="0.474" />
 </androidx.constraintlayout.widget.ConstraintLayout>
