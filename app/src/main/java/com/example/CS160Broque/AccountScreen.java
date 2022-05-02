@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
-
 public class AccountScreen extends AppCompatActivity {
     Button dashboard;
     ListView listview;

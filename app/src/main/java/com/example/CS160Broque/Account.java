@@ -1,14 +1,19 @@
 package com.example.CS160Broque;
 
+// This class creates an Account Object using data retrieved from the Database
+// Newly created accounts will be initialized with 0 values.
 public class Account {
+    private String fullName;
     private String userName;
     private String password;
-    private String email;
+    private String phoneNumber;
+
     private double currentTotalBudget;
     private double currentBillsBudget;
     private double currentFoodBudget;
     private double currentEntertainmentBudget;
     private double currentOtherBudget;
+
     private double staticTotalBudget;
     private double staticBillsBudget;
     private double staticFoodBudget;
@@ -16,27 +21,39 @@ public class Account {
     private double staticOtherBudget;
 
     public Account(){
+        this.fullName = "";
         this.userName = "";
         this.password = "";
-        this.email = "";
+        this.phoneNumber = "";
+
         this.currentTotalBudget = 0;
         this.currentBillsBudget = 0;
         this.currentFoodBudget = 0;
         this.currentEntertainmentBudget = 0;
         this.currentOtherBudget = 0;
+
         this.staticTotalBudget = 0;
         this.staticBillsBudget = 0;
         this.staticFoodBudget = 0;
         this.staticEntertainmentBudget = 0;
         this.staticOtherBudget = 0;
-    }
+    }// Account Default Constructor
 
-    public Account(String userName, String password, String email){
+    public Account(String fullName, String userName, String password, String phoneNumber){
+        this.fullName = fullName;
         this.userName = userName;
         this.password = password;
-        this.email = email;
-    }   //called in mainactivity screen
+        this.phoneNumber = phoneNumber;
+    }// Account Constructor
 
+    // Getters and Setters
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
     public String getUserName() {
         return userName;
@@ -54,12 +71,12 @@ public class Account {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public double getCurrentTotalBudget() {
@@ -142,7 +159,4 @@ public class Account {
         this.staticOtherBudget = staticOtherBudget;
     }
 
-
-
-
-}
+}// Account
