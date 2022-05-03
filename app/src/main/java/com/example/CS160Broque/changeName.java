@@ -58,6 +58,24 @@ public class changeName extends AppCompatActivity{
         });
     }
 
+    // AsyncTask created to perform network task
+    public class ChangeNameTask extends AsyncTask<String, String, String> {
+        public String doInBackground(String... args) {
+            String s = null;
+            try {
+                System.out.println("changeName start");
+                s = broqueDB.changeName(args[0], args[1]);
+                System.out.println(s);
+                System.out.println("changeName end");
+
+            }// doInBackground
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            return s;
+        }// doInBackground
+    }// ChangeNameTask
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -76,23 +94,5 @@ public class changeName extends AppCompatActivity{
         }
         return super.onOptionsItemSelected(item);
     }
-
-    // AsyncTask created to perform network task
-    public class ChangeNameTask extends AsyncTask<String, String, String> {
-        public String doInBackground(String... args) {
-            String s = null;
-            try {
-                System.out.println("changename start");
-                s = broqueDB.changeName(args[0], args[1]);
-                System.out.println(s);
-                System.out.println("changename end");
-
-            }// doInBackground
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            return s;
-        }// doInBackground
-    }// ChangeNameTask
 
 }
