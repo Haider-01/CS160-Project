@@ -1,8 +1,11 @@
 package com.example.CS160Broque;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 // This class creates an Account Object using data retrieved from the Database
 // Newly created accounts will be initialized with 0 values.
-public class Account {
+public class Account implements Parcelable {
     private String fullName;
     private String userName;
     private String password;
@@ -45,6 +48,35 @@ public class Account {
         this.password = password;
         this.phoneNumber = phoneNumber;
     }// Account Constructor
+
+    protected Account(Parcel in) {
+        fullName = in.readString();
+        userName = in.readString();
+        password = in.readString();
+        phoneNumber = in.readString();
+        currentTotalBudget = in.readDouble();
+        currentBillsBudget = in.readDouble();
+        currentFoodBudget = in.readDouble();
+        currentEntertainmentBudget = in.readDouble();
+        currentOtherBudget = in.readDouble();
+        staticTotalBudget = in.readDouble();
+        staticBillsBudget = in.readDouble();
+        staticFoodBudget = in.readDouble();
+        staticEntertainmentBudget = in.readDouble();
+        staticOtherBudget = in.readDouble();
+    }
+
+    public static final Creator<Account> CREATOR = new Creator<Account>() {
+        @Override
+        public Account createFromParcel(Parcel in) {
+            return new Account(in);
+        }
+
+        @Override
+        public Account[] newArray(int size) {
+            return new Account[size];
+        }
+    };
 
     // Getters and Setters
     public String getFullName() {
@@ -159,4 +191,27 @@ public class Account {
         this.staticOtherBudget = staticOtherBudget;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeDouble(currentTotalBudget);
+        parcel.writeDouble(currentBillsBudget);
+        parcel.writeDouble(currentFoodBudget);
+        parcel.writeDouble(currentEntertainmentBudget);
+        parcel.writeDouble(currentOtherBudget);
+        parcel.writeDouble(staticTotalBudget);
+        parcel.writeDouble(staticBillsBudget);
+        parcel.writeDouble(staticFoodBudget);
+        parcel.writeDouble(staticEntertainmentBudget);
+        parcel.writeDouble(staticOtherBudget);
+
+        parcel.writeString(fullName);
+        parcel.writeString(userName);
+        parcel.writeString(password);
+        parcel.writeString(phoneNumber);
+    }
 }// Account

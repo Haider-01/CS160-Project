@@ -39,6 +39,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent forgetPass = new Intent (Login.this, forgetPass.class);
+                forgetPass.putExtra("userName", username.toString());
                 startActivity(forgetPass);
             }
         });
@@ -47,6 +48,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent registerIntent = new Intent(Login.this, SignUp.class);
+                registerIntent.putExtra("userName", username.toString());
                 startActivity(registerIntent);
             }
         });
@@ -81,6 +83,7 @@ public class Login extends AppCompatActivity {
                 System.out.println(s);
                 if (s.equals(args[1])) {
                     Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
+                    dashboardIntent.putExtra("userName", username.toString());
                     startActivity(dashboardIntent);
                 }
                 System.out.println("login end");

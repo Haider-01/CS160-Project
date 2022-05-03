@@ -24,6 +24,8 @@ public class AccountScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accountscreen);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         listview = (ListView) findViewById(R.id.list_accountscreen);
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, action);
@@ -34,10 +36,12 @@ public class AccountScreen extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position==0){
                     Intent chgPassIntent = new Intent(AccountScreen.this, changePass.class);
+                    chgPassIntent.putExtra("userName", userNameIdentifier);
                     startActivity(chgPassIntent);
                 }
                 else if (position==1){
                     Intent chgNameIntent = new Intent(AccountScreen.this, changeName.class);
+                    chgNameIntent.putExtra("userName", userNameIdentifier);
                     startActivity(chgNameIntent);
                 }
                 else if (position==2){
