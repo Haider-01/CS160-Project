@@ -17,6 +17,9 @@ public class changeName extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changename);
+
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         final EditText currUser = (EditText) findViewById(R.id.edt_currUsername_changename);
         final EditText newUser = (EditText) findViewById(R.id.edt_newUsername_changename);
         Button chgName = (Button) findViewById(R.id.btn_changeName_changename);
@@ -37,6 +40,7 @@ public class changeName extends AppCompatActivity{
                 }
 
                 Intent backToAccount = new Intent(changeName.this, AccountScreen.class);
+                backToAccount.putExtra("userName", userNameIdentifier);
                 startActivity(backToAccount);
             }
         });

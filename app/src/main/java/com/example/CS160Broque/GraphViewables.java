@@ -23,6 +23,8 @@ public class GraphViewables extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphscreen);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         graphview = findViewById(R.id.gv_totalBudgetGraph_graphscreen);
 
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
@@ -54,6 +56,7 @@ public class GraphViewables extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent dashboardIntent = new Intent(GraphViewables.this, Dashboard.class);
+                dashboardIntent.putExtra("userName", userNameIdentifier);
                 startActivity(dashboardIntent);
             }
         });
@@ -62,6 +65,7 @@ public class GraphViewables extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent graphViewCategoriesIntent = new Intent(GraphViewables.this, GraphViewCategories.class);
+                graphViewCategoriesIntent.putExtra("userName", userNameIdentifier);
                 startActivity(graphViewCategoriesIntent);
             }
         });

@@ -18,6 +18,9 @@ public class changePass extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changepass);
+
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         final EditText currentPass = (EditText) findViewById(R.id.edt_currPass_changepass);
         final EditText newPass = (EditText) findViewById(R.id.edt_newPass_changepass);
         final EditText confirmPass = (EditText) findViewById(R.id.edt_confirmPass_changepass);
@@ -35,6 +38,7 @@ public class changePass extends AppCompatActivity {
                 else if (newPass.getText().toString().trim().length()==0 && confirmPass.getText().toString().trim().length()==0) {
                     Toast.makeText(changePass.this, "No changes made", Toast.LENGTH_SHORT).show();
                     Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
+                    backToAccount.putExtra("userName", userNameIdentifier);
                     startActivity(backToAccount);
                 }else if (newPass.getText().toString().trim().length()==0 && confirmPass.getText().toString().trim().length()!=0){
                     newPass.setError("Enter the new password!");
@@ -51,6 +55,7 @@ public class changePass extends AppCompatActivity {
 
 
                     Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
+                    backToAccount.putExtra("userName", userNameIdentifier);
                     startActivity(backToAccount);
                 }else{
                     Toast.makeText(changePass.this, "Password doesn't match!", Toast.LENGTH_SHORT).show();

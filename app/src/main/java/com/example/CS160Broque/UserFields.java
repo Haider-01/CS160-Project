@@ -27,6 +27,8 @@ public class UserFields extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userfields);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         spinner = (Spinner) findViewById(R.id.spinner);
         monthlyIncome = (EditText) findViewById(R.id.edt_monthlyincome_userfields);
         totalBudget = (EditText) findViewById(R.id.edt_total_userfields);

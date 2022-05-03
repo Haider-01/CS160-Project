@@ -22,6 +22,8 @@ public class GraphViewCategories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphviewscreen);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         dashboard = (Button) findViewById(R.id.btn_dashboard_graphviewscreen);
         back = (Button) findViewById(R.id.btn_back_graphviewscreen);
 
@@ -114,6 +116,7 @@ public class GraphViewCategories extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent dashboardIntent = new Intent(GraphViewCategories.this, Dashboard.class);
+                dashboardIntent.putExtra("userName", userNameIdentifier);
                 startActivity(dashboardIntent);
             }
         });
@@ -122,6 +125,7 @@ public class GraphViewCategories extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent graphViewCategoriesIntent = new Intent(GraphViewCategories.this, GraphViewables.class);
+                graphViewCategoriesIntent.putExtra("userName", userNameIdentifier);
                 startActivity(graphViewCategoriesIntent);
             }
         });

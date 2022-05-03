@@ -76,6 +76,7 @@ public class SignUp extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
 
                     Intent signUp = new Intent(SignUp.this, UserFields.class);
+                    signUp.putExtra("userName", username.toString());
                     startActivity(signUp);
                 } else if (!sPassword.equals(sConfPassword)) {
                     Toast.makeText(getApplicationContext(), "Password doesn't match",

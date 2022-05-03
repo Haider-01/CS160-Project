@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent forgetPass = new Intent (Login.this, forgetPass.class);
+                forgetPass.putExtra("userName", username.toString());
                 startActivity(forgetPass);
             }
         });
@@ -63,6 +65,7 @@ public class Login extends AppCompatActivity {
                     // CheckLogin(sUsername, sPassword);
 
                     Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
+                    dashboardIntent.putExtra("userName", username.toString());
                     startActivity(dashboardIntent);
                 }
             }
