@@ -2,6 +2,7 @@ package com.example.CS160Broque;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class changePass extends AppCompatActivity {
+
+    BroqueDB broqueDB = new BroqueDB();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +26,6 @@ public class changePass extends AppCompatActivity {
         final EditText newPass = (EditText) findViewById(R.id.edt_newPass_changepass);
         final EditText confirmPass = (EditText) findViewById(R.id.edt_confirmPass_changepass);
         Button chgPass = (Button) findViewById(R.id.btn_changePass_changepass);
-
-        // CODE HERE: confirm the password with db
 
         chgPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +57,30 @@ public class changePass extends AppCompatActivity {
                 }else{
                     Toast.makeText(changePass.this, "Password doesn't match!", Toast.LENGTH_SHORT).show();
                 }
-
+                new changePass.ChangePassTask().execute(currentPass.getText().toString(),newPass.getText().toString());
             }
         });
 
     }
+
+    // AsyncTask created to perform network task
+    public class ChangePassTask extends AsyncTask<String, String, String> {
+        public String doInBackground(String... args) {
+            String s = null;
+            try {
+                System.out.println("changePass start");
+                s = broqueDB.changePass(args[0], args[1]);
+                System.out.println(s);
+                System.out.println("changePass end");
+
+            }// doInBackground
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            return s;
+        }// doInBackground
+    }// ChangePassTask
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
