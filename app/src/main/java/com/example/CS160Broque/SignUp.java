@@ -54,7 +54,7 @@ public class SignUp extends AppCompatActivity {
                 String sPassword = password.getText().toString();
                 String sConfPassword = confPassword.getText().toString();
                 String sPhonenumber = phonenumber.getText().toString();
-                System.out.println(sUsername + " " + sFullname + " " + sPassword + " " + phonenumber);
+                System.out.println(sUsername + " " + sFullname + " " + sPassword + " " + sPhonenumber);
 
                 if (sUsername.isEmpty()){
                     username.setError("Username is empty");
@@ -77,8 +77,8 @@ public class SignUp extends AppCompatActivity {
                     return;
                 }
                 if (sPhonenumber.length() != 10){
-                    confPassword.setError("Phone number must be 10 digits");
-                    confPassword.requestFocus();
+                    phonenumber.setError("Phone number must be 10 digits");
+                    phonenumber.requestFocus();
                     return;
                 }
 

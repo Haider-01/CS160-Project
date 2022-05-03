@@ -76,7 +76,6 @@ public class Login extends AppCompatActivity {
             String s = null;
             try {
                 System.out.println("login start");
-                // TODO remove hardcoded phonenumber
                 s = broqueDB.login(args[0]);
                 System.out.println(s);
                 if (s.equals(args[1])) {
