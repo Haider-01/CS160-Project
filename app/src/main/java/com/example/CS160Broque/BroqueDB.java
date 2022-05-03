@@ -122,4 +122,32 @@ public class BroqueDB {
     public void retrieve() {
 
     }
+
+    public String changeName(String currUser, String newUser) throws IOException {
+        String link = "https://broke-test.herokuapp.com/login.php";
+        String data = URLEncoder.encode("username", "UTF-8") + "=" +
+                URLEncoder.encode(currUser, "UTF-8");
+        System.out.println(link);
+
+
+        URL url = new URL(link);
+        URLConnection conn = url.openConnection();
+        conn.setDoOutput(true);
+        OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+        wr.write(data);
+        wr.flush();
+        BufferedReader reader = new BufferedReader(new
+                InputStreamReader(conn.getInputStream()));
+
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+
+        // Read Server Response
+        while ((line = reader.readLine()) != null) {
+            sb.append(line);
+            break;
+        }
+        reader.close();
+        return sb.toString();
+    }
 }

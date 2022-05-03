@@ -33,6 +33,7 @@ public class Login extends AppCompatActivity {
         register = (Button) findViewById(R.id.btn_register_login);
         progressDialog = new ProgressDialog(Login.this);
         forgetPass = (TextView) findViewById(R.id.tv_forgetPass_login);
+        broqueDB = new BroqueDB();
 
         forgetPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,12 +84,11 @@ public class Login extends AppCompatActivity {
                     startActivity(dashboardIntent);
                 }
                 System.out.println("login end");
-            } catch (
-                    IOException e) {
+            } catch (IOException e) {
                 System.out.println("ioexception caught");
                 e.printStackTrace();
             }
             return s;
         }// doInBackground
-    }//SignUpTask
-}
+    }// LoginTask
+}// Login

@@ -18,6 +18,8 @@ import java.net.URISyntaxException;
 
 public class changeName extends AppCompatActivity{
 
+    EditText currUser, newUser;
+    Button chgName;
     BroqueDB broqueDB;
 
     @Override
@@ -25,14 +27,16 @@ public class changeName extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changename);
 
-        final EditText currUser = (EditText) findViewById(R.id.edt_currUsername_changename);
-        final EditText newUser = (EditText) findViewById(R.id.edt_newUsername_changename);
-        Button chgName = (Button) findViewById(R.id.btn_changeName_changename);
+        currUser = (EditText) findViewById(R.id.edt_currUsername_changename);
+        newUser = (EditText) findViewById(R.id.edt_newUsername_changename);
+        chgName = (Button) findViewById(R.id.btn_changeName_changename);
 
 
         chgName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String sCurrUser = currUser.getText().toString();
+                String sNewUser = newUser.getText().toString();
                 //change the name in the db, if succesful:
 
                 if (currUser.getText().toString().trim().length()==0 && newUser.getText().toString().trim().length()==0){
@@ -42,6 +46,8 @@ public class changeName extends AppCompatActivity{
                     Toast toast = Toast.makeText(context, "Name successfully changed", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+                // Update to DB
+                new changeName.ChangeNameTask().execute(sCurrUser, sNewUser);
 
                 Intent backToAccount = new Intent(changeName.this, AccountScreen.class);
                 startActivity(backToAccount);
@@ -73,21 +79,17 @@ public class changeName extends AppCompatActivity{
         public String doInBackground(String... args) {
             String s = null;
             try {
-                System.out.println("signup start");
-                // TODO remove hardcoded phonenumber
-                s = broqueDB.signup(args[0], args[1], args[2], args[3]);
+                System.out.println("changename start");
+                s = broqueDB.changeName(args[0], args[1]);
                 System.out.println(s);
-                System.out.println("signup end");
-            } catch (
-                    IOException e) {
-                System.out.println("ioexception caught");
-                e.printStackTrace();
-            } catch (
-                    URISyntaxException e) {
-                System.out.println("uriexception caught");
+                System.out.println("changename end");
+
+            }// doInBackground
+            catch (Exception e) {
                 e.printStackTrace();
             }
             return s;
         }// doInBackground
-    }//SignUpTask
+    }// ChangeNameTask
+
 }
