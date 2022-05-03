@@ -94,7 +94,7 @@ public class SignUp extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                new SignUpTask().execute(sUsername, sFullname, sPassword, sPhonenumber);
+                new SignUpTask().execute(sFullname, sUsername, sPassword, sPhonenumber);
                 //Account myAccount = new Account(sUsername, sPassword, sEmail);
 
             }//onClick
