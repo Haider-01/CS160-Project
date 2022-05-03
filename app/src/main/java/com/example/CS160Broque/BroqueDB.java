@@ -82,16 +82,13 @@ public class BroqueDB {
 
     /**
      * @param username
-     * @param password
      * @return
      * @throws IOException
      */
-    public String login(String username, String password) throws IOException {
+    public String login(String username) throws IOException {
         String link = "https://broke-test.herokuapp.com/login.php";
         String data = URLEncoder.encode("username", "UTF-8") + "=" +
                 URLEncoder.encode(username, "UTF-8");
-        data += "&" + URLEncoder.encode("password", "UTF-8") + "=" +
-                URLEncoder.encode(password, "UTF-8");
         System.out.println(link);
 
 
