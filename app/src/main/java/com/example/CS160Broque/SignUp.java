@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText username, email, password, confPassword;
+    EditText username, fullname, password, confPassword, phonenumber;
     Button login, register;
     ProgressDialog progressDialog;
     BroqueDB broqueDB;
@@ -28,9 +28,10 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         username = (EditText) findViewById(R.id.edt_username_signup);
-        email = (EditText) findViewById(R.id.edt_email_signup);
+        fullname = (EditText) findViewById(R.id.edt_fullname_signup);
         password = (EditText) findViewById(R.id.edt_password_signup);
         confPassword = (EditText) findViewById(R.id.edt_confPassword_signup);
+        phonenumber = (EditText) findViewById(R.id.edt_phoneNumber_signup);
         login = (Button) findViewById(R.id.btn_login_signup);
         register = (Button) findViewById(R.id.btn_register_signup);
         progressDialog = new ProgressDialog(SignUp.this);
@@ -49,26 +50,36 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 System.out.println("register clicked");
                 String sUsername = username.getText().toString();
-                String sEmail = email.getText().toString();
+                String sFullname = fullname.getText().toString();
                 String sPassword = password.getText().toString();
                 String sConfPassword = confPassword.getText().toString();
-                System.out.println(sUsername + " " + sEmail + " " + sPassword + " " + sConfPassword);
+                String sPhonenumber = phonenumber.getText().toString();
+                System.out.println(sUsername + " " + sFullname + " " + sPassword + " " + sPhonenumber);
 
                 if (sUsername.isEmpty()){
                     username.setError("Username is empty");
                     username.requestFocus();
+                    return;
                 }
-                if (sEmail.isEmpty()){
-                    email.setError("Email is empty");
-                    email.requestFocus();
+                if (sFullname.isEmpty()){
+                    fullname.setError("Email is empty");
+                    fullname.requestFocus();
+                    return;
                 }
                 if (sPassword.isEmpty()){
                     password.setError("Password is empty");
                     password.requestFocus();
+                    return;
                 }
                 if (sConfPassword.isEmpty()){
                     confPassword.setError("Confirm the password!");
                     confPassword.requestFocus();
+                    return;
+                }
+                if (sPhonenumber.length() != 10){
+                    phonenumber.setError("Phone number must be 10 digits");
+                    phonenumber.requestFocus();
+                    return;
                 }
 
                 if (sPassword.equals(sConfPassword) && !sPassword.equals("")) {
@@ -81,8 +92,9 @@ public class SignUp extends AppCompatActivity {
                 } else if (!sPassword.equals(sConfPassword)) {
                     Toast.makeText(getApplicationContext(), "Password doesn't match",
                             Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                new SignUpTask().execute(sUsername, sEmail, sPassword, "1234567890");
+                new SignUpTask().execute(sUsername, sFullname, sPassword, sPhonenumber);
                 //Account myAccount = new Account(sUsername, sPassword, sEmail);
 
             }//onClick
@@ -96,7 +108,7 @@ public class SignUp extends AppCompatActivity {
             try {
                 System.out.println("signup start");
                 // TODO remove hardcoded phonenumber
-                s = broqueDB.signup(args[0], args[1], args[2], "1234567890");
+                s = broqueDB.signup(args[0], args[1], args[2], args[3]);
                 System.out.println(s);
                 System.out.println("signup end");
             } catch (
