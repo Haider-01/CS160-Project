@@ -174,9 +174,8 @@ public class UserFields extends AppCompatActivity {
                     return;
                 }
                 new UserFieldsTask().execute(user, tBudget, bBudget, fBudget, eBudget, oBudget);
-//                Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
-//                finishIntent.putExtra("Username", user);
-//                startActivity(finishIntent);
+                Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
+                startActivity(finishIntent);
             }
         });
     }
