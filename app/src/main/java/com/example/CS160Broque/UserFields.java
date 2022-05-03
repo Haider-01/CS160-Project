@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 
 public class UserFields extends AppCompatActivity {
     EditText totalBudget, billsBudget, foodBudget, entertainmentBudget, otherBudget, monthlyIncome;
     Spinner spinner;
     Button finish;
+    BroqueDB broqueDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,9 @@ public class UserFields extends AppCompatActivity {
         entertainmentBudget = (EditText) findViewById(R.id.edt_entertainment_userfields);
         otherBudget = (EditText) findViewById(R.id.edt_other_userfields);
         finish = (Button) findViewById(R.id.btn_finish_userfields);
+        broqueDB = new BroqueDB();
+        Bundle extras = getIntent().getExtras();
+        final String user = extras.getString("Username");
 
         monthlyIncome.setEnabled(true);
         totalBudget.setEnabled(false);
@@ -94,7 +102,7 @@ public class UserFields extends AppCompatActivity {
                         otherBudget.setText(Double.toString(other));
                     }
 
-                }else if (position==2){
+                } else if (position==2){
                     monthlyIncome.setEnabled(false);
                     totalBudget.setEnabled(true);
                     billsBudget.setEnabled(true);
@@ -133,11 +141,64 @@ public class UserFields extends AppCompatActivity {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // Set budget in the database, if user doesn't enter any value for any budget category, set budget to 0
-                Intent finishIntent = new Intent(UserFields.this, Login.class);
+
+                String mIncome = monthlyIncome.getText().toString();
+                String tBudget = totalBudget.getText().toString();
+                String bBudget = billsBudget.getText().toString();
+                String fBudget = foodBudget.getText().toString();
+                String eBudget = entertainmentBudget.getText().toString();
+                String oBudget = otherBudget.getText().toString();
+                System.out.println(mIncome + " " + tBudget + " " + bBudget + " " + fBudget + " " + eBudget + " " + oBudget);
+
+                if (mIncome.isEmpty()){
+                    monthlyIncome.setError("Username is empty");
+                    monthlyIncome.requestFocus();
+                    return;
+                }
+                if (tBudget.isEmpty()){
+                    totalBudget.setError("Email is empty");
+                    totalBudget.requestFocus();
+                    return;
+                }
+                if (bBudget.isEmpty()){
+                    billsBudget.setError("Password is empty");
+                    billsBudget.requestFocus();
+                    return;
+                }
+                if (fBudget.isEmpty()){
+                    foodBudget.setError("Confirm the password!");
+                    foodBudget.requestFocus();
+                    return;
+                }
+                Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
+                finishIntent.putExtra("Username", user);
                 startActivity(finishIntent);
+                new UserFieldsTask().execute(user, mIncome, tBudget, bBudget, fBudget, eBudget, oBudget);
             }
         });
     }
+
+    public class UserFieldsTask extends AsyncTask<String, String, String> {
+        public String doInBackground(String... args) {
+            String s = null;
+            try {
+                System.out.println("Userfields start");
+                // TODO remove hardcoded phonenumber
+                s = broqueDB.insertBudget(args[0], args[1], args[2], args[3], args[4], args[5]);
+                System.out.println(s);
+            } catch (
+                    IOException e) {
+                System.out.println("ioexception caught");
+                e.printStackTrace();
+            } catch (
+                    URISyntaxException e) {
+                System.out.println("uriexception caught");
+                e.printStackTrace();
+            }
+            return s;
+        }// doInBackground
+    }//SignUpTask
+
+
 }
