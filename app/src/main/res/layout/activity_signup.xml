@@ -29,11 +29,11 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_email_signup"
+                android:id="@+id/edt_fullname_signup"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:hint="Email" />
+                android:hint="Fullname" />
         </RelativeLayout>
 
         <RelativeLayout
