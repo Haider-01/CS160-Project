@@ -24,6 +24,8 @@ public class forgetPass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgetpass);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         username = (EditText) findViewById(R.id.edt_username_forgetpass);
 
         // TODO Change to phonenumber

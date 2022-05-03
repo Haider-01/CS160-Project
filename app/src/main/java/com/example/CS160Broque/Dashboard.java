@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,6 +31,8 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         account = (Button) findViewById(R.id.btn_account_dashboard);
         graphView = (Button) findViewById(R.id.btn_graph_dashboard);
         settings = (Button) findViewById(R.id.btn_settings_dashboard);
@@ -39,7 +42,7 @@ public class Dashboard extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
         String dateString = formatter.format(date);
 
-        //Toast.makeText(getApplicationContext(),dateString.substring(0, 2), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
 
         if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
             totalBudgetSpent = 0;
@@ -76,6 +79,7 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent accountIntent = new Intent(Dashboard.this, AccountScreen.class);
+                accountIntent.putExtra("userName", userNameIdentifier);
                 startActivity(accountIntent);
             }
         });
@@ -84,6 +88,7 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent graphViewIntent = new Intent(Dashboard.this, GraphViewables.class);
+                graphViewIntent.putExtra("userName", userNameIdentifier);
                 startActivity(graphViewIntent);
             }
         });
@@ -92,6 +97,7 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent settingsIntent = new Intent(Dashboard.this, Settings.class);
+                settingsIntent.putExtra("userName", userNameIdentifier);
                 startActivity(settingsIntent);
             }
         });
@@ -100,6 +106,7 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addExpenseIntent = new Intent(Dashboard.this, addExpense.class);
+                addExpenseIntent.putExtra("userName", userNameIdentifier);
                 startActivity(addExpenseIntent);
             }
         });

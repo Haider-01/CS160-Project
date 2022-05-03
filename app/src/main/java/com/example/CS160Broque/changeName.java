@@ -27,6 +27,8 @@ public class changeName extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changename);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         currUser = (EditText) findViewById(R.id.edt_currUsername_changename);
         newUser = (EditText) findViewById(R.id.edt_newUsername_changename);
         chgName = (Button) findViewById(R.id.btn_changeName_changename);
@@ -50,6 +52,7 @@ public class changeName extends AppCompatActivity{
                 new changeName.ChangeNameTask().execute(sCurrUser, sNewUser);
 
                 Intent backToAccount = new Intent(changeName.this, AccountScreen.class);
+                backToAccount.putExtra("userName", userNameIdentifier);
                 startActivity(backToAccount);
             }
         });

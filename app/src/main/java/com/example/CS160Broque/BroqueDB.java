@@ -40,22 +40,6 @@ public class BroqueDB {
         username = username.replaceAll(" ", "%20");
         password = password.replaceAll(" ", "%20");
 
-        // Validate Phonenumber Userinput
-//        if (phonenumber.length() != 10) {
-//            return "Phone number should be 10 characters";
-//        } else if (!phonenumber.matches("[0-9]+")) {
-//            return "Phone number should contain only numbers";
-//        }
-//
-//        // Validate Password Userinput
-//        if (password.length() <= 4) {
-//            return "Password too weak, must be at least 4 characters long";
-//        } else if (!password.matches(".*[0-9].*")) {
-//            return "Password must contain at least one number";
-//        } else if (!password.toLowerCase().matches(".*[a-z].*")) {
-//            return "Password must contain at least one letter";
-//        }
-
         // Link to DB
         String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22" + fullname + "%22&username=%22" + username + "%22&password=%22" + password + "%22&phonenumber=%22" + phonenumber + "%22";
         System.out.println(link);
@@ -173,6 +157,31 @@ public class BroqueDB {
             break;
         }
         reader.close();
+        return sb.toString();
+    }
+
+    public String insertBudget(String username, String tBudget, String bBudget, String fBudget, String eBudget, String oBudget) throws IOException, URISyntaxException {
+        // Link to DB
+        String link = "https://broke-test.herokuapp.com/insertBudget.php?username=%22" + username + "%22&total=%22" + tBudget + "%22&bill=%22" + bBudget + "%22&food=%22"
+                + fBudget + "%22&entertainment=%22" + eBudget + "%22&other=%22" + oBudget + "%22";
+        System.out.println(link);
+
+        URL url = new URL(link);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+
+        while ((line = in.readLine()) != null) {
+            sb.append(line);
+            System.out.println("From sb" + sb);
+            break;
+        }
+        in.close();
+
         return sb.toString();
     }
 }

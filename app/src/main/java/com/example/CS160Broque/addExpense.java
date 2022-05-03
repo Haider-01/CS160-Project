@@ -36,6 +36,8 @@ public class addExpense extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.expense);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         spinner = (Spinner) findViewById(R.id.spinner);
         addExpense = (Button) findViewById(R.id.btn_addExpense_expense);
         amount = (EditText) findViewById(R.id.edt_expense_expense);
@@ -101,6 +103,7 @@ public class addExpense extends AppCompatActivity {
                 }
 
                 Intent backToDashboard = new Intent(addExpense.this, Dashboard.class);
+                backToDashboard.putExtra("userName", userNameIdentifier);
                 startActivity(backToDashboard);
             }
         });

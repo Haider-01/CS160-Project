@@ -25,12 +25,15 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        final String userNameIdentifier = getIntent().getStringExtra("userName");
+
         dashboard = (Button) findViewById(R.id.btn_finish_settings);
 
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent dashboardIntent = new Intent(Settings.this, Dashboard.class);
+                dashboardIntent.putExtra("userName", userNameIdentifier);
                 startActivity(dashboardIntent);
             }
         });
