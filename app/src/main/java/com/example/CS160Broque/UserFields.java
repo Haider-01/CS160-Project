@@ -78,9 +78,6 @@ public class UserFields extends AppCompatActivity {
             }
         });
 
-
-
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -173,10 +170,12 @@ public class UserFields extends AppCompatActivity {
                     foodBudget.requestFocus();
                     return;
                 }
-                Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
-                finishIntent.putExtra("Username", user);
-                startActivity(finishIntent);
+//                Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
+//                finishIntent.putExtra("Username", user);
+//                startActivity(finishIntent);
+                System.out.println(user + " " + mIncome + " " + tBudget + " " + bBudget + " " + fBudget + " " + eBudget + " " + oBudget);
                 new UserFieldsTask().execute(user, mIncome, tBudget, bBudget, fBudget, eBudget, oBudget);
+                System.out.println("userfields execute done");
             }
         });
     }
@@ -189,6 +188,7 @@ public class UserFields extends AppCompatActivity {
                 // TODO remove hardcoded phonenumber
                 s = broqueDB.insertBudget(args[0], args[1], args[2], args[3], args[4], args[5]);
                 System.out.println(s);
+                System.out.println("Userfields done");
             } catch (
                     IOException e) {
                 System.out.println("ioexception caught");
