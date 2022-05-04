@@ -220,9 +220,25 @@ public class Account implements Parcelable {
         return otherExpense;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Account{" +
+                "fullName='" + fullName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", totalBudget=" + totalBudget +
+                ", billsBudget=" + billsBudget +
+                ", foodBudget=" + foodBudget +
+                ", entertainmentBudget=" + entertainmentBudget +
+                ", otherBudget=" + otherBudget +
+                ", totalExpense=" + totalExpense +
+                ", billsExpense=" + billsExpense +
+                ", foodExpense=" + foodExpense +
+                ", entertainmentExpense=" + entertainmentExpense +
+                ", otherExpense=" + otherExpense +
+                '}';
+    }
 
     @Override
     public int describeContents() {
