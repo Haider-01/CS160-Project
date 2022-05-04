@@ -89,8 +89,8 @@ public class Login extends AppCompatActivity {
                     double [] arrBudget = broqueDB.getBudget(args[0]);
                     double [] arrExpense = broqueDB.getExpense(args[0]);
                     account.insertUser(arrUser[0], arrUser[1], arrUser[2], arrUser[3]);
-                    account.insertBudgets(arrBudget[0], arrBudget[1], arrBudget[2], arrBudget[3]);
-                    account.insertExpenses(arrExpense[0], arrExpense[1], arrExpense[2], arrExpense[3]);
+                    account.insertBudgets(arrBudget[1], arrBudget[2], arrBudget[3], arrBudget[4]);
+                    account.insertExpenses(arrExpense[1], arrExpense[2], arrExpense[3], arrExpense[4]);
                     dashboardIntent.putExtra("Account", account);
                     startActivity(dashboardIntent);
                 }
