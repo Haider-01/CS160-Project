@@ -120,18 +120,32 @@ public class addExpense extends AppCompatActivity {
 //                    NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
 //                    not.notify(1,notify.build());
 //                }
-                new InsertExpenseTask().execute(account.getUserName());
-
                 String type = budgetType.getText().toString();
-                String cost = amount.getText().toString();
-                Double numCost = Double.parseDouble(cost);
-
-
-
-
-
+                String amt = amount.getText().toString();
+                Double double_amt = Double.parseDouble(amt);
+                String expense;
+                if (type.isEmpty() || !type.equalsIgnoreCase("bills") || !type.equalsIgnoreCase("food") || !type.equalsIgnoreCase("entertainment") || !type.equalsIgnoreCase("other")) {
+                    budgetType.setError("Budget type is invalid. Please select from bills, food, entertainment, or other");
+                    budgetType.requestFocus();
+                    return;
+                }
+                if (amt.isEmpty()){
+                    amount.setError("Amount is empty");
+                    amount.requestFocus();
+                    return;
+                }
+                if (type.equalsIgnoreCase("bills")) {
+                    expense = String.valueOf(account.addBillsExpense(double_amt));
+                } else if (type.equalsIgnoreCase("food")) {
+                    expense = String.valueOf(account.addFoodExpense(double_amt));
+                } else if (type.equalsIgnoreCase("entertainment")) {
+                    expense = String.valueOf(account.addEntertainmentExpense(double_amt));
+                } else {
+                    expense = String.valueOf(account.addOtherExpense(double_amt));
+                }
+                new ExpenseTask().execute(account.getUserName(), type, expense);
                 Intent backToDashboard = new Intent(addExpense.this, Dashboard.class);
-                backToDashboard.putExtra("userName", userNameIdentifier);
+                backToDashboard.putExtra("Account", new Gson().toJson(account));
                 startActivity(backToDashboard);
             }
         });
@@ -141,15 +155,14 @@ public class addExpense extends AppCompatActivity {
     }
 
     // AsyncTask created to perform network task
-    public class InsertExpenseTask extends AsyncTask<String, String, String> {
+    public class ExpenseTask extends AsyncTask<String, String, String> {
         public String doInBackground(String... args) {
             String s = null;
             try {
-                System.out.println("signup start");
+                System.out.println("expense start");
                 // TODO remove hardcoded phonenumber
-                s = broqueDB.insertExpense(args[0], "0", "0", "0", "0");
+                s = broqueDB.addExpense(args[0], args[1], args[2]);
                 System.out.println(s);
-                System.out.println("signup end");
             } catch (
                     IOException e) {
                 System.out.println("ioexception caught");

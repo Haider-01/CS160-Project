@@ -164,12 +164,22 @@ public class Account implements Parcelable {
         this.billsExpense = billsExpense;
     }
 
+    public double addBillsExpense(double amt) {
+        this.billsExpense = billsExpense + amt;
+        return billsExpense;
+    }
+
     public double getFoodExpense() {
         return foodExpense;
     }
 
     public void setFoodExpense(double foodExpense) {
         this.foodExpense = foodExpense;
+    }
+
+    public double addFoodExpense(double amt) {
+        this.foodExpense = foodExpense + amt;
+        return foodExpense;
     }
 
     public double getEntertainmentExpense() {
@@ -180,6 +190,11 @@ public class Account implements Parcelable {
         this.entertainmentExpense = entertainmentExpense;
     }
 
+    public double addEntertainmentExpense(double amt) {
+        this.entertainmentExpense = entertainmentExpense + amt;
+        return entertainmentExpense;
+    }
+
     public double getOtherExpense() {
         return otherExpense;
     }
@@ -187,6 +202,15 @@ public class Account implements Parcelable {
     public void setOtherExpense(double otherExpense) {
         this.otherExpense = otherExpense;
     }
+
+    public double addOtherExpense(double amt) {
+        this.otherExpense = otherExpense + amt;
+        return otherExpense;
+    }
+
+
+
+
 
     @Override
     public int describeContents() {
