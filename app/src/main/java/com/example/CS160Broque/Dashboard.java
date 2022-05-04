@@ -15,23 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Dashboard extends AppCompatActivity {
 
     Button account, graphView, settings, addExpense;
-    int totalbudgetBudget = 10000;
-    int billsBudget = 2500;
-    int foodBudget = 2500;
-    int entertainmentBudget = 2500;
-    int othersBudget = 2500;
-    int totalBudgetSpent = 4000;
-    int billsSpent = 1000;
-    int foodSpent = 1000;
-    int entertainmentSpent = 1000;
-    int othersSpent = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
 
         account = (Button) findViewById(R.id.btn_account_dashboard);
         graphView = (Button) findViewById(R.id.btn_graph_dashboard);

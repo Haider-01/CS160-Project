@@ -54,16 +54,13 @@ public class Account implements Parcelable {
         userName = in.readString();
         password = in.readString();
         phoneNumber = in.readString();
+
         currentTotalBudget = in.readDouble();
         currentBillsBudget = in.readDouble();
         currentFoodBudget = in.readDouble();
         currentEntertainmentBudget = in.readDouble();
         currentOtherBudget = in.readDouble();
-        staticTotalBudget = in.readDouble();
-        staticBillsBudget = in.readDouble();
-        staticFoodBudget = in.readDouble();
-        staticEntertainmentBudget = in.readDouble();
-        staticOtherBudget = in.readDouble();
+
     }
 
     public static final Creator<Account> CREATOR = new Creator<Account>() {
@@ -151,45 +148,6 @@ public class Account implements Parcelable {
         this.currentOtherBudget = currentOtherBudget;
     }
 
-    public double getStaticTotalBudget() {
-        return staticTotalBudget;
-    }
-
-    public void setStaticTotalBudget(double staticTotalBudget) {
-        this.staticTotalBudget = staticTotalBudget;
-    }
-
-    public double getStaticBillsBudget() {
-        return staticBillsBudget;
-    }
-
-    public void setStaticBillsBudget(double staticBillsBudget) {
-        this.staticBillsBudget = staticBillsBudget;
-    }
-
-    public double getStaticFoodBudget() {
-        return staticFoodBudget;
-    }
-
-    public void setStaticFoodBudget(double staticFoodBudget) {
-        this.staticFoodBudget = staticFoodBudget;
-    }
-
-    public double getStaticEntertainmentBudget() {
-        return staticEntertainmentBudget;
-    }
-
-    public void setStaticEntertainmentBudget(double staticEntertainmentBudget) {
-        this.staticEntertainmentBudget = staticEntertainmentBudget;
-    }
-
-    public double getStaticOtherBudget() {
-        return staticOtherBudget;
-    }
-
-    public void setStaticOtherBudget(double staticOtherBudget) {
-        this.staticOtherBudget = staticOtherBudget;
-    }
 
     @Override
     public int describeContents() {
@@ -203,11 +161,6 @@ public class Account implements Parcelable {
         parcel.writeDouble(currentFoodBudget);
         parcel.writeDouble(currentEntertainmentBudget);
         parcel.writeDouble(currentOtherBudget);
-        parcel.writeDouble(staticTotalBudget);
-        parcel.writeDouble(staticBillsBudget);
-        parcel.writeDouble(staticFoodBudget);
-        parcel.writeDouble(staticEntertainmentBudget);
-        parcel.writeDouble(staticOtherBudget);
 
         parcel.writeString(fullName);
         parcel.writeString(userName);
@@ -215,24 +168,12 @@ public class Account implements Parcelable {
         parcel.writeString(phoneNumber);
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "fullName='" + fullName + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", currentTotalBudget=" + currentTotalBudget +
-                ", currentBillsBudget=" + currentBillsBudget +
-                ", currentFoodBudget=" + currentFoodBudget +
-                ", currentEntertainmentBudget=" + currentEntertainmentBudget +
-                ", currentOtherBudget=" + currentOtherBudget +
-                ", staticTotalBudget=" + staticTotalBudget +
-                ", staticBillsBudget=" + staticBillsBudget +
-                ", staticFoodBudget=" + staticFoodBudget +
-                ", staticEntertainmentBudget=" + staticEntertainmentBudget +
-                ", staticOtherBudget=" + staticOtherBudget +
-                '}';
+    // Updates budgets
+    public void insertBudgets(double bills, double food, double entertainment, double other) {
+        currentTotalBudget = bills + food + entertainment + other;
+        currentBillsBudget = bills;
+        currentFoodBudget = food;
+        currentEntertainmentBudget = entertainment;
+        currentOtherBudget = other;
     }
-
 }// Account

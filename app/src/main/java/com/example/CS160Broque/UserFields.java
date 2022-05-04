@@ -30,6 +30,7 @@ public class UserFields extends AppCompatActivity {
     BroqueDB broqueDB;
     String jsonMyAccount;
     String user;
+    Account account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class UserFields extends AppCompatActivity {
             jsonMyAccount = extras.getString("Account");
             user = extras.getString("Username");
         }
-        Account account = new Gson().fromJson(jsonMyAccount, Account.class);
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
         System.out.println("onCreateUserFieldsPrint");
 //        spinner = (Spinner) findViewById(R.id.spinner);
@@ -88,8 +89,10 @@ public class UserFields extends AppCompatActivity {
                     foodBudget.requestFocus();
                     return;
                 }
+                // Add Budgets to DB
                 new UserFieldsTask().execute(user, tBudget, bBudget, fBudget, eBudget, oBudget);
                 Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
+                account.insertBudgets(Double.parseDouble(bBudget), Double.parseDouble(fBudget), Double.parseDouble(eBudget), Double.parseDouble(oBudget));
                 startActivity(finishIntent);
             }
         });
@@ -103,6 +106,7 @@ public class UserFields extends AppCompatActivity {
                 // TODO remove hardcoded phonenumber
                 s = broqueDB.insertBudget(args[0], args[1], args[2], args[3], args[4], args[5]);
                 System.out.println(s);
+
             } catch (
                     IOException e) {
                 System.out.println("ioexception caught");
