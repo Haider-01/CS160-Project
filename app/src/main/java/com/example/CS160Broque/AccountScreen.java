@@ -14,9 +14,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class AccountScreen extends AppCompatActivity {
     Button dashboard;
     ListView listview;
+    String jsonMyAccount;
+    Account account;
     String[] action = {"Change Password", "Change Username", "Delete Account"};
 
     @Override
@@ -24,7 +28,12 @@ public class AccountScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accountscreen);
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         listview = (ListView) findViewById(R.id.list_accountscreen);
         ArrayAdapter adapter = new ArrayAdapter<String>(this,
@@ -36,12 +45,12 @@ public class AccountScreen extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position==0){
                     Intent chgPassIntent = new Intent(AccountScreen.this, changePass.class);
-                    chgPassIntent.putExtra("userName", userNameIdentifier);
+                    chgPassIntent.putExtra("Account", new Gson().toJson(account));
                     startActivity(chgPassIntent);
                 }
                 else if (position==1){
                     Intent chgNameIntent = new Intent(AccountScreen.this, changeName.class);
-                    chgNameIntent.putExtra("userName", userNameIdentifier);
+                    chgNameIntent.putExtra("Account", new Gson().toJson(account));
                     startActivity(chgNameIntent);
                 }
                 else if (position==2){

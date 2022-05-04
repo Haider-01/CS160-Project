@@ -18,7 +18,6 @@ public class Dashboard extends AppCompatActivity {
 
     Button btn_account, graphView, settings, addExpense;
     String jsonMyAccount;
-    String user;
     Account account;
 
     @Override
@@ -35,7 +34,6 @@ public class Dashboard extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             jsonMyAccount = extras.getString("Account");
-            user = extras.getString("Username");
         }
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
@@ -85,8 +83,7 @@ public class Dashboard extends AppCompatActivity {
         btn_account.setOnClickListener(new View.OnClickListener() { //take to account screen
             @Override
             public void onClick(View v) {
-                Intent goToAccountScreen = new Intent(Dashboard.this, Account.class);
-                goToAccountScreen.putExtra("Username", user);
+                Intent goToAccountScreen = new Intent(Dashboard.this, AccountScreen.class);
                 goToAccountScreen.putExtra("Account", new Gson().toJson(account));
                 startActivity(goToAccountScreen);
             }
@@ -97,7 +94,6 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToGraphViewables = new Intent(Dashboard.this, GraphViewables.class);
-                goToGraphViewables.putExtra("Username", user);
                 goToGraphViewables.putExtra("Account", new Gson().toJson(account));
                 startActivity(goToGraphViewables);
             }
@@ -108,7 +104,6 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToSettings = new Intent(Dashboard.this, Settings.class);
-                goToSettings.putExtra("Username", user);
                 goToSettings.putExtra("Account", new Gson().toJson(account));
                 startActivity(goToSettings);
             }
@@ -119,7 +114,6 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToAddExpense = new Intent(Dashboard.this, addExpense.class);
-                goToAddExpense.putExtra("Username", user);
                 goToAddExpense.putExtra("Account", new Gson().toJson(account));
                 startActivity(goToAddExpense);
             }

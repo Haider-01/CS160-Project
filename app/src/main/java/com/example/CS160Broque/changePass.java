@@ -14,16 +14,25 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+
 public class changePass extends AppCompatActivity {
 
     BroqueDB broqueDB = new BroqueDB();
+    String jsonMyAccount;
+    Account account;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changepass);
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         final EditText currentPass = (EditText) findViewById(R.id.edt_currPass_changepass);
         final EditText newPass = (EditText) findViewById(R.id.edt_newPass_changepass);
@@ -39,7 +48,7 @@ public class changePass extends AppCompatActivity {
                 } else if (newPass.getText().toString().trim().length() == 0 && confirmPass.getText().toString().trim().length() == 0) {
                     Toast.makeText(changePass.this, "No changes made", Toast.LENGTH_SHORT).show();
                     Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
-                    backToAccount.putExtra("userName", userNameIdentifier);
+                    backToAccount.putExtra("Account", new Gson().toJson(account));
                     startActivity(backToAccount);
                 } else if (newPass.getText().toString().trim().length() == 0 && confirmPass.getText().toString().trim().length() != 0) {
                     newPass.setError("Enter the new password!");
@@ -55,12 +64,12 @@ public class changePass extends AppCompatActivity {
 
 
                     Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
-                    backToAccount.putExtra("userName", userNameIdentifier);
+                    backToAccount.putExtra("Account", new Gson().toJson(account));
                     startActivity(backToAccount);
                 } else {
                     Toast.makeText(changePass.this, "Password doesn't match!", Toast.LENGTH_SHORT).show();
                 }
-                new changePass.ChangePassTask().execute(currentPass.getText().toString(), newPass.getText().toString());
+                new ChangePassTask().execute(currentPass.getText().toString(), newPass.getText().toString());
             }
         });
 

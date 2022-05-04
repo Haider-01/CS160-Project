@@ -54,7 +54,7 @@ public class BroqueDB {
 
         while ((line = in.readLine()) != null) {
             sb.append(line);
-            System.out.println("From sb" + sb);
+            System.out.println(sb);
             break;
         }
         in.close();
@@ -94,57 +94,49 @@ public class BroqueDB {
         return sb.toString();
     }
 
-    public String changeName(String currUser, String newUser) throws IOException {
-        String link = "https://broke-test.herokuapp.com/changeName.php";
-        String data = URLEncoder.encode("username", "UTF-8") + "=" +
-                URLEncoder.encode(currUser, "UTF-8");
+    public String changeName(String currUser, String newName) throws IOException, URISyntaxException {
+        String link = "https://broke-test.herokuapp.com/changePass.php?current_username=%22" + currUser + "%22&new_username=%22" + newName + "%22&";
         System.out.println(link);
 
         URL url = new URL(link);
-        URLConnection conn = url.openConnection();
-        conn.setDoOutput(true);
-        OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-        wr.write(data);
-        wr.flush();
-        BufferedReader reader = new BufferedReader(new
-                InputStreamReader(conn.getInputStream()));
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
 
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-
-        // Read Server Response
-        while ((line = reader.readLine()) != null) {
+        while ((line = in.readLine()) != null) {
             sb.append(line);
+            System.out.println(sb);
             break;
         }
-        reader.close();
+        in.close();
+
         return sb.toString();
     }
 
-    public String changePass(String currUser, String newUser) throws IOException {
-        String link = "https://broke-test.herokuapp.com/changePass.php";
-        String data = URLEncoder.encode("username", "UTF-8") + "=" +
-                URLEncoder.encode(currUser, "UTF-8");
+    public String changePass(String currUser, String newPass) throws IOException, URISyntaxException {
+        String link = "https://broke-test.herokuapp.com/changePass.php?username=%22" + currUser + "%22&password=%22" + newPass + "%22&";
         System.out.println(link);
 
         URL url = new URL(link);
-        URLConnection conn = url.openConnection();
-        conn.setDoOutput(true);
-        OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-        wr.write(data);
-        wr.flush();
-        BufferedReader reader = new BufferedReader(new
-                InputStreamReader(conn.getInputStream()));
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
 
-        StringBuilder sb = new StringBuilder();
-        String line = null;
-
-        // Read Server Response
-        while ((line = reader.readLine()) != null) {
+        while ((line = in.readLine()) != null) {
             sb.append(line);
+            System.out.println(sb);
             break;
         }
-        reader.close();
+        in.close();
+
         return sb.toString();
     }
 
@@ -165,7 +157,7 @@ public class BroqueDB {
 
         while ((line = in.readLine()) != null) {
             sb.append(line);
-            System.out.println("From sb" + sb);
+            System.out.println(sb);
             break;
         }
         in.close();
@@ -198,9 +190,6 @@ public class BroqueDB {
         }
 
         String [] str = sb.toString().split("<br>");
-        for(String stri: str) {
-            System.out.println(stri);
-        }
 
         double total = Double.parseDouble(str[1]);
         double bill = Double.parseDouble(str[2]);
@@ -267,7 +256,7 @@ public class BroqueDB {
 
         while ((line = in.readLine()) != null) {
             sb.append(line);
-            System.out.println("From sb" + sb);
+            System.out.println(sb);
             break;
         }
 
@@ -292,7 +281,7 @@ public class BroqueDB {
 
         while ((line = in.readLine()) != null) {
             sb.append(line);
-            System.out.println("From sb" + sb);
+            System.out.println(sb);
             break;
         }
         in.close();

@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -21,14 +23,21 @@ public class changeName extends AppCompatActivity {
 
     EditText currUser, newUser;
     Button chgName;
-    BroqueDB broqueDB;
+    String jsonMyAccount;
+    Account account;
+    BroqueDB broqueDB = new BroqueDB();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.changename);
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         currUser = (EditText) findViewById(R.id.edt_currUsername_changename);
         newUser = (EditText) findViewById(R.id.edt_newUsername_changename);
@@ -50,10 +59,10 @@ public class changeName extends AppCompatActivity {
                     toast.show();
                 }
                 // Update to DB
-                new changeName.ChangeNameTask().execute(sCurrUser, sNewUser);
+                new ChangeNameTask().execute(sCurrUser, sNewUser);
 
                 Intent backToAccount = new Intent(changeName.this, AccountScreen.class);
-                backToAccount.putExtra("userName", userNameIdentifier);
+                backToAccount.putExtra("Account", new Gson().toJson(account));
                 startActivity(backToAccount);
             }
         });
