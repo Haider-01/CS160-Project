@@ -33,23 +33,21 @@ public class changePass extends AppCompatActivity {
         chgPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentPass.getText().toString().trim().length()==0){
+                if (currentPass.getText().toString().trim().length() == 0) {
                     currentPass.setError("Enter current password");
                     currentPass.requestFocus();
-                }
-                else if (newPass.getText().toString().trim().length()==0 && confirmPass.getText().toString().trim().length()==0) {
+                } else if (newPass.getText().toString().trim().length() == 0 && confirmPass.getText().toString().trim().length() == 0) {
                     Toast.makeText(changePass.this, "No changes made", Toast.LENGTH_SHORT).show();
                     Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
                     backToAccount.putExtra("userName", userNameIdentifier);
                     startActivity(backToAccount);
-                }else if (newPass.getText().toString().trim().length()==0 && confirmPass.getText().toString().trim().length()!=0){
+                } else if (newPass.getText().toString().trim().length() == 0 && confirmPass.getText().toString().trim().length() != 0) {
                     newPass.setError("Enter the new password!");
                     newPass.requestFocus();
-                }
-                else if (confirmPass.getText().toString().trim().length()==0 && newPass.getText().toString().trim().length()!=0){
+                } else if (confirmPass.getText().toString().trim().length() == 0 && newPass.getText().toString().trim().length() != 0) {
                     confirmPass.setError("Confirm the password!");
                     confirmPass.requestFocus();
-                }else if (newPass.getText().toString().equals(confirmPass.getText().toString())){
+                } else if (newPass.getText().toString().equals(confirmPass.getText().toString())) {
                     //change the password in the db, if succesful:
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "Password successfully changed", Toast.LENGTH_SHORT);
@@ -59,10 +57,10 @@ public class changePass extends AppCompatActivity {
                     Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
                     backToAccount.putExtra("userName", userNameIdentifier);
                     startActivity(backToAccount);
-                }else{
+                } else {
                     Toast.makeText(changePass.this, "Password doesn't match!", Toast.LENGTH_SHORT).show();
                 }
-                new changePass.ChangePassTask().execute(currentPass.getText().toString(),newPass.getText().toString());
+                new changePass.ChangePassTask().execute(currentPass.getText().toString(), newPass.getText().toString());
             }
         });
 
@@ -92,6 +90,7 @@ public class changePass extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.appbar_menu, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

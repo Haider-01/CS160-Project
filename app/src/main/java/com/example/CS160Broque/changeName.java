@@ -1,4 +1,5 @@
 package com.example.CS160Broque;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +17,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class changeName extends AppCompatActivity{
+public class changeName extends AppCompatActivity {
 
     EditText currUser, newUser;
     Button chgName;
@@ -41,9 +42,9 @@ public class changeName extends AppCompatActivity{
                 String sNewUser = newUser.getText().toString();
                 //change the name in the db, if succesful:
 
-                if (currUser.getText().toString().trim().length()==0 && newUser.getText().toString().trim().length()==0){
-                    Toast.makeText(changeName.this, "No changes made",Toast.LENGTH_SHORT).show();
-                }else {
+                if (currUser.getText().toString().trim().length() == 0 && newUser.getText().toString().trim().length() == 0) {
+                    Toast.makeText(changeName.this, "No changes made", Toast.LENGTH_SHORT).show();
+                } else {
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "Name successfully changed", Toast.LENGTH_SHORT);
                     toast.show();
