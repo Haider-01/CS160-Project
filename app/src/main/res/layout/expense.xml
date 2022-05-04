@@ -58,16 +58,4 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_expense"
         app:layout_constraintVertical_bias="0.261" />
 
-    <EditText
-        android:id="@+id/edit_budgetType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Budget Type"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout_expense"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_expense" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
