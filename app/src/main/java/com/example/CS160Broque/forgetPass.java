@@ -2,6 +2,7 @@ package com.example.CS160Broque;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -14,25 +15,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class forgetPass extends AppCompatActivity {
 
-    EditText username, email;
+    EditText username, phonenumber;
     Button sendPass;
+    String jsonMyAccount;
+    Account account;
+    BroqueDB broqueDB = new BroqueDB();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgetpass);
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
+        // Get from bundle
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         username = (EditText) findViewById(R.id.edt_username_forgetpass);
-
-        // TODO Change to phonenumber
-        email = (EditText) findViewById(R.id.edt_phonenumber_forgetpass);
+        phonenumber = (EditText) findViewById(R.id.edt_phonenumber_forgetpass);
         sendPass = (Button) findViewById(R.id.btn_sendPass_forgetpass);
-
-
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
@@ -49,19 +60,13 @@ public class forgetPass extends AppCompatActivity {
                     username.requestFocus();
                 }
 
-                if (email.getText().toString().trim().length() == 0){
-                    email.setError("Email is required");
-                    email.requestFocus();
+                if (phonenumber.getText().toString().trim().length() == 0){
+                    phonenumber.setError("Email is required");
+                    phonenumber.requestFocus();
                 }
-                NotificationCompat.Builder notify= new NotificationCompat.Builder(forgetPass.this,"Notification");
+                new ForgetPassTask().execute(username.getText().toString(), phonenumber.getText().toString());
 
-                notify.setContentTitle("Broque");
-                notify.setContentText("Your password is: ThisIsMyMoney");
-                notify.setSmallIcon(R.drawable.abc);
-                notify.setAutoCancel(true);
 
-                NotificationManagerCompat not = NotificationManagerCompat.from(forgetPass.this);
-                not.notify(1,notify.build());
                 
                 
                 Intent finishIntent = new Intent(forgetPass.this, Login.class);
@@ -73,5 +78,37 @@ public class forgetPass extends AppCompatActivity {
 
 
 
+    }
+
+    public class ForgetPassTask extends AsyncTask<String, String, String> {
+        public String doInBackground(String... args) {
+            String s = null;
+            try {
+                System.out.println("forget pass start");
+                // TODO remove hardcoded phonenumber
+                s = broqueDB.forgetPass(args[0], args[1]);
+                System.out.println(s);
+            } catch (
+                    IOException e) {
+                System.out.println("ioexception caught");
+                e.printStackTrace();
+            } catch (
+                    URISyntaxException e) {
+                System.out.println("uriexception caught");
+                e.printStackTrace();
+            }
+            return s;
+        }
+
+        public void onPostExecute(String result) {
+            NotificationCompat.Builder notify= new NotificationCompat.Builder(forgetPass.this,"Notification");
+            notify.setContentTitle("Broque");
+            notify.setContentText("Your password is: " + result);
+            notify.setSmallIcon(R.drawable.abc);
+            notify.setAutoCancel(true);
+
+            NotificationManagerCompat not = NotificationManagerCompat.from(forgetPass.this);
+            not.notify(1,notify.build());
+        }
     }
 }
