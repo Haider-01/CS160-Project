@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,23 +36,23 @@ public class Dashboard extends AppCompatActivity {
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
 
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-        String dateString = formatter.format(date);
+//        Date date = new Date();
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+//        String dateString = formatter.format(date);
 
 //        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
 
-        if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
-            totalBudgetSpent = 0;
-            billsSpent = 0;
-            foodSpent = 0;
-            entertainmentSpent = 0;
-            othersSpent = 0;
-        }
+//        if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
+//            totalBudgetSpent = 0;
+//            billsSpent = 0;
+//            foodSpent = 0;
+//            entertainmentSpent = 0;
+//            othersSpent = 0;
+//        }
 
         TextView budgetHint = (TextView) findViewById(R.id.edt_total_userfields);
-        String budgetString = "Total Budget: " + totalBudgetSpent
-                + " out of " + totalbudgetBudget + " remaining";
+        String budgetString = "Total Budget: " + account.getTotalExpense()
+                + " out of " + account.getTotalBudget() + " remaining";
         budgetHint.setHint(budgetString);
 
         TextView billsHint = (TextView) findViewById(R.id.edt_bill_userfields);
@@ -77,7 +73,7 @@ public class Dashboard extends AppCompatActivity {
         othersHint.setHint(othersString);
 
 
-        account.setOnClickListener(new View.OnClickListener() { //take to account screen
+        btn_account.setOnClickListener(new View.OnClickListener() { //take to account screen
             @Override
             public void onClick(View v) {
                 Intent accountIntent = new Intent(Dashboard.this, AccountScreen.class);
