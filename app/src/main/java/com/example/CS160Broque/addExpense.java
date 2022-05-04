@@ -87,6 +87,19 @@ public class addExpense extends AppCompatActivity {
                return view;
            }
        });
+        
+       spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                budgetType = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                ((TextView)spinner.getSelectedView()).setError("None selected");
+            }
+        });
+
 
        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
            NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
@@ -101,7 +114,7 @@ public class addExpense extends AppCompatActivity {
                Context context = getApplicationContext();
                Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
                toast.show();
-               budgetType = spinner.getSelectedItem().toString();
+//                budgetType = spinner.getSelectedItem().toString();
                double amountNum = Double.parseDouble(amount.getText().toString().trim());
                
                 if (amountNum>0){
@@ -118,10 +131,10 @@ public class addExpense extends AppCompatActivity {
                }
                 String type = budgetType;
                 String expense;
-                if (type.isEmpty() || !type.equalsIgnoreCase("bills") || !type.equalsIgnoreCase("food") || !type.equalsIgnoreCase("entertainment") || !type.equalsIgnoreCase("other")) {
-                    ((TextView)spinner.getSelectedView()).setError("None selected");
-                    return;
-                }
+//                 if (type.isEmpty() || !type.equalsIgnoreCase("bills") || !type.equalsIgnoreCase("food") || !type.equalsIgnoreCase("entertainment") || !type.equalsIgnoreCase("other")) {
+//                     ((TextView)spinner.getSelectedView()).setError("None selected");
+//                     return;
+//                 }
                 if (amount.getText().toString().trim().length()==0){
                     amount.setError("Amount is empty");
                     amount.requestFocus();
