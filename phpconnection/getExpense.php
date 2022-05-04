@@ -12,8 +12,8 @@ $conn = new mysqli($server, $username, $password, $db);
 
 $username = $_GET['username'];
 
-$query = mysqli_query($conn,"SELECT username, total, bill, food, entertainment, other 
-FROM broque_budgets WHERE username = $username");
+$query = mysqli_query($conn,"SELECT username, bill_expenses, food_expenses, entertainment_expenses, other_expenses
+FROM broque_expenses WHERE username = $username");
 
 
 while($row = mysqli_fetch_array($query, MYSQLI_NUM) ){
@@ -22,7 +22,6 @@ while($row = mysqli_fetch_array($query, MYSQLI_NUM) ){
     echo $row[2].'<br>';
     echo $row[3].'<br>';
     echo $row[4].'<br>';
-    echo $row[5].'<br>';
 }
 
 $query->close();
