@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -26,12 +28,23 @@ public class UserFields extends AppCompatActivity {
     Spinner spinner;
     Button finish;
     BroqueDB broqueDB;
+    String jsonMyAccount;
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userfields);
-
+        System.out.println("onCreateUserFields");
+        // Get from bundle
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+            user = extras.getString("Username");
+        }
+        Account account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
+        System.out.println("onCreateUserFieldsPrint");
 //        spinner = (Spinner) findViewById(R.id.spinner);
         monthlyIncome = (EditText) findViewById(R.id.edt_monthlyincome_userfields);
         totalBudget = (EditText) findViewById(R.id.edt_total_userfields);
@@ -41,105 +54,7 @@ public class UserFields extends AppCompatActivity {
         otherBudget = (EditText) findViewById(R.id.edt_other_userfields);
         finish = (Button) findViewById(R.id.btn_finish_userfields);
         broqueDB = new BroqueDB();
-        Bundle extras = getIntent().getExtras();
-        final String user = extras.getString("Username");
-
-//        monthlyIncome.setEnabled(true);
-//        totalBudget.setEnabled(false);
-//        billsBudget.setEnabled(false);
-//        foodBudget.setEnabled(false);
-//        entertainmentBudget.setEnabled(false);
-//        otherBudget.setEnabled(false);
-//        String[] options = {"Select Option","Default", "Manual Input"};
-//
-//        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, options){
-//            @Override
-//            public boolean isEnabled(int position) {
-//                if (position==0){
-//                    return false;
-//                }else{
-//                    return true;
-//                }
-//            }
-//
-//            @Override
-//            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//                View view = super.getDropDownView(position, convertView, parent);
-//                TextView tv = (TextView) view;
-//                if(position == 0){
-//                    tv.setTextColor(Color.GRAY);
-//                }
-//                else {
-//                    tv.setTextColor(Color.BLACK);
-//                }
-//                return view;
-//            }
-//        });
-//
-//
-//
-//
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if (position == 1){
-//                    if (monthlyIncome.getText().toString().trim().length() == 0){
-//                        monthlyIncome.setError("Enter your income!");
-//                        monthlyIncome.requestFocus();
-//                    }
-//                    else{
-//                        double income = Double.parseDouble(monthlyIncome.getText().toString().trim());
-//                        double totalBgt = income*0.75;
-//                        double bill = income*0.3;
-//                        double food = income*0.2;
-//                        double entertainment = income*0.15;
-//                        double other = income*0.10;
-//
-//                        totalBudget.setText(Double.toString(totalBgt));
-//                        billsBudget.setText(Double.toString(bill));
-//                        foodBudget.setText(Double.toString(food));
-//                        entertainmentBudget.setText(Double.toString(entertainment));
-//                        otherBudget.setText(Double.toString(other));
-//                        System.out.println(monthlyIncome + " " + totalBudget + " " + billsBudget + " " + foodBudget + " " + entertainmentBudget + " " + otherBudget);
-//                    }
-//
-//                } else if (position==2){
-//                    monthlyIncome.setEnabled(false);
-//                    totalBudget.setEnabled(true);
-//                    billsBudget.setEnabled(true);
-//                    foodBudget.setEnabled(true);
-//                    entertainmentBudget.setEnabled(true);
-//                    otherBudget.setEnabled(true);
-//                    if (totalBudget.getText().toString().trim().length() == 0){
-//                        totalBudget.setError("Enter your total budget!");
-//                        totalBudget.requestFocus();
-//                    }
-//                    if (billsBudget.getText().toString().trim().length() == 0){
-//                        billsBudget.setError("Enter your bills budget!");
-//                        billsBudget.requestFocus();
-//                    }
-//                    if (foodBudget.getText().toString().trim().length() == 0){
-//                        foodBudget.setError("Enter your food budget!");
-//                        foodBudget.requestFocus();
-//                    }
-//                    if (entertainmentBudget.getText().toString().trim().length() == 0){
-//                        entertainmentBudget.setError("Enter your entertainment budget!");
-//                        entertainmentBudget.requestFocus();
-//                    }
-//                    if (otherBudget.getText().toString().trim().length() == 0){
-//                        otherBudget.setError("Enter your other budget!");
-//                        otherBudget.requestFocus();
-//                    }
-//                    System.out.println(monthlyIncome + " " + totalBudget + " " + billsBudget + " " + foodBudget + " " + entertainmentBudget + " " + otherBudget);
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
+        
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

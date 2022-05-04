@@ -107,7 +107,7 @@ public class BroqueDB {
     }
 
     public String changeName(String currUser, String newUser) throws IOException {
-        String link = "https://broke-test.herokuapp.com/login.php";
+        String link = "https://broke-test.herokuapp.com/changeName.php";
         String data = URLEncoder.encode("username", "UTF-8") + "=" +
                 URLEncoder.encode(currUser, "UTF-8");
         System.out.println(link);
@@ -134,7 +134,7 @@ public class BroqueDB {
     }
 
     public String changePass(String currUser, String newUser) throws IOException {
-        String link = "https://broke-test.herokuapp.com/login.php";
+        String link = "https://broke-test.herokuapp.com/changePass.php";
         String data = URLEncoder.encode("username", "UTF-8") + "=" +
                 URLEncoder.encode(currUser, "UTF-8");
         System.out.println(link);

@@ -214,4 +214,25 @@ public class Account implements Parcelable {
         parcel.writeString(password);
         parcel.writeString(phoneNumber);
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "fullName='" + fullName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", currentTotalBudget=" + currentTotalBudget +
+                ", currentBillsBudget=" + currentBillsBudget +
+                ", currentFoodBudget=" + currentFoodBudget +
+                ", currentEntertainmentBudget=" + currentEntertainmentBudget +
+                ", currentOtherBudget=" + currentOtherBudget +
+                ", staticTotalBudget=" + staticTotalBudget +
+                ", staticBillsBudget=" + staticBillsBudget +
+                ", staticFoodBudget=" + staticFoodBudget +
+                ", staticEntertainmentBudget=" + staticEntertainmentBudget +
+                ", staticOtherBudget=" + staticOtherBudget +
+                '}';
+    }
+
 }// Account

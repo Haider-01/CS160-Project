@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -56,47 +58,56 @@ public class SignUp extends AppCompatActivity {
                 String sPhonenumber = phonenumber.getText().toString();
                 System.out.println(sUsername + " " + sFullname + " " + sPassword + " " + sPhonenumber);
 
+                // Username is empty
                 if (sUsername.isEmpty()){
                     username.setError("Username is empty");
                     username.requestFocus();
                     return;
                 }
+                // Fullname is empty
                 if (sFullname.isEmpty()){
                     fullname.setError("Email is empty");
                     fullname.requestFocus();
                     return;
                 }
+                // Password is empty
                 if (sPassword.isEmpty()){
                     password.setError("Password is empty");
                     password.requestFocus();
                     return;
                 }
+                // Confirm Password is Empty
                 if (sConfPassword.isEmpty()){
                     confPassword.setError("Confirm the password!");
                     confPassword.requestFocus();
                     return;
                 }
+                // Phone number is empty
                 if (sPhonenumber.length() != 10){
                     phonenumber.setError("Phone number must be 10 digits");
                     phonenumber.requestFocus();
                     return;
                 }
-
+                // Good case
+                // Password equals confirm password and password is not empty
+                // Passes username to next screen (userfields)
                 if (sPassword.equals(sConfPassword) && !sPassword.equals("")) {
                     Toast.makeText(getApplicationContext(), "Account created",
                             Toast.LENGTH_SHORT).show();
+                    // Create account on DB
+                    new SignUpTask().execute(sFullname, sUsername, sPassword, sPhonenumber);
+                    // Create local account
+                    Account myAccount = new Account(sFullname, sUsername, sPassword, sPhonenumber);
+                    Intent goToUserFields = new Intent(SignUp.this, UserFields.class);
+                    goToUserFields.putExtra("Username", username.getText().toString());
+                    goToUserFields.putExtra("Account", new Gson().toJson(myAccount));
+                    startActivity(goToUserFields);
 
-                    Intent signUp = new Intent(SignUp.this, UserFields.class);
-                    signUp.putExtra("Username", username.getText().toString());
-                    startActivity(signUp);
                 } else if (!sPassword.equals(sConfPassword)) {
                     Toast.makeText(getApplicationContext(), "Password doesn't match",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-                new SignUpTask().execute(sFullname, sUsername, sPassword, sPhonenumber);
-                //Account myAccount = new Account(sUsername, sPassword, sEmail);
-
             }//onClick
         });//setOnClickListener
     }//onCreate

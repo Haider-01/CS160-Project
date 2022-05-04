@@ -10,16 +10,10 @@ $db = substr($url["path"], 1);
 
 // Connect to DB
 $conn = new mysqli($server, $username, $password, $db);
-// if (!$conn) {
-//     echo "Connection failed";
-// } else {
-//     echo "Connection success";
-// }
 
 $username = $_POST['username'];
-$password = $_POST['password'];
-$result = mysqli_query($conn,"SELECT username, password FROM broque_users where 
-username='$username' and password='$password'");
+$result = mysqli_query($conn,"SELECT password FROM broque_users where 
+username='$username'");
 $row = mysqli_fetch_array($result);
 $data = $row[0];
 

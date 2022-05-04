@@ -13,7 +13,7 @@ $conn = new mysqli($server, $username, $password, $db);
 $cur_user = $_GET['current_username'];
 $new_user = $_GET['new_username'];
 
-$sql = "update broque_users set username = $new_user where username = $cur_name";
+$sql = "UPDATE broque_users set username = $new_user where username = $cur_user";
 
 if (mysqli_query($conn, $sql)) {
     echo "Username changed successfully";
@@ -21,4 +21,4 @@ if (mysqli_query($conn, $sql)) {
     echo "Error";
 }
 mysqli_close($conn);
-?>
+?> 

@@ -13,7 +13,7 @@ $conn = new mysqli($server, $username, $password, $db);
 $user = $_GET['username'];
 $pass = $_GET['password'];
 
-$sql = "update broque_users set password = $pass where username = $user";
+$sql = "UPDATE broque_users set password = $pass where username = $user";
 
 if (mysqli_query($conn, $sql)) {
     echo "Password changed successfully";
