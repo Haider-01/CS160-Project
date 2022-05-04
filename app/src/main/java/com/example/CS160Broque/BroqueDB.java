@@ -174,7 +174,7 @@ public class BroqueDB {
     }
 
     // Returns budgets from database in array form
-    // budget[0] = username
+    // budget[0] = total
     // budget[1] = bill
     // budget[2] = food
     // budget[3] = entertainment
@@ -210,7 +210,7 @@ public class BroqueDB {
     }
 
     // Returns expenses from database
-    // budget[0] = username
+    // budget[0] = total
     // budget[1] = bill
     // budget[2] = food
     // budget[3] = entertainment
