@@ -47,6 +47,18 @@ public class Account implements Parcelable {
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
+
+        this.totalBudget = 0;
+        this.billsBudget = 0;
+        this.foodBudget = 0;
+        this.entertainmentBudget = 0;
+        this.otherBudget = 0;
+
+        this.totalExpense = 0;
+        this.billsExpense = 0;
+        this.foodExpense = 0;
+        this.entertainmentExpense = 0;
+        this.otherExpense = 0;
     }// Account Constructor
 
     protected Account(Parcel in) {

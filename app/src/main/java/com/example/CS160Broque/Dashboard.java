@@ -40,76 +40,88 @@ public class Dashboard extends AppCompatActivity {
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
 
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-        String dateString = formatter.format(date);
+//        Date date = new Date();
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+//        String dateString = formatter.format(date);
 
 //        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
 
-        if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
-            totalBudgetSpent = 0;
-            billsSpent = 0;
-            foodSpent = 0;
-            entertainmentSpent = 0;
-            othersSpent = 0;
-        }
+        // Can change to reset in account class
+//        if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
+//            totalBudgetSpent = 0;
+//            billsSpent = 0;
+//            foodSpent = 0;
+//            entertainmentSpent = 0;
+//            othersSpent = 0;
+//        }
 
         TextView budgetHint = (TextView) findViewById(R.id.edt_total_userfields);
-        String budgetString = "Total Budget: " + totalBudgetSpent
-                + " out of " + totalbudgetBudget + " remaining";
-        budgetHint.setHint(budgetString);
+        String budgetString = "Total Budget: " + account.getTotalExpense()
+                + " out of " + account.getTotalBudget() + " remaining";
+        //budgetHint.setHint(budgetString);
 
         TextView billsHint = (TextView) findViewById(R.id.edt_bill_userfields);
-        String billsString = "Bills: " + billsSpent + " out of " + billsBudget + " remaining";
-        billsHint.setHint(billsString);
+        String billsString = "Bills: " + account.getBillsExpense()
+                + " out of " + account.getBillsBudget() + " remaining";
+        //billsHint.setHint(billsString);
 
         TextView foodHint = (TextView) findViewById(R.id.edt_food_userfields);
-        String foodString = "Food: " + foodSpent + " out of " + foodBudget + " remaining";
-        foodHint.setHint(foodString);
+        String foodString = "Food: " + account.getFoodExpense()
+                + " out of " + account.getFoodBudget() + " remaining";
+        //foodHint.setHint(foodString);
 
         TextView entertainmentHint = (TextView) findViewById(R.id.edt_entertainment_userfields);
-        String entertainmentString = "Entertainment: " + entertainmentSpent
-                + " out of " + entertainmentBudget + " remaining";
-        entertainmentHint.setHint(entertainmentString);
+        String entertainmentString = "Entertainment: " + account.getFoodExpense()
+                + " out of " + account.getFoodBudget() + " remaining";
+        //entertainmentHint.setHint(entertainmentString);
 
         TextView othersHint = (TextView) findViewById(R.id.edt_other_userfields);
-        String othersString = "Others: " + othersSpent + " out of " + othersBudget + " remaining";
-        othersHint.setHint(othersString);
+        String othersString = "Others: " + account.getOtherExpense()
+                + " out of " + account.getOtherBudget() + " remaining";
+        //othersHint.setHint(othersString);
 
-
-        account.setOnClickListener(new View.OnClickListener() { //take to account screen
+        // AccountScreen
+        // goesto forgetPass,changeName screen
+        btn_account.setOnClickListener(new View.OnClickListener() { //take to account screen
             @Override
             public void onClick(View v) {
-                Intent accountIntent = new Intent(Dashboard.this, AccountScreen.class);
-                accountIntent.putExtra("userName", userNameIdentifier);
-                startActivity(accountIntent);
+                Intent goToAccountScreen = new Intent(Dashboard.this, Account.class);
+                goToAccountScreen.putExtra("Username", user);
+                goToAccountScreen.putExtra("Account", new Gson().toJson(account));
+                startActivity(goToAccountScreen);
             }
         });
 
+        // Goes to GraphViewables
         graphView.setOnClickListener(new View.OnClickListener() {   //take to graphview screen
             @Override
             public void onClick(View v) {
-                Intent graphViewIntent = new Intent(Dashboard.this, GraphViewables.class);
-                graphViewIntent.putExtra("userName", userNameIdentifier);
-                startActivity(graphViewIntent);
+                Intent goToGraphViewables = new Intent(Dashboard.this, GraphViewables.class);
+                goToGraphViewables.putExtra("Username", user);
+                goToGraphViewables.putExtra("Account", new Gson().toJson(account));
+                startActivity(goToGraphViewables);
             }
         });
 
+        // Goes to Settings
         settings.setOnClickListener(new View.OnClickListener() {    //take to settings screen
             @Override
             public void onClick(View v) {
-                Intent settingsIntent = new Intent(Dashboard.this, Settings.class);
-                settingsIntent.putExtra("userName", userNameIdentifier);
-                startActivity(settingsIntent);
+                Intent goToSettings = new Intent(Dashboard.this, Settings.class);
+                goToSettings.putExtra("Username", user);
+                goToSettings.putExtra("Account", new Gson().toJson(account));
+                startActivity(goToSettings);
             }
         });
 
+        // Goes to addExpense
         addExpense.setOnClickListener(new View.OnClickListener() {    //take to addExpense screen
             @Override
             public void onClick(View v) {
-                Intent addExpenseIntent = new Intent(Dashboard.this, addExpense.class);
-                addExpenseIntent.putExtra("userName", userNameIdentifier);
-                startActivity(addExpenseIntent);
+                Intent goToAddExpense = new Intent(Dashboard.this, UserFields.class);
+                goToAddExpense.putExtra("Username", user);
+                goToAddExpense.putExtra("Account", new Gson().toJson(account));
+                startActivity(goToAddExpense);
             }
         });
     }
