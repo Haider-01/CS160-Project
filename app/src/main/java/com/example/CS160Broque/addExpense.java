@@ -114,7 +114,7 @@ public class addExpense extends AppCompatActivity {
                Context context = getApplicationContext();
                Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
                toast.show();
-               budgetType = spinner.getSelectedItem().toString();
+//                budgetType = spinner.getSelectedItem().toString();
                double amountNum = Double.parseDouble(amount.getText().toString().trim());
                
                 if (amountNum>0){
