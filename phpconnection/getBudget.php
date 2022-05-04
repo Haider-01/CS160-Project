@@ -12,12 +12,19 @@ $conn = new mysqli($server, $username, $password, $db);
 
 $username = $_GET['username'];
 
-$sql = "delete from broque_users where username = $username";
+$query = mysqli_query($conn,"SELECT username, total, bill, food, entertainment, other 
+FROM broque_budgets WHERE username = $username");
 
-if (mysqli_query($conn, $sql)) {
-    echo "Account deleted successfully";
-} else {
-    echo "Error";
+
+while($row = mysqli_fetch_array($query, MYSQLI_NUM) ){
+    echo $row[0].'<br>';
+    echo $row[1].'<br>';
+    echo $row[2].'<br>';
+    echo $row[3].'<br>';
+    echo $row[4].'<br>';
+    echo $row[5].'<br>';
 }
+
+$query->close();
 mysqli_close($conn);
-?> 
+?>

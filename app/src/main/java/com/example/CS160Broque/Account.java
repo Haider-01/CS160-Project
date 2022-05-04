@@ -11,17 +11,17 @@ public class Account implements Parcelable {
     private String password;
     private String phoneNumber;
 
-    private double currentTotalBudget;
-    private double currentBillsBudget;
-    private double currentFoodBudget;
-    private double currentEntertainmentBudget;
-    private double currentOtherBudget;
+    private double totalBudget;
+    private double billsBudget;
+    private double foodBudget;
+    private double entertainmentBudget;
+    private double otherBudget;
 
-    private double staticTotalBudget;
-    private double staticBillsBudget;
-    private double staticFoodBudget;
-    private double staticEntertainmentBudget;
-    private double staticOtherBudget;
+    private double totalExpense;
+    private double billsExpense;
+    private double foodExpense;
+    private double entertainmentExpense;
+    private double otherExpense;
 
     public Account(){
         this.fullName = "";
@@ -29,17 +29,17 @@ public class Account implements Parcelable {
         this.password = "";
         this.phoneNumber = "";
 
-        this.currentTotalBudget = 0;
-        this.currentBillsBudget = 0;
-        this.currentFoodBudget = 0;
-        this.currentEntertainmentBudget = 0;
-        this.currentOtherBudget = 0;
+        this.totalBudget = 0;
+        this.billsBudget = 0;
+        this.foodBudget = 0;
+        this.entertainmentBudget = 0;
+        this.otherBudget = 0;
 
-        this.staticTotalBudget = 0;
-        this.staticBillsBudget = 0;
-        this.staticFoodBudget = 0;
-        this.staticEntertainmentBudget = 0;
-        this.staticOtherBudget = 0;
+        this.totalExpense = 0;
+        this.billsExpense = 0;
+        this.foodExpense = 0;
+        this.entertainmentExpense = 0;
+        this.otherExpense = 0;
     }// Account Default Constructor
 
     public Account(String fullName, String userName, String password, String phoneNumber){
@@ -54,16 +54,13 @@ public class Account implements Parcelable {
         userName = in.readString();
         password = in.readString();
         phoneNumber = in.readString();
-        currentTotalBudget = in.readDouble();
-        currentBillsBudget = in.readDouble();
-        currentFoodBudget = in.readDouble();
-        currentEntertainmentBudget = in.readDouble();
-        currentOtherBudget = in.readDouble();
-        staticTotalBudget = in.readDouble();
-        staticBillsBudget = in.readDouble();
-        staticFoodBudget = in.readDouble();
-        staticEntertainmentBudget = in.readDouble();
-        staticOtherBudget = in.readDouble();
+
+        totalBudget = in.readDouble();
+        billsBudget = in.readDouble();
+        foodBudget = in.readDouble();
+        entertainmentBudget = in.readDouble();
+        otherBudget = in.readDouble();
+
     }
 
     public static final Creator<Account> CREATOR = new Creator<Account>() {
@@ -111,84 +108,84 @@ public class Account implements Parcelable {
         this.phoneNumber = phoneNumber;
     }
 
-    public double getCurrentTotalBudget() {
-        return currentTotalBudget;
+    public double getTotalBudget() {
+        return totalBudget;
     }
 
-    public void setCurrentTotalBudget(double currentTotalBudget) {
-        this.currentTotalBudget = currentTotalBudget;
+    public void setTotalBudget(double totalBudget) {
+        this.totalBudget = totalBudget;
     }
 
-    public double getCurrentBillsBudget() {
-        return currentBillsBudget;
+    public double getBillsBudget() {
+        return billsBudget;
     }
 
-    public void setCurrentBillsBudget(double currentBillsBudget) {
-        this.currentBillsBudget = currentBillsBudget;
+    public void setBillsBudget(double billsBudget) {
+        this.billsBudget = billsBudget;
     }
 
-    public double getCurrentFoodBudget() {
-        return currentFoodBudget;
+    public double getFoodBudget() {
+        return foodBudget;
     }
 
-    public void setCurrentFoodBudget(double currentFoodBudget) {
-        this.currentFoodBudget = currentFoodBudget;
+    public void setFoodBudget(double foodBudget) {
+        this.foodBudget = foodBudget;
     }
 
-    public double getCurrentEntertainmentBudget() {
-        return currentEntertainmentBudget;
+    public double getEntertainmentBudget() {
+        return entertainmentBudget;
     }
 
-    public void setCurrentEntertainmentBudget(double currentEntertainmentBudget) {
-        this.currentEntertainmentBudget = currentEntertainmentBudget;
+    public void setEntertainmentBudget(double entertainmentBudget) {
+        this.entertainmentBudget = entertainmentBudget;
     }
 
-    public double getCurrentOtherBudget() {
-        return currentOtherBudget;
+    public double getOtherBudget() {
+        return otherBudget;
     }
 
-    public void setCurrentOtherBudget(double currentOtherBudget) {
-        this.currentOtherBudget = currentOtherBudget;
+    public void setOtherBudget(double otherBudget) {
+        this.otherBudget = otherBudget;
     }
 
-    public double getStaticTotalBudget() {
-        return staticTotalBudget;
+    public double getTotalExpense() {
+        return totalExpense;
     }
 
-    public void setStaticTotalBudget(double staticTotalBudget) {
-        this.staticTotalBudget = staticTotalBudget;
+    public void setTotalExpense(double totalExpense) {
+        this.totalExpense = totalExpense;
     }
 
-    public double getStaticBillsBudget() {
-        return staticBillsBudget;
+    public double getBillsExpense() {
+        return billsExpense;
     }
 
-    public void setStaticBillsBudget(double staticBillsBudget) {
-        this.staticBillsBudget = staticBillsBudget;
+    public void setBillsExpense(double billsExpense) {
+        this.billsExpense = billsExpense;
     }
 
-    public double getStaticFoodBudget() {
-        return staticFoodBudget;
+    public double getFoodExpense() {
+        return foodExpense;
     }
 
-    public void setStaticFoodBudget(double staticFoodBudget) {
-        this.staticFoodBudget = staticFoodBudget;
+    public void setFoodExpense(double foodExpense) {
+        this.foodExpense = foodExpense;
     }
 
-    public double getStaticEntertainmentBudget() {
-        return staticEntertainmentBudget;
+    public double getEntertainmentExpense() {
+        return entertainmentExpense;
     }
 
-    public void setStaticEntertainmentBudget(double staticEntertainmentBudget) {
-        this.staticEntertainmentBudget = staticEntertainmentBudget;
+    public void setEntertainmentExpense(double entertainmentExpense) {
+        this.entertainmentExpense = entertainmentExpense;
     }
 
-    public double getStaticOtherBudget() {
-        return staticOtherBudget;
+    public double getOtherExpense() {
+        return otherExpense;
     }
 
-    public void setStaticOtherBudget(double staticOtherBudget) {
-        this.staticOtherBudget = staticOtherBudget;
+    public void setOtherExpense(double otherExpense) {
+        this.otherExpense = otherExpense;
     }
 
     @Override
@@ -198,20 +195,24 @@ public class Account implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeDouble(currentTotalBudget);
-        parcel.writeDouble(currentBillsBudget);
-        parcel.writeDouble(currentFoodBudget);
-        parcel.writeDouble(currentEntertainmentBudget);
-        parcel.writeDouble(currentOtherBudget);
-        parcel.writeDouble(staticTotalBudget);
-        parcel.writeDouble(staticBillsBudget);
-        parcel.writeDouble(staticFoodBudget);
-        parcel.writeDouble(staticEntertainmentBudget);
-        parcel.writeDouble(staticOtherBudget);
+        parcel.writeDouble(totalBudget);
+        parcel.writeDouble(billsBudget);
+        parcel.writeDouble(foodBudget);
+        parcel.writeDouble(entertainmentBudget);
+        parcel.writeDouble(otherBudget);
 
         parcel.writeString(fullName);
         parcel.writeString(userName);
         parcel.writeString(password);
         parcel.writeString(phoneNumber);
+    }
+
+    // Updates budgets
+    public void insertBudgets(double bills, double food, double entertainment, double other) {
+        totalBudget = bills + food + entertainment + other;
+        billsBudget = bills;
+        foodBudget = food;
+        entertainmentBudget = entertainment;
+        otherBudget = other;
     }
 }// Account
