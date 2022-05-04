@@ -9,8 +9,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -96,16 +94,6 @@ public class BroqueDB {
         return sb.toString();
     }
 
-    // Inserts values into db
-    public void insert() {
-
-    }
-
-    // Retrieves data from db
-    public void retrieve() {
-
-    }
-
     public String changeName(String currUser, String newUser) throws IOException {
         String link = "https://broke-test.herokuapp.com/changeName.php";
         String data = URLEncoder.encode("username", "UTF-8") + "=" +
@@ -185,6 +173,67 @@ public class BroqueDB {
         return sb.toString();
     }
 
+    // Returns budgets from database in array form
+    public double[] getBudget(String username) throws IOException, URISyntaxException {
+        String link = "http://broke-test.herokuapp.com/getBudget.php?username=%22" + username + "%22";
+
+        URL url = new URL(link);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+
+        while ((line = in.readLine()) != null) {
+            sb.append(line);
+            System.out.println("From sb" + sb);
+            break;
+        }
+
+        String [] str = sb.toString().split("\n");
+
+        double total = Double.parseDouble(str[1]);
+        double bill = Double.parseDouble(str[2]);
+        double food = Double.parseDouble(str[3]);
+        double entertainment = Double.parseDouble(str[4]);
+        double other = Double.parseDouble(str[5]);
+
+        double[] budget = {total, bill, food, entertainment, other};
+        return budget;
+    }
+
+    public double[] getExpense(String username) throws IOException, URISyntaxException {
+        String link = "http://broke-test.herokuapp.com/getExpense.php?username=%22" + username + "%22";
+
+        URL url = new URL(link);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+
+        while ((line = in.readLine()) != null) {
+            sb.append(line);
+            System.out.println("From sb" + sb);
+            break;
+        }
+
+        String [] str = sb.toString().split("\n");
+
+        double total = Double.parseDouble(str[1]);
+        double bill = Double.parseDouble(str[2]);
+        double food = Double.parseDouble(str[3]);
+        double entertainment = Double.parseDouble(str[4]);
+        double other = Double.parseDouble(str[5]);
+
+        double[] budget = {total, bill, food, entertainment, other};
+        return budget;
+    }
+
     public String updateExpense(String username, String budgetType, String expense) throws IOException, URISyntaxException {
         // Link to DB
         String link = "https://broke-test.herokuapp.com/updateExpenses.php?username=%22" + username + "%22&category=%22" + budgetType + "%22&amount=%22" + expense + "%22";
@@ -208,6 +257,5 @@ public class BroqueDB {
 
         return sb.toString();
     }
-
 
 }
