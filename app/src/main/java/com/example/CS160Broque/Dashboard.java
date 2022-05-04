@@ -12,31 +12,33 @@ import java.util.Date;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+
 public class Dashboard extends AppCompatActivity {
 
-    Button account, graphView, settings, addExpense;
-    int totalbudgetBudget = 10000;
-    int billsBudget = 2500;
-    int foodBudget = 2500;
-    int entertainmentBudget = 2500;
-    int othersBudget = 2500;
-    int totalBudgetSpent = 4000;
-    int billsSpent = 1000;
-    int foodSpent = 1000;
-    int entertainmentSpent = 1000;
-    int othersSpent = 1000;
+    Button btn_account, graphView, settings, addExpense;
+    String jsonMyAccount;
+    String user;
+    Account account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
-
-        account = (Button) findViewById(R.id.btn_account_dashboard);
+        btn_account = (Button) findViewById(R.id.btn_account_dashboard);
         graphView = (Button) findViewById(R.id.btn_graph_dashboard);
         settings = (Button) findViewById(R.id.btn_settings_dashboard);
         addExpense = (Button) findViewById(R.id.btn_addExpense_dashboard);
+
+        // Get from bundle
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+            user = extras.getString("Username");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
@@ -111,23 +113,5 @@ public class Dashboard extends AppCompatActivity {
             }
         });
     }
-    
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.appbar_menu, menu);
-//        return true;
-//    }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.action_logout) {
-//            Intent logOut = new Intent(Dashboard.this, Login.class);
-//            logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(logOut);
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
 }
