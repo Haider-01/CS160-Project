@@ -161,7 +161,7 @@ public class addExpense extends AppCompatActivity {
             try {
                 System.out.println("expense start");
                 // TODO remove hardcoded phonenumber
-                s = broqueDB.addExpense(args[0], args[1], args[2]);
+                s = broqueDB.updateExpense(args[0], args[1], args[2]);
                 System.out.println(s);
             } catch (
                     IOException e) {

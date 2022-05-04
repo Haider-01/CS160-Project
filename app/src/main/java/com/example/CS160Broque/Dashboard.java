@@ -118,7 +118,7 @@ public class Dashboard extends AppCompatActivity {
         addExpense.setOnClickListener(new View.OnClickListener() {    //take to addExpense screen
             @Override
             public void onClick(View v) {
-                Intent goToAddExpense = new Intent(Dashboard.this, UserFields.class);
+                Intent goToAddExpense = new Intent(Dashboard.this, addExpense.class);
                 goToAddExpense.putExtra("Username", user);
                 goToAddExpense.putExtra("Account", new Gson().toJson(account));
                 startActivity(goToAddExpense);

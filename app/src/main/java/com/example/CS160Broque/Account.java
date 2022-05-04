@@ -267,4 +267,8 @@ public class Account implements Parcelable {
         entertainmentBudget = entertainment;
         otherBudget = other;
     }
+
+    public void insertExpenses(double bills, double food, double entertainment, double other) {
+
+    }
 }// Account

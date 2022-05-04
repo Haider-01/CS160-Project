@@ -21,6 +21,7 @@ public class Login extends AppCompatActivity {
     ProgressDialog progressDialog;
     TextView forgetPass;
     BroqueDB broqueDB;
+    Account account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class Login extends AppCompatActivity {
         progressDialog = new ProgressDialog(Login.this);
         forgetPass = (TextView) findViewById(R.id.tv_forgetPass_login);
         broqueDB = new BroqueDB();
+
 
         forgetPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +85,7 @@ public class Login extends AppCompatActivity {
                 System.out.println(s);
                 if (s.equals(args[1])) {
                     Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
-                    dashboardIntent.putExtra("userName", username.toString());
+                    dashboardIntent.putExtra("Account", username.toString());
                     startActivity(dashboardIntent);
                 }
                 System.out.println("login end");
