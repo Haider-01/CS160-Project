@@ -60,6 +60,7 @@ public class changeName extends AppCompatActivity {
                 }
                 // Update to DB
                 new ChangeNameTask().execute(sCurrUser, sNewUser);
+                account.setUserName(sNewUser);
 
                 Intent backToAccount = new Intent(changeName.this, AccountScreen.class);
                 backToAccount.putExtra("Account", new Gson().toJson(account));
