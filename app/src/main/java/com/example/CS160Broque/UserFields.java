@@ -25,7 +25,6 @@ import java.net.URISyntaxException;
 
 public class UserFields extends AppCompatActivity {
     EditText totalBudget, billsBudget, foodBudget, entertainmentBudget, otherBudget, monthlyIncome;
-    Spinner spinner;
     Button finish;
     BroqueDB broqueDB;
     String jsonMyAccount;
@@ -48,7 +47,6 @@ public class UserFields extends AppCompatActivity {
         System.out.println("onCreateUserFieldsPrint");
 //        spinner = (Spinner) findViewById(R.id.spinner);
         monthlyIncome = (EditText) findViewById(R.id.edt_monthlyincome_userfields);
-        totalBudget = (EditText) findViewById(R.id.edt_total_userfields);
         billsBudget = (EditText) findViewById(R.id.edt_bill_userfields);
         foodBudget = (EditText) findViewById(R.id.edt_food_userfields);
         entertainmentBudget = (EditText) findViewById(R.id.edt_entertainment_userfields);
