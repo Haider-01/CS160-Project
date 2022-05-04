@@ -10,7 +10,7 @@ $db = substr($url["path"], 1);
 // Connect to DB
 $conn = new mysqli($server, $username, $password, $db);
 
-$username = $_GET['user'];
+$user = $_GET['username'];
 
 $query = mysqli_query($conn,"SELECT username, total, bill, food, entertainment, other 
 FROM broque_budgets WHERE username = $user");
