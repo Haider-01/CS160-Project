@@ -40,29 +40,6 @@
                 android:hint="Monthly Income for Default Settings" />
         </RelativeLayout>
 
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="35dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edt_total_userfields"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="Total Budget" />
-        </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
