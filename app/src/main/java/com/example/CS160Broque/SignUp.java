@@ -99,7 +99,6 @@ public class SignUp extends AppCompatActivity {
                     // Create local account
                     Account myAccount = new Account(sFullname, sUsername, sPassword, sPhonenumber);
                     Intent goToUserFields = new Intent(SignUp.this, UserFields.class);
-                    goToUserFields.putExtra("Username", username.getText().toString());
                     goToUserFields.putExtra("Account", new Gson().toJson(myAccount));
                     startActivity(goToUserFields);
 

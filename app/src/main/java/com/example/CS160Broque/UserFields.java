@@ -24,11 +24,10 @@ import java.net.URISyntaxException;
 
 
 public class UserFields extends AppCompatActivity {
-    EditText totalBudget, billsBudget, foodBudget, entertainmentBudget, otherBudget, monthlyIncome;
+    EditText billsBudget, foodBudget, entertainmentBudget, otherBudget, monthlyIncome;
     Button finish;
     BroqueDB broqueDB;
     String jsonMyAccount;
-    String user;
     Account account;
 
     @Override
@@ -40,12 +39,10 @@ public class UserFields extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             jsonMyAccount = extras.getString("Account");
-            user = extras.getString("Username");
         }
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
         System.out.println("onCreateUserFieldsPrint");
-//        spinner = (Spinner) findViewById(R.id.spinner);
         monthlyIncome = (EditText) findViewById(R.id.edt_monthlyincome_userfields);
         billsBudget = (EditText) findViewById(R.id.edt_bill_userfields);
         foodBudget = (EditText) findViewById(R.id.edt_food_userfields);
@@ -60,12 +57,10 @@ public class UserFields extends AppCompatActivity {
                 // Set budget in the database, if user doesn't enter any value for any budget category, set budget to 0
 
                 String mIncome = monthlyIncome.getText().toString();
-                String tBudget = totalBudget.getText().toString();
                 String bBudget = billsBudget.getText().toString();
                 String fBudget = foodBudget.getText().toString();
                 String eBudget = entertainmentBudget.getText().toString();
                 String oBudget = otherBudget.getText().toString();
-                System.out.println(mIncome + " " + tBudget + " " + bBudget + " " + fBudget + " " + eBudget + " " + oBudget);
 
                 if (mIncome.isEmpty()){
                     monthlyIncome.setError("monthly income is empty");
@@ -83,19 +78,20 @@ public class UserFields extends AppCompatActivity {
                     return;
                 }
                 if (eBudget.isEmpty()){
-                    totalBudget.setError("entertainment is empty");
-                    totalBudget.requestFocus();
+                    entertainmentBudget.setError("entertainment is empty");
+                    entertainmentBudget.requestFocus();
                     return;
                 }
-                if (tBudget.isEmpty()){
-                    totalBudget.setError("total is empty");
-                    totalBudget.requestFocus();
+                if (oBudget.isEmpty()){
+                    otherBudget.setError("total is empty");
+                    otherBudget.requestFocus();
                     return;
                 }
-                // Add Budgets to DB
-                new UserFieldsTask().execute(user, tBudget, bBudget, fBudget, eBudget, oBudget);
-                Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
                 account.insertBudgets(Double.parseDouble(bBudget), Double.parseDouble(fBudget), Double.parseDouble(eBudget), Double.parseDouble(oBudget));
+                account.insertExpenses(0.0, 0.0, 0.0, 0.0);
+                // Add Budgets to DB
+                new UserFieldsTask().execute(account.getUserName(), account.getTotalBudget(), bBudget, fBudget, eBudget, oBudget);
+                Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
                 finishIntent.putExtra("Account", new Gson().toJson(account));
                 startActivity(finishIntent);
             }

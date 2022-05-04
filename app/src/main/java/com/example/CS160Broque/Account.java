@@ -23,6 +23,8 @@ public class Account implements Parcelable {
     private double entertainmentExpense;
     private double otherExpense;
 
+    private double monthlyIncome;
+
     public Account(){
         this.fullName = "";
         this.userName = "";
@@ -88,6 +90,15 @@ public class Account implements Parcelable {
     };
 
     // Getters and Setters
+
+    public double getMonthlyIncome() {
+        return monthlyIncome;
+    }
+
+    public void setMonthlyIncome(double monthlyIncome) {
+        this.monthlyIncome = monthlyIncome;
+    }
+
     public String getFullName() {
         return fullName;
     }
@@ -120,8 +131,8 @@ public class Account implements Parcelable {
         this.phoneNumber = phoneNumber;
     }
 
-    public double getTotalBudget() {
-        return totalBudget;
+    public String getTotalBudget() {
+        return Double.toString(totalBudget);
     }
 
     public void setTotalBudget(double totalBudget) {
