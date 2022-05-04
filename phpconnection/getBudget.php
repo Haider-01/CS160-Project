@@ -10,10 +10,10 @@ $db = substr($url["path"], 1);
 // Connect to DB
 $conn = new mysqli($server, $username, $password, $db);
 
-$username = $_GET['username'];
+$username = $_GET['user'];
 
 $query = mysqli_query($conn,"SELECT username, total, bill, food, entertainment, other 
-FROM broque_budgets WHERE username = $username");
+FROM broque_budgets WHERE username = $user");
 
 
 while($row = mysqli_fetch_array($query, MYSQLI_NUM) ){
