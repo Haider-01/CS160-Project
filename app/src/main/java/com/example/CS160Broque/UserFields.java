@@ -93,6 +93,7 @@ public class UserFields extends AppCompatActivity {
                 new UserFieldsTask().execute(user, tBudget, bBudget, fBudget, eBudget, oBudget);
                 Intent finishIntent = new Intent(UserFields.this, Dashboard.class);
                 account.insertBudgets(Double.parseDouble(bBudget), Double.parseDouble(fBudget), Double.parseDouble(eBudget), Double.parseDouble(oBudget));
+                finishIntent.putExtra("Account", new Gson().toJson(account));
                 startActivity(finishIntent);
             }
         });
