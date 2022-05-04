@@ -45,18 +45,6 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/edt_total_settings"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="Update Total Budget" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
                 android:id="@+id/edt_bill_settings"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"

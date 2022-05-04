@@ -38,20 +38,10 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        edtTotalBudget = (EditText) findViewById(R.id.edt_total_settings);
         edtBillsBudget = (EditText) findViewById(R.id.edt_bill_settings);
         edtFoodBudget = (EditText) findViewById(R.id.edt_food_settings);
         edtEntertainmentBudget = (EditText) findViewById(R.id.edt_entertainment_settings);
         edtOtherBudget = (EditText) findViewById(R.id.edt_other_settings);
-
-        edtTotalBudget.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context = getApplicationContext();
-                Toast toast = Toast.makeText(context, "Total budget successfully changed", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
 
         edtBillsBudget.setOnClickListener(new View.OnClickListener() {
             @Override
