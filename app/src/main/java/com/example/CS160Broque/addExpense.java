@@ -34,9 +34,9 @@ public class addExpense extends AppCompatActivity {
 
     Button addExpense;
     Spinner spinner;
-    EditText budgetType, amount;
+    EditText amount;
     String jsonMyAccount;
-    String user;
+    String user,budgetType;
     Account account;
     BroqueDB broqueDB;
 
@@ -56,92 +56,85 @@ public class addExpense extends AppCompatActivity {
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
 
-//        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         addExpense = (Button) findViewById(R.id.btn_addExpense_expense);
-        budgetType =(EditText) findViewById(R.id.edit_budgetType);
         amount = (EditText) findViewById(R.id.edt_expense_expense);
-//        String[] items = {"Select Budget Category","Food", "Bills", "Entertainment", "Other"};
+        String[] items = {"Select Budget Category","Food", "Bills", "Entertainment", "Other"};
 
 
-//        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-//                items){
-//            @Override
-//            public boolean isEnabled(int position) {
-//                if (position==0){
-//                    return false;
-//                }else{
-//                    return true;
-//                }
-//            }
-//
-//            @Override
-//            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//                View view = super.getDropDownView(position, convertView, parent);
-//                TextView tv = (TextView) view;
-//                if(position == 0){
-//                    // Set the hint text color gray
-//                    tv.setTextColor(Color.GRAY);
-//                }
-//                else {
-//                    tv.setTextColor(Color.BLACK);
-//                }
-//                return view;
-//            }
-//        });
-//
-//
-//
-//        final String choice = spinner.getSelectedItem().toString();
-//
-//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-//            NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
-//            NotificationManager manager = getSystemService(NotificationManager.class);
-//            manager.createNotificationChannel(channel);
-//        }
+       spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+               items){
+           @Override
+           public boolean isEnabled(int position) {
+               if (position==0){
+                   return false;
+               }else{
+                   return true;
+               }
+           }
+
+           @Override
+           public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+               View view = super.getDropDownView(position, convertView, parent);
+               TextView tv = (TextView) view;
+               if(position == 0){
+                   // Set the hint text color gray
+                   tv.setTextColor(Color.GRAY);
+               }
+               else {
+                   tv.setTextColor(Color.BLACK);
+               }
+               return view;
+           }
+       });
+
+       if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+           NotificationChannel channel = new NotificationChannel("Notification", "Notification", NotificationManager.IMPORTANCE_DEFAULT);
+           NotificationManager manager = getSystemService(NotificationManager.class);
+           manager.createNotificationChannel(channel);
+       }
 
 
         addExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Context context = getApplicationContext();
-//                Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
-//                toast.show();
-//
-//                double amountNum = Double.parseDouble(amount.getText().toString().trim());
-//                if (amountNum>0){
-//
-//                    NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
-//
-//                    notify.setContentTitle("Broque");
-//                    notify.setContentText("Your budget for "+ choice +" has exceeded 75%");
-//                    notify.setSmallIcon(R.drawable.abc);
-//                    notify.setAutoCancel(true);
-//
-//                    NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
-//                    not.notify(1,notify.build());
-//                }
-                String type = budgetType.getText().toString();
-                String amt = amount.getText().toString();
-                Double double_amt = Double.parseDouble(amt);
+               Context context = getApplicationContext();
+               Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
+               toast.show();
+               budgetType = spinner.getSelectedItem().toString();
+               double amountNum = Double.parseDouble(amount.getText().toString().trim());
+               
+                if (amountNum>0){
+
+                   NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
+
+                   notify.setContentTitle("Broque");
+                   notify.setContentText("Your budget for "+ choice +" has exceeded 75%");
+                   notify.setSmallIcon(R.drawable.abc);
+                   notify.setAutoCancel(true);
+
+                   NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
+                   not.notify(1,notify.build());
+               }
+                String type = budgetType;
                 String expense;
                 if (type.isEmpty() || !type.equalsIgnoreCase("bills") || !type.equalsIgnoreCase("food") || !type.equalsIgnoreCase("entertainment") || !type.equalsIgnoreCase("other")) {
-                    budgetType.setError("Budget type is invalid. Please select from bills, food, entertainment, or other");
-                    budgetType.requestFocus();
+                    ((TextView)spinner.getSelectedView()).setError("None selected");
                     return;
                 }
-                if (amt.isEmpty()){
+                if (amount.getText().toString().trim().length()==0){
                     amount.setError("Amount is empty");
                     amount.requestFocus();
                     return;
                 }
                 if (type.equalsIgnoreCase("bills")) {
-                    expense = String.valueOf(account.addBillsExpense(double_amt));
+                    expense = String.valueOf(account.addBillsExpense(amountNum));
                 } else if (type.equalsIgnoreCase("food")) {
-                    expense = String.valueOf(account.addFoodExpense(double_amt));
+                    expense = String.valueOf(account.addFoodExpense(amountNum));
                 } else if (type.equalsIgnoreCase("entertainment")) {
-                    expense = String.valueOf(account.addEntertainmentExpense(double_amt));
+                    expense = String.valueOf(account.addEntertainmentExpense(amountNum));
                 } else {
-                    expense = String.valueOf(account.addOtherExpense(double_amt));
+                    expense = String.valueOf(account.addOtherExpense(amountNum));
                 }
                 new ExpenseTask().execute(account.getUserName(), type, expense);
                 Intent backToDashboard = new Intent(addExpense.this, Dashboard.class);
@@ -161,7 +154,7 @@ public class addExpense extends AppCompatActivity {
             try {
                 System.out.println("expense start");
                 // TODO remove hardcoded phonenumber
-                s = broqueDB.updateExpense(args[0], args[1], args[2]);
+                s = broqueDB.addExpense(args[0], args[1], args[2]);
                 System.out.println(s);
             } catch (
                     IOException e) {
