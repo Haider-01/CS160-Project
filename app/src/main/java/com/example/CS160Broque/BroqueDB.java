@@ -95,7 +95,7 @@ public class BroqueDB {
     }
 
     public String changeName(String currUser, String newName) throws IOException, URISyntaxException {
-        String link = "https://broke-test.herokuapp.com/changePass.php?current_username=%22" + currUser + "%22&new_username=%22" + newName + "%22";
+        String link = "https://broke-test.herokuapp.com/changeName.php?current_username=%22" + currUser + "%22&new_username=%22" + newName + "%22";
         System.out.println(link);
 
         URL url = new URL(link);

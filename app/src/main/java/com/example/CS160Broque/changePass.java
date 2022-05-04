@@ -70,7 +70,7 @@ public class changePass extends AppCompatActivity {
                 } else {
                     Toast.makeText(changePass.this, "Password doesn't match!", Toast.LENGTH_SHORT).show();
                 }
-                new ChangePassTask().execute(currentPass.getText().toString(), newPass.getText().toString());
+                new ChangePassTask().execute(account.getUserName(), newPass.getText().toString());
             }
         });
 
