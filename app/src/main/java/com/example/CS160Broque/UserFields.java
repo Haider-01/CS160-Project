@@ -72,11 +72,6 @@ public class UserFields extends AppCompatActivity {
                     monthlyIncome.requestFocus();
                     return;
                 }
-                if (tBudget.isEmpty()){
-                    totalBudget.setError("total is empty");
-                    totalBudget.requestFocus();
-                    return;
-                }
                 if (bBudget.isEmpty()){
                     billsBudget.setError("bills is empty");
                     billsBudget.requestFocus();
@@ -85,6 +80,16 @@ public class UserFields extends AppCompatActivity {
                 if (fBudget.isEmpty()){
                     foodBudget.setError("food is empty");
                     foodBudget.requestFocus();
+                    return;
+                }
+                if (eBudget.isEmpty()){
+                    totalBudget.setError("entertainment is empty");
+                    totalBudget.requestFocus();
+                    return;
+                }
+                if (tBudget.isEmpty()){
+                    totalBudget.setError("total is empty");
+                    totalBudget.requestFocus();
                     return;
                 }
                 // Add Budgets to DB

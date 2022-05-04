@@ -261,14 +261,25 @@ public class Account implements Parcelable {
 
     // Updates budgets
     public void insertBudgets(double bills, double food, double entertainment, double other) {
-        totalBudget = bills + food + entertainment + other;
-        billsBudget = bills;
-        foodBudget = food;
-        entertainmentBudget = entertainment;
-        otherBudget = other;
+        this.totalBudget = bills + food + entertainment + other;
+        this.billsBudget = bills;
+        this.foodBudget = food;
+        this.entertainmentBudget = entertainment;
+        this.otherBudget = other;
     }
 
     public void insertExpenses(double bills, double food, double entertainment, double other) {
+        this.totalExpense = bills + food + entertainment + other;
+        this.billsExpense = bills;
+        this.foodExpense = food;
+        this.entertainmentExpense = entertainment;
+        this.otherExpense = other;
+    }
 
+    public void insertUser(String username, String fullname, String password, String phonenumber) {
+        this.userName = username;
+        this.fullName = fullname;
+        this.password = password;
+        this.phoneNumber = phonenumber;
     }
 }// Account

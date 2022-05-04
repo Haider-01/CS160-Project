@@ -85,11 +85,20 @@ public class Login extends AppCompatActivity {
                 System.out.println(s);
                 if (s.equals(args[1])) {
                     Intent dashboardIntent = new Intent(Login.this, Dashboard.class);
-                    dashboardIntent.putExtra("Account", username.toString());
+                    String [] arrUser = broqueDB.getUser(args[0]);
+                    double [] arrBudget = broqueDB.getBudget(args[0]);
+                    double [] arrExpense = broqueDB.getExpense(args[0]);
+                    account.insertUser(arrUser[0], arrUser[1], arrUser[2], arrUser[3]);
+                    account.insertBudgets(arrBudget[0], arrBudget[1], arrBudget[2], arrBudget[3]);
+                    account.insertExpenses(arrExpense[0], arrExpense[1], arrExpense[2], arrExpense[3]);
+                    dashboardIntent.putExtra("Account", account);
                     startActivity(dashboardIntent);
                 }
                 System.out.println("login end");
             } catch (IOException e) {
+                System.out.println("ioexception caught");
+                e.printStackTrace();
+            } catch (URISyntaxException e) {
                 System.out.println("ioexception caught");
                 e.printStackTrace();
             }
