@@ -174,6 +174,11 @@ public class BroqueDB {
     }
 
     // Returns budgets from database in array form
+    // budget[0] = username
+    // budget[1] = bill
+    // budget[2] = food
+    // budget[3] = entertainment
+    // budget[4] = other
     public double[] getBudget(String username) throws IOException, URISyntaxException {
         String link = "http://broke-test.herokuapp.com/getBudget.php?username=%22" + username + "%22";
 
@@ -204,6 +209,12 @@ public class BroqueDB {
         return budget;
     }
 
+    // Returns expenses from database
+    // budget[0] = username
+    // budget[1] = bill
+    // budget[2] = food
+    // budget[3] = entertainment
+    // budget[4] = other
     public double[] getExpense(String username) throws IOException, URISyntaxException {
         String link = "http://broke-test.herokuapp.com/getExpense.php?username=%22" + username + "%22";
 
@@ -232,6 +243,34 @@ public class BroqueDB {
 
         double[] budget = {total, bill, food, entertainment, other};
         return budget;
+    }
+
+    // Given user, return user account details
+    // str[0] = fullname
+    // str[1] = username
+    // str[2] = password
+    // str[3] = phonenumber
+    public String[] getUser(String username) throws IOException, URISyntaxException {
+        String link = "http://broke-test.herokuapp.com/getUser.php?username=%22" + username + "%22";
+
+        URL url = new URL(link);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+
+        while ((line = in.readLine()) != null) {
+            sb.append(line);
+            System.out.println("From sb" + sb);
+            break;
+        }
+
+        String [] str = sb.toString().split("\n");
+
+        return str;
     }
 
     public String updateExpense(String username, String budgetType, String expense) throws IOException, URISyntaxException {
