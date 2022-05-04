@@ -55,7 +55,7 @@ public class Dashboard extends AppCompatActivity {
 //            othersSpent = 0;
 //        }
 
-        TextView budgetHint = (TextView) findViewById(R.id.edt_total_userfields);
+        //TextView budgetHint = (TextView) findViewById(R.id.edt_total_userfields);
         String budgetString = "Total Budget: " + account.getTotalExpense()
                 + " out of " + account.getTotalBudget() + " remaining";
         //budgetHint.setHint(budgetString);

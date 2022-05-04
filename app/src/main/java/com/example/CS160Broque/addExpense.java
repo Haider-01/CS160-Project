@@ -109,7 +109,7 @@ public class addExpense extends AppCompatActivity {
                    NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
 
                    notify.setContentTitle("Broque");
-                   notify.setContentText("Your budget for "+ choice +" has exceeded 75%");
+                   notify.setContentText("Your budget for "+ budgetType +" has exceeded 75%");
                    notify.setSmallIcon(R.drawable.abc);
                    notify.setAutoCancel(true);
 
@@ -154,7 +154,7 @@ public class addExpense extends AppCompatActivity {
             try {
                 System.out.println("expense start");
                 // TODO remove hardcoded phonenumber
-                s = broqueDB.addExpense(args[0], args[1], args[2]);
+                s = broqueDB.updateExpense(args[0], args[1], args[2]);
                 System.out.println(s);
             } catch (
                     IOException e) {
