@@ -193,11 +193,14 @@ public class BroqueDB {
 
         while ((line = in.readLine()) != null) {
             sb.append(line);
-            System.out.println("From sb" + sb);
+            System.out.println(sb);
             break;
         }
 
-        String [] str = sb.toString().split("\n");
+        String [] str = sb.toString().split("<br>");
+        for(String stri: str) {
+            System.out.println(stri);
+        }
 
         double total = Double.parseDouble(str[1]);
         double bill = Double.parseDouble(str[2]);
@@ -229,11 +232,11 @@ public class BroqueDB {
 
         while ((line = in.readLine()) != null) {
             sb.append(line);
-            System.out.println("From sb" + sb);
+            System.out.println(sb);
             break;
         }
 
-        String [] str = sb.toString().split("\n");
+        String [] str = sb.toString().split("<br>");
 
         double total = Double.parseDouble(str[1]);
         double bill = Double.parseDouble(str[2]);
@@ -268,7 +271,7 @@ public class BroqueDB {
             break;
         }
 
-        String [] str = sb.toString().split("\n");
+        String [] str = sb.toString().split("<br>");
 
         return str;
     }

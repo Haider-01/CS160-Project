@@ -287,10 +287,4 @@ public class Account implements Parcelable {
         this.otherExpense = other;
     }
 
-    public void insertUser(String username, String fullname, String password, String phonenumber) {
-        this.userName = username;
-        this.fullName = fullname;
-        this.password = password;
-        this.phoneNumber = phonenumber;
-    }
 }// Account

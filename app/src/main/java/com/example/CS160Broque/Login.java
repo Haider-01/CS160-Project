@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -88,10 +90,10 @@ public class Login extends AppCompatActivity {
                     String [] arrUser = broqueDB.getUser(args[0]);
                     double [] arrBudget = broqueDB.getBudget(args[0]);
                     double [] arrExpense = broqueDB.getExpense(args[0]);
-                    account.insertUser(arrUser[0], arrUser[1], arrUser[2], arrUser[3]);
+                    account = new Account(arrUser[0], arrUser[1], arrUser[2], arrUser[3]);
                     account.insertBudgets(arrBudget[1], arrBudget[2], arrBudget[3], arrBudget[4]);
                     account.insertExpenses(arrExpense[1], arrExpense[2], arrExpense[3], arrExpense[4]);
-                    dashboardIntent.putExtra("Account", account);
+                    dashboardIntent.putExtra("Account", new Gson().toJson(account));
                     startActivity(dashboardIntent);
                 }
                 System.out.println("login end");
