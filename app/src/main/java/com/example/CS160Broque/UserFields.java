@@ -27,6 +27,7 @@ public class UserFields extends AppCompatActivity {
     EditText billsBudget, foodBudget, entertainmentBudget, otherBudget, monthlyIncome;
     Button finish;
     BroqueDB broqueDB;
+    TextView totalBudget;
     String jsonMyAccount;
     Account account;
 
@@ -49,8 +50,17 @@ public class UserFields extends AppCompatActivity {
         entertainmentBudget = (EditText) findViewById(R.id.edt_entertainment_userfields);
         otherBudget = (EditText) findViewById(R.id.edt_other_userfields);
         finish = (Button) findViewById(R.id.btn_finish_userfields);
+        totalBudget = (TextView) findViewById(R.id.edt_totalamt_userfields);
         broqueDB = new BroqueDB();
-        
+
+        double bBudget = Double.parseDouble(billsBudget.getText().toString().trim());
+        double fBudget = Double.parseDouble(foodBudget.getText().toString().trim());
+        double eBudget = Double.parseDouble(entertainmentBudget.getText().toString().trim());
+        double oBudget = Double.parseDouble(otherBudget.getText().toString().trim());
+        double tBudget = bBudget+fBudget+eBudget+oBudget;
+        totalBudget.setText("$"+String.valueOf(tBudget));
+
+
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +93,7 @@ public class UserFields extends AppCompatActivity {
                     return;
                 }
                 if (oBudget.isEmpty()){
-                    otherBudget.setError("total is empty");
+                    otherBudget.setError("other is empty");
                     otherBudget.requestFocus();
                     return;
                 }
