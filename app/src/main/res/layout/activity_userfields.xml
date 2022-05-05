@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/red_blue_background">
 
     <Button
         android:id="@+id/btn_finish_userfields"
-        android:layout_width="155dp"
-        android:layout_height="60dp"
-        android:text="FINISH"
+        android:layout_width="109dp"
+        android:layout_height="91dp"
+        android:background="@drawable/done"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:hint="Monthly Income for Default Settings" />
+                android:hint="Monthly Income for Default Settings"
+                android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -57,7 +59,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:hint="Bills Budget" />
+                android:hint="Bills Budget"
+                android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -69,7 +72,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:hint="Food Budget" />
+                android:hint="Food Budget"
+                android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -81,7 +85,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:hint="Entertainment Budget" />
+                android:hint="Entertainment Budget"
+                android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -93,7 +98,8 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:hint="Other Budget" />
+                android:hint="Other Budget"
+                android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -103,7 +109,7 @@
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:text="Enter Budgets And Costs: "
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
