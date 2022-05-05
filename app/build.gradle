@@ -4,6 +4,12 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     useLibrary  'org.apache.http.legacy'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         applicationId "com.example.CS160Broque"
         minSdkVersion 16
@@ -39,4 +45,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.jjoe64:graphview:4.2.2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
