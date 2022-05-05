@@ -176,7 +176,30 @@ public class BroqueDB {
      */
     public String updateBudget(String category, String amount, String username) throws IOException, URISyntaxException {
         // Link to DB
-        String link = "https://broke-test.herokuapp.com/updateBudget.php?category=%22" + category + "%22&budget=%22" + amount + "%22&username=%22" + username + "%22";
+        String link = "https://broke-test.herokuapp.com/updateBudgets.php?category=%22" + category + "%22&budget=%22" + amount + "%22&username=%22" + username + "%22";
+        System.out.println(link);
+
+        URL url = new URL(link);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+
+        while ((line = in.readLine()) != null) {
+            sb.append(line);
+            System.out.println(sb);
+            break;
+        }
+        in.close();
+
+        return sb.toString();
+    }
+
+    public String updateTotalBudget(String username, String total)  throws IOException, URISyntaxException {
+        String link = "https://broke-test.herokuapp.com/updateTotalBudget.php?username=%22" + username + "%22&budget=%22" + total + "%22";
         System.out.println(link);
 
         URL url = new URL(link);

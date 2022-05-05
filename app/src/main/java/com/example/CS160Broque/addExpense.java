@@ -36,8 +36,8 @@ public class addExpense extends AppCompatActivity {
     Button addExpense;
     Spinner spinner;
     EditText amount;
-    String jsonMyAccount;
     String user,budgetType;
+    String jsonMyAccount;
     Account account;
     BroqueDB broqueDB;
 
@@ -52,7 +52,6 @@ public class addExpense extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             jsonMyAccount = extras.getString("Account");
-            user = extras.getString("Username");
         }
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);

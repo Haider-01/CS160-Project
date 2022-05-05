@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,24 +19,33 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class Settings extends AppCompatActivity {
     Button updateBudget;
-    TextView totalBudget;
-    TextView billsBudget;
-    TextView foodBudget;
-    TextView entertainmentBudget;
-    TextView otherBudget;
     Spinner spinner;
     EditText amount;
     String budgetType;
+    String jsonMyAccount;
+    Account account;
+    BroqueDB broqueDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        broqueDB = new BroqueDB();
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
-
+        // Get from bundle
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         spinner = (Spinner) findViewById(R.id.budgetSpinner);
         updateBudget = (Button) findViewById(R.id.btn_update_budget);
@@ -92,12 +102,32 @@ public class Settings extends AppCompatActivity {
                 double amountNum = Double.parseDouble(amount.getText().toString().trim());
 
                 String type = budgetType;
-                String expense;
+                String set_budget;
+                String total;
 
+                if (amount.getText().toString().trim().length()==0){
+                    amount.setError("Amount is empty");
+                    amount.requestFocus();
+                    return;
+                }
+                if (type.equalsIgnoreCase("bills")) {
+                    account.setBillsBudget(amountNum);
+                    set_budget = String.valueOf(account.getBillsBudget());
+                } else if (type.equalsIgnoreCase("food")) {
+                    account.setFoodBudget(amountNum);
+                    set_budget = String.valueOf(account.getFoodBudget());
+                } else if (type.equalsIgnoreCase("entertainment")) {
+                    account.setEntertainmentBudget(amountNum);
+                    set_budget = String.valueOf(account.getEntertainmentBudget());
+                } else {
+                    account.setOtherBudget(amountNum);
+                    set_budget = String.valueOf(account.getOtherBudget());
+                }
+                total = account.updatetotalBudget();
 
-
+                new SettingsTask().execute(type, set_budget, account.getUserName(), total);
                 Intent dashboardIntent = new Intent(Settings.this, Dashboard.class);
-                dashboardIntent.putExtra("userName", userNameIdentifier);
+                dashboardIntent.putExtra("Account", new Gson().toJson(account));
                 startActivity(dashboardIntent);
             }
         });
@@ -105,6 +135,29 @@ public class Settings extends AppCompatActivity {
 
 
 
+    }
+
+    public class SettingsTask extends AsyncTask<String, String, String> {
+        public String doInBackground(String... args) {
+            String s = null;
+            String t;
+            try {
+                System.out.println("settings start");
+                s = broqueDB.updateBudget(args[0], args[1], args[2]);
+                t = broqueDB.updateTotalBudget(args[2], args[3]);
+                System.out.println(s);
+                System.out.println(t);
+            } catch (
+                    IOException e) {
+                System.out.println("ioexception caught");
+                e.printStackTrace();
+            } catch (
+                    URISyntaxException e) {
+                System.out.println("uriexception caught");
+                e.printStackTrace();
+            }
+            return s;
+        }
     }
 }
 

@@ -287,4 +287,9 @@ public class Account implements Parcelable {
         this.otherExpense = other;
     }
 
+    public String updatetotalBudget() {
+        this.totalBudget = this.billsBudget + this.foodBudget + this.entertainmentBudget + this.otherBudget;
+        return Double.toString(this.totalBudget);
+    }
+
 }// Account
