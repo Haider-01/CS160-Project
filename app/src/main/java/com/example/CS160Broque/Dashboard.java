@@ -20,6 +20,7 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 
@@ -135,28 +136,31 @@ public class Dashboard extends AppCompatActivity {
 
     private void setupPieChart() {
         pieChart.setDrawHoleEnabled(true);
-//        pieChart.setUsePercentValues(true);
+        pieChart.setUsePercentValues(true);
         pieChart.setEntryLabelTextSize(12);
         pieChart.setEntryLabelColor(Color.BLACK);
         pieChart.setCenterText("Spending by Category");
         pieChart.setCenterTextSize(24);
         pieChart.getDescription().setEnabled(false);
-
+//
         Legend l = pieChart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-        l.setDrawInside(false);
-        l.setEnabled(true);
+//        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+//        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+//        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+//        l.setDrawInside(false);
+        l.setEnabled(false);
     }
 
     private void loadPieChartData(){
         ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(20, "Food & Dining"));
-        entries.add(new PieEntry(15, "Medical"));
-        entries.add(new PieEntry(10, "Entertainment"));
-        entries.add(new PieEntry(25, "Electricity and Gas"));
-        entries.add(new PieEntry(30, "Housing"));
+        entries.add(new PieEntry(5, "Used Food"));
+        entries.add(new PieEntry(25, "Remaining Food"));
+        entries.add(new PieEntry(20, "Used Bills"));
+        entries.add(new PieEntry(10, "Remaining Bills"));
+        entries.add(new PieEntry(10, "Used Entertainment"));
+        entries.add(new PieEntry(15, "Remaining Entertainment"));
+        entries.add(new PieEntry(2, "Used Other"));
+        entries.add(new PieEntry(13, "Remaining Other"));
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
@@ -174,7 +178,7 @@ public class Dashboard extends AppCompatActivity {
 
         PieData data = new PieData(dataSet);
         data.setDrawValues(true);
-        //data.setValueFormatter(new PercentFormatter(pieChart));
+        data.setValueFormatter(new PercentFormatter(pieChart));
         data.setValueTextSize(12f);
         data.setValueTextColor(Color.BLACK);
 
