@@ -47,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Monthly Income for Default Settings"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
@@ -60,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Bills Budget"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
@@ -73,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Food Budget"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
@@ -86,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Entertainment Budget"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
@@ -99,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Other Budget"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF" />
         </RelativeLayout>
 
