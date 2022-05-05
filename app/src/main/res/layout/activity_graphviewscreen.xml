@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/red_blue_background">
+    android:background="@drawable/gradient">
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/gv_billsGraph_graphviewscreen"
