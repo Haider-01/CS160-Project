@@ -290,7 +290,7 @@ public class BroqueDB {
     }
 
     public String forgetPass(String username, String phonenumber)  throws IOException, URISyntaxException {
-        String link = "https://broke-test.herokuapp.com/forgetPass.php?username=%22" + username + "%22&phone=%22" + phonenumber + "%22";
+        String link = "https://broke-test.herokuapp.com/forgetPass.php?username=%22" + username + "%22&phonenumber=%22" + phonenumber + "%22";
         System.out.println(link);
 
         URL url = new URL(link);
