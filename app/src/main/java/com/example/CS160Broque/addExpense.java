@@ -130,6 +130,7 @@ public class addExpense extends AppCompatActivity {
                }
                 String type = budgetType;
                 String expense;
+                String total;
 
                 if (amount.getText().toString().trim().length()==0){
                     amount.setError("Amount is empty");
@@ -145,7 +146,8 @@ public class addExpense extends AppCompatActivity {
                 } else {
                     expense = String.valueOf(account.addOtherExpense(amountNum));
                 }
-                new ExpenseTask().execute(account.getUserName(), type, expense);
+                total = account.updateTotalExpense();
+                new ExpenseTask().execute(account.getUserName(), type, expense, total);
                 Intent backToDashboard = new Intent(addExpense.this, Dashboard.class);
                 backToDashboard.putExtra("Account", new Gson().toJson(account));
                 startActivity(backToDashboard);
@@ -160,10 +162,12 @@ public class addExpense extends AppCompatActivity {
     public class ExpenseTask extends AsyncTask<String, String, String> {
         public String doInBackground(String... args) {
             String s = null;
+            String t;
             try {
                 System.out.println("expense start");
                 // TODO remove hardcoded phonenumber
                 s = broqueDB.updateExpense(args[0], args[1], args[2]);
+                t = broqueDB.updateTotalExpense(args[0], args[3]);
                 System.out.println(s);
             } catch (
                     IOException e) {

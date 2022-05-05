@@ -292,4 +292,9 @@ public class Account implements Parcelable {
         return Double.toString(this.totalBudget);
     }
 
+    public String updateTotalExpense() {
+        this.totalExpense = this.billsExpense + this.foodExpense + this.entertainmentExpense + this.otherExpense;
+        return Double.toString(totalExpense);
+    }
+
 }// Account
