@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class Settings extends AppCompatActivity {
     Button dashboard;
     TextView totalBudget;
@@ -19,13 +21,21 @@ public class Settings extends AppCompatActivity {
     TextView entertainmentBudget;
     TextView otherBudget;
     EditText edtTotalBudget, edtBillsBudget, edtFoodBudget, edtEntertainmentBudget, edtOtherBudget;
+    String jsonMyAccount;
+    Account account;
+    BroqueDB broqueDB = new BroqueDB();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         dashboard = (Button) findViewById(R.id.btn_finish_settings);
 
@@ -33,7 +43,6 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent dashboardIntent = new Intent(Settings.this, Dashboard.class);
-                dashboardIntent.putExtra("userName", userNameIdentifier);
                 startActivity(dashboardIntent);
             }
         });
