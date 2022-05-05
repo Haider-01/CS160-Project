@@ -368,4 +368,26 @@ public class BroqueDB {
         return sb.toString();
     }
 
+    public String deleteAccount(String username) throws IOException, URISyntaxException {
+        String link = "https://broke-test.herokuapp.com/deleteAccount.php?username=%22" + username + "%22";
+        System.out.println(link);
+
+        URL url = new URL(link);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+
+        while ((line = in.readLine()) != null) {
+            sb.append(line);
+            System.out.println(sb);
+            break;
+        }
+        in.close();
+
+        return sb.toString();
+    }
 }
