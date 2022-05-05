@@ -25,9 +25,6 @@ import com.example.CS160Broque.SignUp;
 @RunWith(AndroidJUnit4.class)
 public class LoginTests {
 
-    private static final String STRING_TO_BE_TYPED = "user";
-    private static final String FULLNAME = "user";
-
     @Rule public ActivityScenarioRule<SignUp> activityScenarioRule
             = new ActivityScenarioRule<>(SignUp.class);
 
@@ -40,116 +37,6 @@ public class LoginTests {
 //
 //    }
 
-
-    @Test
-    public void testMissingPassword() throws Throwable {
-        final String fullname = "joe bob";
-        final String username = "joebob2";
-        final String phonenumber = "123434567890";
-        runOnUiThread(new Runnable() {
-            public void run() {
-                try {
-                    SignUp signup = new SignUp();
-                    SignUp.SignUpTask button = signup.new SignUpTask();
-                    String result = button.doInBackground(fullname, username, phonenumber);
-                    assertNotNull(result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    fail("No exception expected");
-                }
-            }
-        });
-    }
-
-    @Test
-    public void testShortPassword() throws Throwable {
-
-        final String fullname = "joe bob";
-        final String username = "joebob";
-        final String password = "p1";
-        final String phonenumber = "1234567890";
-        runOnUiThread(new Runnable() {
-            public void run() {
-                try {
-                    SignUp signup = new SignUp();
-                    SignUp.SignUpTask button = signup.new SignUpTask();
-                    String result = button.execute(fullname, username, password, phonenumber).get();
-                    assertEquals(result, "password too weak, must be at least 4 characters long");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    fail("No exception expected");
-                }
-            }
-        });
-    }
-
-    @Test
-    public void testGoodInsert() throws Throwable {
-
-        final String fullname = "joe bob";
-        final String username = "joebob";
-        final String password = "pass123";
-        final String phonenumber = "1234567890";
-        runOnUiThread(new Runnable() {
-            public void run() {
-                try {
-                    SignUp signup = new SignUp();
-                    SignUp.SignUpTask button = signup.new SignUpTask();
-                    String result = button.execute(fullname, username, password, phonenumber).get();
-                    assertNull(result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    fail("No exception expected");
-                }
-            }
-        });
-    }
-
-    @Test
-    public void testBadPhoneNumber() throws Throwable {
-
-        final String fullname = "joe bob";
-        final String username = "joebob";
-        final String password = "pass123";
-        final String phonenumber = "12343";
-        runOnUiThread(new Runnable() {
-            public void run() {
-                try {
-                    SignUp signup = new SignUp();
-                    SignUp.SignUpTask button = signup.new SignUpTask();
-                    String result = button.execute(fullname, username, password, phonenumber).get();
-                    assertEquals(result, "phone number length not correct");
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    fail("No exception expected");
-                }
-            }
-        });
-    }
-
-
-    public void checkDuplicateUsername() throws Throwable {
-        final String fullname = "joe bob";
-        final String username = "joebob2";
-        final String password = "pass123";
-        final String phonenumber = "123434567890";
-        runOnUiThread(new Runnable() {
-            public void run() {
-                try {
-                    SignUp signup = new SignUp();
-                    SignUp.SignUpTask button = signup.new SignUpTask();
-                    button.execute(fullname, username, password, phonenumber);
-                    String result = button.execute(fullname, username, password, phonenumber).get();
-                    assertNotNull(result);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    fail("No exception expected");
-                }
-            }
-        });
-    }
 
 
 //    @Test
@@ -173,13 +60,13 @@ public class LoginTests {
             public void run() {
                 try {
                     Login login = new Login();
-                    //Login.loginButton button = login.new loginButton();
-                    //String result = button.doInBackground(username, password);
-                    //assertNull(result);
+                    Login.LoginTask task = login.new LoginTask();
+                    String result = task.doInBackground(username, password);
+                    fail("Exception expected");
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    fail("No exception expected");
+
                 }
             }
         });
@@ -189,29 +76,30 @@ public class LoginTests {
     public void testCorrectLoginInfo() throws Throwable{
 
         final String fullname = "joe bob";
-        final String username = "joebob3";
+        final String username = "joebob27";
         final String password = "pass123";
-        final String phonenumber = "123434567890";
+        final String phonenumber = "1435557893";
         runOnUiThread(new Runnable() {
             public void run() {
                 try {
                     SignUp signup = new SignUp();
                     SignUp.SignUpTask button = signup.new SignUpTask();
-                    button.execute(fullname, username, password, phonenumber);
-
+                    String result = button.execute(fullname, username, password, phonenumber).get();
+                    assertNotNull(result);
                 } catch (Exception e) {
                     e.printStackTrace();
                     fail("No exception expected");
                 }
             }
         });
+
         runOnUiThread(new Runnable() {
             public void run() {
                 try {
                     Login login = new Login();
-                    //Login.loginButton button2 = login.new loginButton();
-                    //String result = button2.execute(username, password).get();
-                    //assertNotNull(result);
+                    Login.LoginTask task = login.new LoginTask();
+                    String result = task.doInBackground(username, password);
+                    assertNotNull(result);
                 }
                 catch (Exception e) {
                     e.printStackTrace();
@@ -222,4 +110,39 @@ public class LoginTests {
 
     }
 
+    @Test
+    public void testIncorrectPassword() throws Throwable{
+        final String fullname = "joe bob";
+        final String username = "joebob28";
+        final String password = "pass123";
+        final String phonenumber = "1235507893";
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    SignUp signup = new SignUp();
+                    SignUp.SignUpTask button = signup.new SignUpTask();
+                    String result = button.execute(fullname, username, password, phonenumber).get();
+                    assertNotNull(result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    fail("No exception expected");
+                }
+            }
+        });
+
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    Login login = new Login();
+                    Login.LoginTask task = login.new LoginTask();
+                    String result = task.doInBackground(username, "incorrectPass");
+                    fail("Exception expected");
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                }
+            }
+        });
+    }
 }
