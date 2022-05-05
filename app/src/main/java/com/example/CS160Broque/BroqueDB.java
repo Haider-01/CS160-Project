@@ -165,6 +165,39 @@ public class BroqueDB {
         return sb.toString();
     }
 
+    /**
+     * 
+     * @param category
+     * @param amount
+     * @param username
+     * @return "Category updated successfully" from PHP
+     * @throws IOException
+     * @throws URISyntaxException
+     */
+    public String updateBudget(String category, String amount, String username) throws IOException, URISyntaxException {
+        // Link to DB
+        String link = "https://broke-test.herokuapp.com/updateBudget.php?category=%22" + category + "%22&budget=%22" + amount + "%22&username=%22" + username + "%22";
+        System.out.println(link);
+
+        URL url = new URL(link);
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet();
+        request.setURI(new URI(link));
+        HttpResponse response = client.execute(request);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        StringBuffer sb = new StringBuffer("");
+        String line = "";
+
+        while ((line = in.readLine()) != null) {
+            sb.append(line);
+            System.out.println(sb);
+            break;
+        }
+        in.close();
+
+        return sb.toString();
+    }
+
     // Returns budgets from database in array form
     // budget[0] = total
     // budget[1] = bill
@@ -290,7 +323,7 @@ public class BroqueDB {
     }
 
     public String forgetPass(String username, String phonenumber)  throws IOException, URISyntaxException {
-        String link = "https://broke-test.herokuapp.com/forgetPass.php?username=%22" + username + "%22&phone=%22" + phonenumber + "%22";
+        String link = "https://broke-test.herokuapp.com/forgetPass.php?username=%22" + username + "%22&phonenumber=%22" + phonenumber + "%22";
         System.out.println(link);
 
         URL url = new URL(link);
