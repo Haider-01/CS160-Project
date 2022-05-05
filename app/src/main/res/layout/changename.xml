@@ -42,7 +42,10 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Current Username"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -55,7 +58,10 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="New Username"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
     </LinearLayout>

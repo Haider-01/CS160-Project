@@ -44,7 +44,9 @@
                 android:hint="Username"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF" />
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -58,7 +60,10 @@
                 android:ems="10"
                 android:hint="Enter phonenumber"
                 android:inputType="textEmailAddress"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
 

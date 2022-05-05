@@ -41,9 +41,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="current password"
+                android:hint="Current Password"
                 android:inputType="textPassword"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -55,9 +58,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="new password"
+                android:hint="New Password"
                 android:inputType="textPassword"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -69,9 +75,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="confirm new password"
+                android:hint="Confirm New Password"
                 android:inputType="textPassword"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
 
