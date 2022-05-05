@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/red_blue_background"
     android:padding="20dp"
     tools:context=".Login">
 
@@ -15,12 +15,28 @@
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/wallet" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="221dp"
+        android:layout_height="72dp"
+        android:layout_below="@+id/imageViewLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Broque"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="60sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/imageViewLogin"
-        android:layout_marginTop="20px">
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="20px"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,7 +47,11 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:hint="Username" />
+                android:hint="Username"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -44,7 +64,11 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Password"
-                android:password="true" />
+                android:password="true"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -62,14 +86,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="Sign Up" />
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="Sign Up"
+                    android:textColor="#FFFFFF"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="#FFFFFF" />
 
                 <Button
                     android:id="@+id/btn_login_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="LOGIN" />
+                    android:background="?android:attr/selectableItemBackground"
+                    android:text="LOGIN"
+                    android:textColor="#FFFFFF"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textColorHint="#FFFFFF"
+                    android:textColorLink="#FFFFFF" />
 
             </LinearLayout>
         </RelativeLayout>
@@ -85,6 +119,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Forgot password?"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textColorLink="#FFFFFF"
                 android:textSize="18sp" />
         </RelativeLayout>
     </LinearLayout>
