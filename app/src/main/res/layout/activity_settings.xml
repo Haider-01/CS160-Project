@@ -1,93 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageViewSetting"
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/wallet" />
 
     <TextView
         android:id="@+id/tv_title_settings"
-        android:layout_width="352dp"
+        android:layout_width="wrap_content"
         android:layout_height="63dp"
+        android:gravity="center"
         android:text="Edit Budgets And Costs: "
         android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        android:textSize="30sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageViewBills"
+            android:layout_width="295dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="50dp"
+            app:srcCompat="@drawable/cv2" />
+
+        <EditText
+            android:id="@+id/edt_bill_settings"
+            android:layout_width="266dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:hint="Update Bills Budget" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageViewFood"
+            android:layout_width="295dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="50dp"
+            app:srcCompat="@drawable/cv3" />
+
+        <EditText
+            android:id="@+id/edt_food_settings"
+            android:layout_width="266dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:hint="Update Food Budget" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageViewEntertainment"
+            android:layout_width="295dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="50dp"
+            app:srcCompat="@drawable/cv4" />
+
+        <EditText
+            android:id="@+id/edt_entertainment_settings"
+            android:layout_width="266dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:hint="Update Entertainment Budget" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageViewOther"
+            android:layout_width="295dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="50dp"
+            app:srcCompat="@drawable/cv5" />
+
+        <EditText
+            android:id="@+id/edt_other_settings"
+            android:layout_width="266dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="60dp"
+            android:hint="Update Other Budget" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btn_finish_settings"
-        android:layout_width="165dp"
-        android:layout_height="84dp"
-        android:text="FINISH"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/done" />
 
-    <LinearLayout
-        android:layout_width="340dp"
-        android:layout_height="287dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edt_bill_settings"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="Update Bills Budget" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edt_food_settings"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="Update Food Budget" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edt_entertainment_settings"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="Update Entertainment Budget" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edt_other_settings"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:hint="Update Other Budget" />
-        </RelativeLayout>
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
