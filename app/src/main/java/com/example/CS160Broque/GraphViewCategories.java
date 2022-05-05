@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.CS160Broque.R;
+import com.google.gson.Gson;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -16,13 +17,21 @@ public class GraphViewCategories extends AppCompatActivity {
     Button dashboard;
     Button back;
     GraphView billsGraph, foodGraph, entertainmentGraph, othersGraph;
+    String jsonMyAccount;
+    Account account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphviewscreen);
 
-        final String userNameIdentifier = getIntent().getStringExtra("userName");
+        // Get from bundle
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            jsonMyAccount = extras.getString("Account");
+        }
+        account = new Gson().fromJson(jsonMyAccount, Account.class);
+        System.out.println(account);
 
         dashboard = (Button) findViewById(R.id.btn_dashboard_graphviewscreen);
         back = (Button) findViewById(R.id.btn_back_graphviewscreen);
@@ -47,8 +56,8 @@ public class GraphViewCategories extends AppCompatActivity {
         billsGraph.addSeries(billsSeries);
         billsGraph.getViewport().setMinX(0);
         billsGraph.getViewport().setMinY(0);
-        billsGraph.getViewport().setMaxX(6);   //set this to amt of bills paid so far, every bill pay increment by 1
-        billsGraph.getViewport().setMaxY(2500); //set this to whatever totalbills is
+        billsGraph.getViewport().setMaxX(account.getBillsExpense());   //set this to amt of bills paid so far, every bill pay increment by 1
+        billsGraph.getViewport().setMaxY(account.getTotalBudget()); //set this to whatever totalbills is
         billsGraph.getViewport().setXAxisBoundsManual(true);
         billsGraph.getViewport().setYAxisBoundsManual(true);
 
@@ -67,8 +76,8 @@ public class GraphViewCategories extends AppCompatActivity {
         foodGraph.addSeries(foodSeries);
         foodGraph.getViewport().setMinX(0);
         foodGraph.getViewport().setMinY(0);
-        foodGraph.getViewport().setMaxX(6);   //set this to amt of food bought so far, every food bought increment by 1
-        foodGraph.getViewport().setMaxY(2500); //set this to whatever totalfood is
+        foodGraph.getViewport().setMaxX(account.getFoodExpense());   //set this to amt of food bought so far, every food bought increment by 1
+        foodGraph.getViewport().setMaxY(account.getFoodBudget()); //set this to whatever totalfood is
         foodGraph.getViewport().setXAxisBoundsManual(true);
         foodGraph.getViewport().setYAxisBoundsManual(true);
 
@@ -87,8 +96,8 @@ public class GraphViewCategories extends AppCompatActivity {
         entertainmentGraph.addSeries(entertainmentSeries);
         entertainmentGraph.getViewport().setMinX(0);
         entertainmentGraph.getViewport().setMinY(0);
-        entertainmentGraph.getViewport().setMaxX(6);   //set this to amt of entertainment bought so far
-        entertainmentGraph.getViewport().setMaxY(2500); //set this to whatever totalentertainment is
+        entertainmentGraph.getViewport().setMaxX(account.getEntertainmentExpense());   //set this to amt of entertainment bought so far
+        entertainmentGraph.getViewport().setMaxY(account.getEntertainmentBudget()); //set this to whatever totalentertainment is
         entertainmentGraph.getViewport().setXAxisBoundsManual(true);
         entertainmentGraph.getViewport().setYAxisBoundsManual(true);
 
@@ -107,8 +116,8 @@ public class GraphViewCategories extends AppCompatActivity {
         othersGraph.addSeries(othersSeries);
         othersGraph.getViewport().setMinX(0);
         othersGraph.getViewport().setMinY(0);
-        othersGraph.getViewport().setMaxX(6);   //set this to amt of others bought so far
-        othersGraph.getViewport().setMaxY(2500); //set this to whatever totalothers is
+        othersGraph.getViewport().setMaxX(account.getOtherExpense());   //set this to amt of others bought so far
+        othersGraph.getViewport().setMaxY(account.getOtherBudget()); //set this to whatever totalothers is
         othersGraph.getViewport().setXAxisBoundsManual(true);
         othersGraph.getViewport().setYAxisBoundsManual(true);
 
@@ -116,7 +125,7 @@ public class GraphViewCategories extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent dashboardIntent = new Intent(GraphViewCategories.this, Dashboard.class);
-                dashboardIntent.putExtra("userName", userNameIdentifier);
+                dashboardIntent.putExtra("Account", new Gson().toJson(account));
                 startActivity(dashboardIntent);
             }
         });
@@ -125,7 +134,7 @@ public class GraphViewCategories extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent graphViewCategoriesIntent = new Intent(GraphViewCategories.this, GraphViewables.class);
-                graphViewCategoriesIntent.putExtra("userName", userNameIdentifier);
+                graphViewCategoriesIntent.putExtra("Account", new Gson().toJson(account));
                 startActivity(graphViewCategoriesIntent);
             }
         });

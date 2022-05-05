@@ -131,8 +131,8 @@ public class Account implements Parcelable {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getTotalBudget() {
-        return Double.toString(totalBudget);
+    public double getTotalBudget() {
+        return this.totalBudget;
     }
 
     public void setTotalBudget(double totalBudget) {
