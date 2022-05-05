@@ -32,10 +32,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Username"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -48,10 +48,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Fullname"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -65,10 +65,10 @@
                 android:layout_centerHorizontal="true"
                 android:hint="Password"
                 android:password="true"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -82,10 +82,10 @@
                 android:layout_centerHorizontal="true"
                 android:hint="Verify Password"
                 android:password="true"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -98,10 +98,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:hint="Phone number"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -121,7 +121,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="LOGIN"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#000000" />
 
                 <Button
                     android:id="@+id/btn_register_signup"
@@ -130,7 +130,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="?android:attr/selectableItemBackground"
                     android:text="Sign Up"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#000000" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

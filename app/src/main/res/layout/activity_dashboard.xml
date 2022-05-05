@@ -33,10 +33,10 @@
                 android:layout_centerInParent="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
                 android:textSize="24sp" />
         </RelativeLayout>
 
@@ -53,10 +53,10 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
                 android:textSize="24sp" />
         </RelativeLayout>
 
@@ -73,10 +73,10 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
                 android:textSize="24sp" />
         </RelativeLayout>
 
@@ -93,10 +93,10 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
                 android:textSize="24sp" />
         </RelativeLayout>
 
@@ -112,10 +112,10 @@
                 android:layout_height="63.2dp"
                 android:gravity="center_horizontal"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
                 android:textSize="24sp" />
         </RelativeLayout>
 
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:text="GRAPHVIEW"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -141,7 +141,7 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:text="SETTINGS"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".92"
@@ -157,7 +157,7 @@
         android:layout_marginLeft="28dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="ACCOUNT"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -169,7 +169,7 @@
         android:layout_height="87dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="Add Expense"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -11,7 +11,7 @@
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:text="Change Username"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,10 +42,10 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Current Username"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -58,10 +58,10 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="New Username"
-                android:textColor="#FFFFFF"
-                android:textColorHighlight="#FFFFFF"
-                android:textColorHint="#FFFFFF"
-                android:textColorLink="#FFFFFF" />
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -72,7 +72,7 @@
         android:layout_height="38dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="Change Username"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
