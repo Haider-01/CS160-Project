@@ -115,7 +115,6 @@ public class addExpense extends AppCompatActivity {
                Context context = getApplicationContext();
                Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
                toast.show();
-//                budgetType = spinner.getSelectedItem().toString();
                double amountNum = Double.parseDouble(amount.getText().toString().trim());
                
                 if (amountNum>0){
@@ -132,10 +131,7 @@ public class addExpense extends AppCompatActivity {
                }
                 String type = budgetType;
                 String expense;
-//                 if (type.isEmpty() || !type.equalsIgnoreCase("bills") || !type.equalsIgnoreCase("food") || !type.equalsIgnoreCase("entertainment") || !type.equalsIgnoreCase("other")) {
-//                     ((TextView)spinner.getSelectedView()).setError("None selected");
-//                     return;
-//                 }
+
                 if (amount.getText().toString().trim().length()==0){
                     amount.setError("Amount is empty");
                     amount.requestFocus();
@@ -183,22 +179,22 @@ public class addExpense extends AppCompatActivity {
         }// doInBackground
     }//SignUpTask
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.appbar_menu, menu);
-//        return true;
-//    }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.action_logout) {
-//            Intent logOut = new Intent(addExpense.this, Login.class);
-//            logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(logOut);
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            Intent logOut = new Intent(addExpense.this, Login.class);
+            logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(logOut);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
 

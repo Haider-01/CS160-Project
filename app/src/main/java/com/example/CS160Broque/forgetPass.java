@@ -65,13 +65,8 @@ public class forgetPass extends AppCompatActivity {
                     phonenumber.requestFocus();
                 }
                 new ForgetPassTask().execute(username.getText().toString(), phonenumber.getText().toString());
-
-
-                
-                
                 Intent finishIntent = new Intent(forgetPass.this, Login.class);
                 startActivity(finishIntent);
-
             }
         });
 
