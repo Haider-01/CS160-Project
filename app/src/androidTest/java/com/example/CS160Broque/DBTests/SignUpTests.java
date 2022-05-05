@@ -1,109 +1,127 @@
 package com.example.CS160Broque.DBTests;
 
+import static androidx.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiThread;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.fail;
+
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+
+import com.example.CS160Broque.SignUp;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.net.URI;
 import java.net.URL;
 
+@RunWith(AndroidJUnit4.class)
 public class SignUpTests {
+
     @Test
-    public void missingPassword(){
-        String fullname = "bob";
-        String username = "joe";
-        String password = "";
-        String phonenumber = "1234567890";
-        String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22"+fullname+"%22&username=%22"+username+"%22&password=%22"+password+"%22&phonenumber=%22"+phonenumber+"%22";
-        try{
-            URL url = new URL(link);
-            HttpClient client = new DefaultHttpClient();
-            HttpGet request = new HttpGet();
-            request.setURI(new URI(link));
-            HttpResponse response = client.execute(request);  // should not get exception from php insertion
-        }
-        catch(Exception e) {
-            fail("Exception caught when inserting data");
-        }
+    public void testMissingPassword() throws Throwable {
+        final String fullname = "joe bob";
+        final String username = "joebob23";
+        final String phonenumber = "1234567999";
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    SignUp signup = new SignUp();
+                    SignUp.SignUpTask button = signup.new SignUpTask();
+                    String result = button.doInBackground(fullname, username, phonenumber);
+                    fail("expected exception");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Test
-    public void passwordLength(){
-        String fullname = "bob";
-        String username = "joe";
-        String password = "passpasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspasspass";
-        String phonenumber = "1234567890";
-        String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22"+fullname+"%22&username=%22"+username+"%22&password=%22"+password+"%22&phonenumber=%22"+phonenumber+"%22";
-        try{
-            URL url = new URL(link);
-            HttpClient client = new DefaultHttpClient();
-            HttpGet request = new HttpGet();
-            request.setURI(new URI(link));
-            HttpResponse response = client.execute(request);  // should not get exception from php insertion
-        }
-        catch(Exception e) {
-            fail("Exception caught when inserting data");
-        }
+    public void testShortPassword() throws Throwable {
+
+        final String fullname = "joe bob";
+        final String username = "joebob24";
+        final String password = "p1";
+        final String phonenumber = "3334567890";
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    SignUp signup = new SignUp();
+                    SignUp.SignUpTask button = signup.new SignUpTask();
+                    String result = button.execute(fullname, username, password, phonenumber).get();
+                    fail("exception expected");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Test
-    public void properInsert(){
-        String fullname = "bob";
-        String username = "joe";
-        String password = "pass";
-        String phonenumber = "1234567890";
-        String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22"+fullname+"%22&username=%22"+username+"%22&password=%22"+password+"%22&phonenumber=%22"+phonenumber+"%22";
-        try{
-            URL url = new URL(link);
-            HttpClient client = new DefaultHttpClient();
-            HttpGet request = new HttpGet();
-            request.setURI(new URI(link));
-            HttpResponse response = client.execute(request);  // should not get exception from php insertion
-        }
-        catch(Exception e) {
-            fail("Exception caught when inserting data");
-        }
+    public void testGoodInsert() throws Throwable {
+
+        final String fullname = "joe bob";
+        final String username = "joebob25";
+        final String password = "pass123";
+        final String phonenumber = "1235557890";
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    SignUp signup = new SignUp();
+                    SignUp.SignUpTask button = signup.new SignUpTask();
+                    String result = button.execute(fullname, username, password, phonenumber).get();
+                    assertNotNull(result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    fail("No exception expected");
+                }
+            }
+        });
     }
 
     @Test
-    public void properPhone(){
-        String fullname = "bob";
-        String username = "joe";
-        String password = "pass";
-        String phonenumber = "1234567890";
-        String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22"+fullname+"%22&username=%22"+username+"%22&password=%22"+password+"%22&phonenumber=%22"+phonenumber+"%22";
-        try{
-            URL url = new URL(link);
-            HttpClient client = new DefaultHttpClient();
-            HttpGet request = new HttpGet();
-            request.setURI(new URI(link));
-            HttpResponse response = client.execute(request);  // should not get exception from php insertion
-        }
-        catch(Exception e) {
-            fail("Exception caught when inserting data");
-        }
-    }
+    public void testBadPhoneNumber() throws Throwable {
 
-    @Test
-    public void repeatSignup(){
-        String fullname = "bob";
-        String username = "joe";
-        String password = "pass";
-        String phonenumber = "1234567890";
-        String link = "https://broke-test.herokuapp.com/signup.php?fullname=%22"+fullname+"%22&username=%22"+username+"%22&password=%22"+password+"%22&phonenumber=%22"+phonenumber+"%22";
-        try{
-            URL url = new URL(link);
-            HttpClient client = new DefaultHttpClient();
-            HttpGet request = new HttpGet();
-            request.setURI(new URI(link));
-            HttpResponse response = client.execute(request);  // should not get exception from php insertion
-        }
-        catch(Exception e) {
-            fail("Exception caught when inserting data");
-        }
+        final String fullname = "joe bob";
+        final String username = "joebob";
+        final String password = "pass123";
+        final String phonenumber = "12343";
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    SignUp signup = new SignUp();
+                    SignUp.SignUpTask button = signup.new SignUpTask();
+                    String result = button.execute(fullname, username, password, phonenumber).get();
+                    fail("No exception expected");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    public void checkDuplicateUsername() throws Throwable {
+        final String fullname = "joe bob";
+        final String username = "joebob2";
+        final String password = "pass123";
+        final String phonenumber = "123434567890";
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try {
+                    SignUp signup = new SignUp();
+                    SignUp.SignUpTask button = signup.new SignUpTask();
+                    button.execute(fullname, username, password, phonenumber);
+                    String result = button.execute(fullname, username, password, phonenumber).get();
+                    fail("exception expected");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
