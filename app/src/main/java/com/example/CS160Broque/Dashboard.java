@@ -125,25 +125,20 @@ public class Dashboard extends AppCompatActivity {
 
     private void loadPieChartData(){
         ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(5, "Used Food"));
-        entries.add(new PieEntry(25, "Remaining Food"));
-        entries.add(new PieEntry(20, "Used Bills"));
-        entries.add(new PieEntry(10, "Remaining Bills"));
-        entries.add(new PieEntry(10, "Used Entertainment"));
-        entries.add(new PieEntry(15, "Remaining Entertainment"));
-        entries.add(new PieEntry(2, "Used Other"));
-        entries.add(new PieEntry(13, "Remaining Other"));
+        entries.add(new PieEntry(10, "Food"));
+        entries.add(new PieEntry(20, "Bills"));
+        entries.add(new PieEntry(10, "Entertainment"));
+        entries.add(new PieEntry(40, "Other"));
+        entries.add(new PieEntry(20, "Remaining"));
 
         ArrayList<Integer> colors = new ArrayList<>();
 
         colors.add(ColorTemplate.VORDIPLOM_COLORS[0]);
-        colors.add(ColorTemplate.MATERIAL_COLORS[0]);
         colors.add(ColorTemplate.VORDIPLOM_COLORS[1]);
-        colors.add(ColorTemplate.MATERIAL_COLORS[1]);
         colors.add(ColorTemplate.VORDIPLOM_COLORS[4]);
-        colors.add(ColorTemplate.MATERIAL_COLORS[2]);
         colors.add(ColorTemplate.VORDIPLOM_COLORS[3]);
-        colors.add(ColorTemplate.MATERIAL_COLORS[3]);
+        colors.add(ColorTemplate.VORDIPLOM_COLORS[2]);
+
 
 
 
