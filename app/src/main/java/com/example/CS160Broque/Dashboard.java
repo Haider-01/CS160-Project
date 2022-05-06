@@ -55,9 +55,7 @@ public class Dashboard extends AppCompatActivity {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
         String dateString = formatter.format(date);
-
-        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
-
+        
          //Can change to reset in account class
         if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
             account.setTotalBudget(0);
