@@ -1,0 +1,57 @@
+Index: app/src/main/java/com/example/CS160Broque/Dashboard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.CS160Broque;\r\n\r\nimport android.content.Intent;\r\nimport android.graphics.Color;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.ArrayList;\r\nimport java.util.Date;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport com.github.mikephil.charting.animation.Easing;\r\nimport com.github.mikephil.charting.charts.PieChart;\r\nimport com.github.mikephil.charting.components.Legend;\r\nimport com.github.mikephil.charting.data.PieData;\r\nimport com.github.mikephil.charting.data.PieDataSet;\r\nimport com.github.mikephil.charting.data.PieEntry;\r\nimport com.github.mikephil.charting.formatter.PercentFormatter;\r\nimport com.github.mikephil.charting.utils.ColorTemplate;\r\nimport com.google.gson.Gson;\r\n\r\npublic class Dashboard extends AppCompatActivity {\r\n\r\n    Button btn_account, graphView, settings, addExpense;\r\n    String jsonMyAccount;\r\n    Account account;\r\n    PieChart pieChart;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_dashboard);\r\n\r\n        btn_account = (Button) findViewById(R.id.btn_account_dashboard);\r\n        graphView = (Button) findViewById(R.id.btn_graph_dashboard);\r\n        settings = (Button) findViewById(R.id.btn_settings_dashboard);\r\n        addExpense = (Button) findViewById(R.id.btn_addExpense_dashboard);\r\n        pieChart = (PieChart) findViewById(R.id.dashboard_piechart);\r\n        setupPieChart();\r\n        loadPieChartData();\r\n\r\n        // Get from bundle\r\n        Bundle extras = getIntent().getExtras();\r\n        if (extras != null) {\r\n            jsonMyAccount = extras.getString(\"Account\");\r\n        }\r\n        account = new Gson().fromJson(jsonMyAccount, Account.class);\r\n        System.out.println(account);\r\n\r\n        Date date = new Date();\r\n        SimpleDateFormat formatter = new SimpleDateFormat(\"dd/MM/yy\");\r\n        String dateString = formatter.format(date);\r\n\r\n        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();\r\n\r\n         //Can change to reset in account class\r\n        if(dateString.substring(0, 2).equals(\"01\")){    //reset budget every month on dashboard\r\n            account.setTotalBudget(0);\r\n            account.setBillsBudget(0);\r\n            account.setFoodBudget(0);\r\n            account.setEntertainmentBudget(0);\r\n            account.setOtherBudget(0);\r\n        }\r\n\r\n        // AccountScreen\r\n        // goesto forgetPass,changeName screen\r\n        btn_account.setOnClickListener(new View.OnClickListener() { //take to account screen\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent goToAccountScreen = new Intent(Dashboard.this, AccountScreen.class);\r\n                goToAccountScreen.putExtra(\"Account\", new Gson().toJson(account));\r\n                startActivity(goToAccountScreen);\r\n            }\r\n        });\r\n\r\n        // Goes to GraphViewables\r\n        graphView.setOnClickListener(new View.OnClickListener() {   //take to graphview screen\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent goToGraphViewables = new Intent(Dashboard.this, GraphViewables.class);\r\n                goToGraphViewables.putExtra(\"Account\", new Gson().toJson(account));\r\n                startActivity(goToGraphViewables);\r\n            }\r\n        });\r\n\r\n        // Goes to Settings\r\n        settings.setOnClickListener(new View.OnClickListener() {    //take to settings screen\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent goToSettings = new Intent(Dashboard.this, Settings.class);\r\n                goToSettings.putExtra(\"Account\", new Gson().toJson(account));\r\n                startActivity(goToSettings);\r\n            }\r\n        });\r\n\r\n        // Goes to addExpense\r\n        addExpense.setOnClickListener(new View.OnClickListener() {    //take to addExpense screen\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent goToAddExpense = new Intent(Dashboard.this, addExpense.class);\r\n                goToAddExpense.putExtra(\"Account\", new Gson().toJson(account));\r\n                startActivity(goToAddExpense);\r\n            }\r\n        });\r\n    }\r\n\r\n    private void setupPieChart() {\r\n        pieChart.setDrawHoleEnabled(true);\r\n        pieChart.setUsePercentValues(true);\r\n        pieChart.setEntryLabelTextSize(12);\r\n        pieChart.setEntryLabelColor(Color.BLACK);\r\n        pieChart.setCenterText(\"Spending by Category\");\r\n        pieChart.setCenterTextSize(24);\r\n        pieChart.getDescription().setEnabled(false);\r\n//\r\n        Legend l = pieChart.getLegend();\r\n//        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);\r\n//        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);\r\n//        l.setOrientation(Legend.LegendOrientation.VERTICAL);\r\n//        l.setDrawInside(false);\r\n        l.setEnabled(false);\r\n    }\r\n\r\n    private void loadPieChartData(){\r\n        ArrayList<PieEntry> entries = new ArrayList<>();\r\n        entries.add(new PieEntry(5, \"Used Food\"));\r\n        entries.add(new PieEntry(25, \"Remaining Food\"));\r\n        entries.add(new PieEntry(20, \"Used Bills\"));\r\n        entries.add(new PieEntry(10, \"Remaining Bills\"));\r\n        entries.add(new PieEntry(10, \"Used Entertainment\"));\r\n        entries.add(new PieEntry(15, \"Remaining Entertainment\"));\r\n        entries.add(new PieEntry(2, \"Used Other\"));\r\n        entries.add(new PieEntry(13, \"Remaining Other\"));\r\n\r\n        ArrayList<Integer> colors = new ArrayList<>();\r\n\r\n        colors.add(ColorTemplate.VORDIPLOM_COLORS[0]);\r\n        colors.add(ColorTemplate.MATERIAL_COLORS[0]);\r\n        colors.add(ColorTemplate.VORDIPLOM_COLORS[1]);\r\n        colors.add(ColorTemplate.MATERIAL_COLORS[1]);\r\n        colors.add(ColorTemplate.VORDIPLOM_COLORS[4]);\r\n        colors.add(ColorTemplate.MATERIAL_COLORS[2]);\r\n        colors.add(ColorTemplate.VORDIPLOM_COLORS[3]);\r\n        colors.add(ColorTemplate.MATERIAL_COLORS[3]);\r\n\r\n\r\n\r\n        PieDataSet dataSet = new PieDataSet(entries, \"Expense Category\");\r\n        dataSet.setColors(colors);\r\n\r\n        PieData data = new PieData(dataSet);\r\n        data.setDrawValues(true);\r\n        data.setValueFormatter(new PercentFormatter(pieChart));\r\n        data.setValueTextSize(12f);\r\n        data.setValueTextColor(Color.BLACK);\r\n\r\n        pieChart.setData(data);\r\n        pieChart.invalidate();\r\n\r\n        pieChart.animateY(1400, Easing.EaseInOutQuad);\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/CS160Broque/Dashboard.java b/app/src/main/java/com/example/CS160Broque/Dashboard.java
+--- a/app/src/main/java/com/example/CS160Broque/Dashboard.java	(revision e138233c5e9b3748018b03304f6fbea66cb6250e)
++++ b/app/src/main/java/com/example/CS160Broque/Dashboard.java	(date 1651800533680)
+@@ -56,8 +56,6 @@
+         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+         String dateString = formatter.format(date);
+ 
+-        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
+-
+          //Can change to reset in account class
+         if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
+             account.setTotalBudget(0);
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision e138233c5e9b3748018b03304f6fbea66cb6250e)
++++ b/.idea/gradle.xml	(date 1651799221908)
+@@ -4,7 +4,7 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+-        <option name="testRunner" value="PLATFORM" />
++        <option name="testRunner" value="GRADLE" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="modules">
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <bytecodeTargetLevel target=\"11\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision e138233c5e9b3748018b03304f6fbea66cb6250e)
++++ b/.idea/compiler.xml	(date 1651801103540)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="11" />
++    <bytecodeTargetLevel target="1.8" />
+   </component>
+ </project>
+\ No newline at end of file

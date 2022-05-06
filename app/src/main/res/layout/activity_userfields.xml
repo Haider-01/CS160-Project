@@ -10,13 +10,13 @@
         android:id="@+id/btn_finish_userfields"
         android:layout_width="94dp"
         android:layout_height="77dp"
+        android:layout_marginBottom="84dp"
         android:background="@drawable/done"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewUserfield"
