@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,12 +17,16 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class AccountScreen extends AppCompatActivity {
     Button dashboard;
     ListView listview;
     String jsonMyAccount;
     Account account;
     String[] action = {"Change Password", "Change Username", "Delete Account"};
+    BroqueDB broqueDB = new BroqueDB();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +64,7 @@ public class AccountScreen extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, "Account deleted", Toast.LENGTH_SHORT);
                     toast.show();
 
+                    new deleteTask().execute(account.getUserName());
                     Intent backToLogin = new Intent(AccountScreen.this, Login.class);
                     startActivity(backToLogin);
                 }
@@ -66,6 +72,21 @@ public class AccountScreen extends AppCompatActivity {
         });
 
     }
+
+    public class deleteTask extends AsyncTask<String, String, String> {
+        public String doInBackground(String... args) {
+            String s = null;
+            try {
+                s = broqueDB.deleteAccount(args[0]);
+                System.out.println(s);
+            }// doInBackground
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            return s;
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
