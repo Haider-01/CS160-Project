@@ -111,23 +111,11 @@ public class addExpense extends AppCompatActivity {
         addExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Context context = getApplicationContext();
-               Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
-               toast.show();
-               double amountNum = Double.parseDouble(amount.getText().toString().trim());
-               
-                if (amountNum>0){
+                Context context = getApplicationContext();
+                Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
+                toast.show();
+                double amountNum = Double.parseDouble(amount.getText().toString().trim());
 
-                   NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
-
-                   notify.setContentTitle("Broque");
-                   notify.setContentText("Your budget for "+ budgetType +" has exceeded 75%");
-                   notify.setSmallIcon(R.drawable.abc);
-                   notify.setAutoCancel(true);
-
-                   NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
-                   not.notify(1,notify.build());
-               }
                 String type = budgetType;
                 String expense;
                 String total;
@@ -139,15 +127,54 @@ public class addExpense extends AppCompatActivity {
                 }
                 if (type.equalsIgnoreCase("bills")) {
                     expense = String.valueOf(account.addBillsExpense(amountNum));
+
+                    // Send Notification if expenses has exceeded 75% of the budget
+                    if (account.getBillsExpense() > (0.75*account.getBillsBudget())){
+                        NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
+                        notify.setContentTitle("Broque");
+                        notify.setContentText("Your expenses for Bills category has exceeded 75%");
+                        notify.setSmallIcon(R.drawable.abc);
+                        notify.setAutoCancel(true);
+                        NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
+                        not.notify(1,notify.build());
+                    }
                 } else if (type.equalsIgnoreCase("food")) {
                     expense = String.valueOf(account.addFoodExpense(amountNum));
+                    if (account.getFoodExpense() > (0.75*account.getFoodBudget())){
+                        NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
+                        notify.setContentTitle("Broque");
+                        notify.setContentText("Your expenses for Food category has exceeded 75%");
+                        notify.setSmallIcon(R.drawable.abc);
+                        notify.setAutoCancel(true);
+                        NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
+                        not.notify(1,notify.build());
+                    }
                 } else if (type.equalsIgnoreCase("entertainment")) {
                     expense = String.valueOf(account.addEntertainmentExpense(amountNum));
+                    if (account.getEntertainmentExpense() > (0.75*account.getEntertainmentBudget())){
+                        NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
+                        notify.setContentTitle("Broque");
+                        notify.setContentText("Your expenses for Entertainment category has exceeded 75%");
+                        notify.setSmallIcon(R.drawable.abc);
+                        notify.setAutoCancel(true);
+                        NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
+                        not.notify(1,notify.build());
+                    }
                 } else {
                     expense = String.valueOf(account.addOtherExpense(amountNum));
+                    if (account.getOtherExpense() > (0.75*account.getOtherBudget())){
+                        NotificationCompat.Builder notify= new NotificationCompat.Builder(addExpense.this,"Notification");
+                        notify.setContentTitle("Broque");
+                        notify.setContentText("Your expenses for Other category has exceeded 75%");
+                        notify.setSmallIcon(R.drawable.abc);
+                        notify.setAutoCancel(true);
+                        NotificationManagerCompat not = NotificationManagerCompat.from(addExpense.this);
+                        not.notify(1,notify.build());
+                    }
                 }
                 total = account.updateTotalExpense();
                 new ExpenseTask().execute(account.getUserName(), type, expense, total);
+
                 //new TransactionTask().execute(account.getUserName(), )
                 Intent backToDashboard = new Intent(addExpense.this, Dashboard.class);
                 backToDashboard.putExtra("Account", new Gson().toJson(account));
