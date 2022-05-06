@@ -23,6 +23,8 @@ public class Account implements Parcelable {
     private double entertainmentExpense;
     private double otherExpense;
 
+    private String[] date;
+    private String[] totalTransaction;
     private double monthlyIncome;
 
     public Account(){
