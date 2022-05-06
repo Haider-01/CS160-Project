@@ -8,15 +8,17 @@
 
     <Button
         android:id="@+id/btn_finish_userfields"
-        android:layout_width="94dp"
-        android:layout_height="77dp"
-        android:layout_marginBottom="84dp"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
         android:background="@drawable/done"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.915" />
 
     <ImageView
         android:id="@+id/imageViewUserfield"
@@ -28,8 +30,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="353dp"
-        android:layout_height="261dp"
+        android:layout_width="347dp"
+        android:layout_height="230dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btn_finish_userfields"
         app:layout_constraintEnd_toEndOf="parent"
