@@ -36,7 +36,7 @@ public class addExpense extends AppCompatActivity {
     Button addExpense;
     Spinner spinner;
     EditText amount;
-    String user,budgetType;
+    String budgetType;
     String jsonMyAccount;
     Account account;
     BroqueDB broqueDB;
@@ -148,6 +148,7 @@ public class addExpense extends AppCompatActivity {
                 }
                 total = account.updateTotalExpense();
                 new ExpenseTask().execute(account.getUserName(), type, expense, total);
+                //new TransactionTask().execute(account.getUserName(), )
                 Intent backToDashboard = new Intent(addExpense.this, Dashboard.class);
                 backToDashboard.putExtra("Account", new Gson().toJson(account));
                 startActivity(backToDashboard);
@@ -182,6 +183,28 @@ public class addExpense extends AppCompatActivity {
         }// doInBackground
     }//SignUpTask
 
+    public class TransactionTask extends AsyncTask<String, String, String> {
+        public String doInBackground(String... args) {
+            String s = null;
+            String t;
+            try {
+                System.out.println("expense start");
+                // TODO remove hardcoded phonenumber
+                s = broqueDB.updateExpense(args[0], args[1], args[2]);
+                t = broqueDB.updateTotalExpense(args[0], args[3]);
+                System.out.println(s);
+            } catch (
+                    IOException e) {
+                System.out.println("ioexception caught");
+                e.printStackTrace();
+            } catch (
+                    URISyntaxException e) {
+                System.out.println("uriexception caught");
+                e.printStackTrace();
+            }
+            return s;
+        }// doInBackground
+    }//SignUpTask
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

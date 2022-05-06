@@ -117,7 +117,6 @@ public class SignUp extends AppCompatActivity {
             String s = null;
             try {
                 System.out.println("signup start");
-                // TODO remove hardcoded phonenumber
                 s = broqueDB.signup(args[0], args[1], args[2], args[3]);
                 System.out.println(s);
                 System.out.println("signup end");
