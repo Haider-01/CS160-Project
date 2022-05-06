@@ -42,9 +42,7 @@ public class Dashboard extends AppCompatActivity {
         graphView = (Button) findViewById(R.id.btn_graph_dashboard);
         settings = (Button) findViewById(R.id.btn_settings_dashboard);
         addExpense = (Button) findViewById(R.id.btn_addExpense_dashboard);
-        pieChart = (PieChart) findViewById(R.id.dashboard_piechart);
-        setupPieChart();
-        loadPieChartData();
+
 
         // Get from bundle
         Bundle extras = getIntent().getExtras();
@@ -53,6 +51,16 @@ public class Dashboard extends AppCompatActivity {
         }
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
+
+        pieChart = (PieChart) findViewById(R.id.dashboard_piechart);
+        double food = account.getFoodExpense();
+        double bill = account.getBillsExpense();
+        double entertainment = account.getEntertainmentExpense();
+        double other = account.getOtherExpense();
+        double total = account.getTotalBudget()-food-bill-entertainment-other;
+        double[] chartdata =  {food,bill,entertainment,other,total};
+        setupPieChart();
+        loadPieChartData(chartdata);
 
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
@@ -126,24 +134,20 @@ public class Dashboard extends AppCompatActivity {
         l.setEnabled(false);
     }
 
-    private void loadPieChartData(){
+    private void loadPieChartData(double[] dataset){
         ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(10, "Food"));
-        entries.add(new PieEntry(20, "Bills"));
-        entries.add(new PieEntry(10, "Entertainment"));
-        entries.add(new PieEntry(40, "Other"));
-        entries.add(new PieEntry(20, "Remaining"));
+        entries.add(new PieEntry((float) dataset[0], "Food"));
+        entries.add(new PieEntry((float) dataset[1], "Bills"));
+        entries.add(new PieEntry((float) dataset[2], "Entertainment"));
+        entries.add(new PieEntry((float) dataset[3], "Other"));
+        entries.add(new PieEntry((float) dataset[4], "Remaining"));
 
         ArrayList<Integer> colors = new ArrayList<>();
-
         colors.add(ColorTemplate.VORDIPLOM_COLORS[0]);
         colors.add(ColorTemplate.VORDIPLOM_COLORS[1]);
         colors.add(ColorTemplate.VORDIPLOM_COLORS[4]);
         colors.add(ColorTemplate.VORDIPLOM_COLORS[3]);
         colors.add(ColorTemplate.VORDIPLOM_COLORS[2]);
-
-
-
 
         PieDataSet dataSet = new PieDataSet(entries, "Expense Category");
         dataSet.setColors(colors);
