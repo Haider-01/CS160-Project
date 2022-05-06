@@ -3,6 +3,8 @@ package com.example.CS160Broque;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.HashMap;
+
 // This class creates an Account Object using data retrieved from the Database
 // Newly created accounts will be initialized with 0 values.
 public class Account implements Parcelable {
@@ -22,6 +24,12 @@ public class Account implements Parcelable {
     private double foodExpense;
     private double entertainmentExpense;
     private double otherExpense;
+
+    private HashMap<Integer, Double> totalTransactions = new HashMap<>();
+    private HashMap<Integer, Double> billsTransactions = new HashMap<>();
+    private HashMap<Integer, Double> foodTransactions = new HashMap<>();
+    private HashMap<Integer, Double> entertainmentTransactions = new HashMap<>();
+    private HashMap<Integer, Double> othersTransactions = new HashMap<>();
 
     private String[] date;
     private String[] totalTransaction;
@@ -92,6 +100,46 @@ public class Account implements Parcelable {
     };
 
     // Getters and Setters
+
+    public HashMap<Integer, Double> getTotalTransactions() {
+        return totalTransactions;
+    }
+
+    public void setTotalTransactions(HashMap<Integer, Double> totalTransactions) {
+        this.totalTransactions = totalTransactions;
+    }
+
+    public HashMap<Integer, Double> getBillsTransactions() {
+        return billsTransactions;
+    }
+
+    public void setBillsTransactions(HashMap<Integer, Double> billsTransactions) {
+        this.billsTransactions = billsTransactions;
+    }
+
+    public HashMap<Integer, Double> getFoodTransactions() {
+        return foodTransactions;
+    }
+
+    public void setFoodTransactions(HashMap<Integer, Double> foodTransactions) {
+        this.foodTransactions = foodTransactions;
+    }
+
+    public HashMap<Integer, Double> getEntertainmentTransactions() {
+        return entertainmentTransactions;
+    }
+
+    public void setEntertainmentTransactions(HashMap<Integer, Double> entertainmentTransactions) {
+        this.entertainmentTransactions = entertainmentTransactions;
+    }
+
+    public HashMap<Integer, Double> getOthersTransactions() {
+        return othersTransactions;
+    }
+
+    public void setOthersTransactions(HashMap<Integer, Double> othersTransactions) {
+        this.othersTransactions = othersTransactions;
+    }
 
     public double getMonthlyIncome() {
         return monthlyIncome;
