@@ -62,7 +62,7 @@ public class changeName extends AppCompatActivity {
                 new ChangeNameTask().execute(sCurrUser, sNewUser);
                 account.setUserName(sNewUser);
 
-                Intent backToAccount = new Intent(changeName.this, AccountScreen.class);
+                Intent backToAccount = new Intent(changeName.this, Dashboard.class);
                 backToAccount.putExtra("Account", new Gson().toJson(account));
                 startActivity(backToAccount);
             }

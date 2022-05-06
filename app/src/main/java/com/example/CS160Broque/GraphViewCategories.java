@@ -44,6 +44,8 @@ public class GraphViewCategories extends AppCompatActivity {
         LineGraphSeries<DataPoint> billsSeries = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 // on below line we are adding
                 // each point on our x and y axis.
+                //use loop here to insert datapoints
+                //in here for each datapoint, x will be the transaction index, y will be the amount spent at that index
                 new DataPoint(0, 0),
                 new DataPoint(1, 1000),
                 new DataPoint(2, 1500),

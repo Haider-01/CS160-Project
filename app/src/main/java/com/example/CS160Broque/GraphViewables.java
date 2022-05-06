@@ -39,6 +39,8 @@ public class GraphViewables extends AppCompatActivity {
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 // on below line we are adding
                 // each point on our x and y axis.
+                //use loop here to insert datapoints
+                //in here for each datapoint, x will be the transaction index, y will be the amount spent at that index
                 new DataPoint(10, 0),
                 new DataPoint(20, 1000),
                 new DataPoint(30, 1500),
@@ -54,7 +56,7 @@ public class GraphViewables extends AppCompatActivity {
         graphview.getViewport().setMinX(0);
         graphview.getViewport().setMinY(0);
         graphview.getViewport().setMaxX(account.getTotalExpense());   //set this to amt of all purchases so far, every purchase increment by 1
-        graphview.getViewport().setMaxY(account.getTotalBudget()); //set this to whatever totalbudget is
+        graphview.getViewport().setMaxY(10); //set this to the amount of transactions so far in the specified category
         graphview.getViewport().setXAxisBoundsManual(true);
         graphview.getViewport().setYAxisBoundsManual(true);
 

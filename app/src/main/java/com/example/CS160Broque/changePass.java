@@ -63,7 +63,7 @@ public class changePass extends AppCompatActivity {
                     toast.show();
 
 
-                    Intent backToAccount = new Intent(changePass.this, AccountScreen.class);
+                    Intent backToAccount = new Intent(changePass.this, Dashboard.class);
                     account.setPassword(newPass.getText().toString());
                     backToAccount.putExtra("Account", new Gson().toJson(account));
                     startActivity(backToAccount);
