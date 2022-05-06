@@ -67,31 +67,6 @@ public class Dashboard extends AppCompatActivity {
 //            othersSpent = 0;
 //        }
 
-        //TextView budgetHint = (TextView) findViewById(R.id.edt_total_userfields);
-        String budgetString = "Total Budget: " + account.getTotalExpense()
-                + " out of " + account.getTotalBudget() + " remaining";
-        //budgetHint.setHint(budgetString);
-
-        TextView billsHint = (TextView) findViewById(R.id.edt_bill_userfields);
-        String billsString = "Bills: " + account.getBillsExpense()
-                + " out of " + account.getBillsBudget() + " remaining";
-        //billsHint.setHint(billsString);
-
-        TextView foodHint = (TextView) findViewById(R.id.edt_food_userfields);
-        String foodString = "Food: " + account.getFoodExpense()
-                + " out of " + account.getFoodBudget() + " remaining";
-        //foodHint.setHint(foodString);
-
-        TextView entertainmentHint = (TextView) findViewById(R.id.edt_entertainment_userfields);
-        String entertainmentString = "Entertainment: " + account.getFoodExpense()
-                + " out of " + account.getFoodBudget() + " remaining";
-        //entertainmentHint.setHint(entertainmentString);
-
-        TextView othersHint = (TextView) findViewById(R.id.edt_other_userfields);
-        String othersString = "Others: " + account.getOtherExpense()
-                + " out of " + account.getOtherBudget() + " remaining";
-        //othersHint.setHint(othersString);
-
         // AccountScreen
         // goesto forgetPass,changeName screen
         btn_account.setOnClickListener(new View.OnClickListener() { //take to account screen
