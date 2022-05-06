@@ -32,7 +32,7 @@ public class Account implements Parcelable {
     private HashMap<Integer, Double> othersTransactions = new HashMap<>();
 
     private String[] date;
-    private String[] totalTransaction;
+    private double[] totalTransaction;
     private double monthlyIncome;
 
     public Account(){
