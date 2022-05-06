@@ -98,7 +98,7 @@ public class forgetPass extends AppCompatActivity {
         public void onPostExecute(String result) {
             NotificationCompat.Builder notify= new NotificationCompat.Builder(forgetPass.this,"Notification");
             notify.setContentTitle("Broque");
-            notify.setContentText("Your password is: " + result);
+            notify.setContentText("Your password is: " + result.replaceAll("<br>", ""));
             notify.setSmallIcon(R.drawable.abc);
             notify.setAutoCancel(true);
 

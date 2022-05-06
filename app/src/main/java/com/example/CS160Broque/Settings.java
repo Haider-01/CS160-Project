@@ -97,7 +97,7 @@ public class Settings extends AppCompatActivity {
 
 
                 Context context = getApplicationContext();
-                Toast toast = Toast.makeText(context, "Expense has been deducted", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context, "Budget Updated", Toast.LENGTH_SHORT);
                 toast.show();
                 double amountNum = Double.parseDouble(amount.getText().toString().trim());
 
