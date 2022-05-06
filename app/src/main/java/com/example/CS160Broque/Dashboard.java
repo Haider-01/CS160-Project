@@ -3,6 +3,8 @@ package com.example.CS160Broque;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -161,6 +163,25 @@ public class Dashboard extends AppCompatActivity {
 
         pieChart.animateY(1400, Easing.EaseInOutQuad);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            Intent logOut = new Intent(changePass.this, Login.class);
+            logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(logOut);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
