@@ -13,6 +13,10 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class GraphViewCategories extends AppCompatActivity {
     Button dashboard;
     Button back;
@@ -41,85 +45,121 @@ public class GraphViewCategories extends AppCompatActivity {
         entertainmentGraph = findViewById(R.id.gv_entertainmentGraph_graphviewscreen);
         othersGraph = findViewById(R.id.gv_othersGraph_graphviewscreen);
 
-        LineGraphSeries<DataPoint> billsSeries = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                // on below line we are adding
-                // each point on our x and y axis.
-                //use loop here to insert datapoints
-                //in here for each datapoint, x will be the transaction index, y will be the amount spent at that index
-                new DataPoint(0, 0),
-                new DataPoint(1, 1000),
-                new DataPoint(2, 1500),
-                new DataPoint(3, 1600),
-                new DataPoint(4, 1700),
-                new DataPoint(5, 1800),
-                new DataPoint(6, 1900)
-        });
+        double runningBillsTotal = 0;
+
+        HashMap<Integer, Double> hashtestOne = new HashMap<>();
+        hashtestOne.put(1, 290.0);
+        hashtestOne.put(2, 72.25);
+        hashtestOne.put(3, 192.23);
+
+        account.setBillsTransactions(hashtestOne);
+
+        account.setBillsExpense(1000);
+
+        List<DataPoint> listOfBillsDatapoints = new ArrayList<>();
+        listOfBillsDatapoints.add(new DataPoint(0, 0));
+
+        for(int i = 1; i <= account.getBillsTransactions().size(); i++) {
+            runningBillsTotal += account.getBillsTransactions().get(i);
+            listOfBillsDatapoints.add(new DataPoint(i, runningBillsTotal));
+        }
+
+        LineGraphSeries<DataPoint> billsSeries = new LineGraphSeries<>(listOfBillsDatapoints.toArray(new DataPoint[0]));
 
         billsGraph.addSeries(billsSeries);
         billsGraph.getViewport().setMinX(0);
         billsGraph.getViewport().setMinY(0);
-        billsGraph.getViewport().setMaxX(account.getBillsExpense());   //set this to amt of bills paid so far, every bill pay increment by 1
-        billsGraph.getViewport().setMaxY(account.getTotalBudget()); //set this to whatever totalbills is
+        billsGraph.getViewport().setMaxX(account.getBillsTransactions().size());
+        billsGraph.getViewport().setMaxY(account.getBillsExpense());
         billsGraph.getViewport().setXAxisBoundsManual(true);
         billsGraph.getViewport().setYAxisBoundsManual(true);
 
-        LineGraphSeries<DataPoint> foodSeries = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                // on below line we are adding
-                // each point on our x and y axis.
-                new DataPoint(0, 0),
-                new DataPoint(1, 20),
-                new DataPoint(2, 30),
-                new DataPoint(3, 49),
-                new DataPoint(4, 61),
-                new DataPoint(5, 94),
-                new DataPoint(6, 121)
-        });
+        double runningFoodTotal = 0;
+
+        HashMap<Integer, Double> hashtestTwo = new HashMap<>();
+        hashtestTwo.put(1, 55.0);
+        hashtestTwo.put(2, 342.2);
+        hashtestTwo.put(3, 123.21);
+
+        account.setFoodTransactions(hashtestTwo);
+
+        account.setFoodExpense(1000);
+
+        List<DataPoint> listOfFoodDatapoints = new ArrayList<>();
+        listOfFoodDatapoints.add(new DataPoint(0, 0));
+
+        for(int i = 1; i <= account.getFoodTransactions().size(); i++) {
+            runningFoodTotal += account.getFoodTransactions().get(i);
+            listOfFoodDatapoints.add(new DataPoint(i, runningFoodTotal));
+        }
+
+        LineGraphSeries<DataPoint> foodSeries = new LineGraphSeries<>(listOfFoodDatapoints.toArray(new DataPoint[0]));
 
         foodGraph.addSeries(foodSeries);
         foodGraph.getViewport().setMinX(0);
         foodGraph.getViewport().setMinY(0);
-        foodGraph.getViewport().setMaxX(account.getFoodExpense());   //set this to amt of food bought so far, every food bought increment by 1
-        foodGraph.getViewport().setMaxY(account.getFoodBudget()); //set this to whatever totalfood is
+        foodGraph.getViewport().setMaxX(account.getFoodTransactions().size());
+        foodGraph.getViewport().setMaxY(account.getFoodExpense());
         foodGraph.getViewport().setXAxisBoundsManual(true);
         foodGraph.getViewport().setYAxisBoundsManual(true);
 
-        LineGraphSeries<DataPoint> entertainmentSeries = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                // on below line we are adding
-                // each point on our x and y axis.
-                new DataPoint(0, 0),
-                new DataPoint(1, 20),
-                new DataPoint(2, 100),
-                new DataPoint(3, 400),
-                new DataPoint(4, 595),
-                new DataPoint(5, 800),
-                new DataPoint(6, 900)
-        });
+        double runningEntertainmentTotal = 0;
+
+        HashMap<Integer, Double> hashtestThree = new HashMap<>();
+        hashtestThree.put(1, 22.0);
+        hashtestThree.put(2, 222.25);
+        hashtestThree.put(3, 94.23);
+
+        account.setEntertainmentTransactions(hashtestThree);
+
+        account.setEntertainmentExpense(1000);
+
+        List<DataPoint> listOfEntertainmentDatapoints = new ArrayList<>();
+        listOfEntertainmentDatapoints.add(new DataPoint(0, 0));
+
+        for(int i = 1; i <= account.getEntertainmentTransactions().size(); i++) {
+            runningEntertainmentTotal += account.getEntertainmentTransactions().get(i);
+            listOfEntertainmentDatapoints.add(new DataPoint(i, runningEntertainmentTotal));
+        }
+
+        LineGraphSeries<DataPoint> entertainmentSeries = new
+                LineGraphSeries<>(listOfEntertainmentDatapoints.toArray(new DataPoint[0]));
 
         entertainmentGraph.addSeries(entertainmentSeries);
         entertainmentGraph.getViewport().setMinX(0);
         entertainmentGraph.getViewport().setMinY(0);
-        entertainmentGraph.getViewport().setMaxX(account.getEntertainmentExpense());   //set this to amt of entertainment bought so far
-        entertainmentGraph.getViewport().setMaxY(account.getEntertainmentBudget()); //set this to whatever totalentertainment is
+        entertainmentGraph.getViewport().setMaxX(account.getEntertainmentTransactions().size());
+        entertainmentGraph.getViewport().setMaxY(account.getEntertainmentExpense());
         entertainmentGraph.getViewport().setXAxisBoundsManual(true);
         entertainmentGraph.getViewport().setYAxisBoundsManual(true);
 
-        LineGraphSeries<DataPoint> othersSeries = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                // on below line we are adding
-                // each point on our x and y axis.
-                new DataPoint(0, 0),
-                new DataPoint(1, 400),
-                new DataPoint(2, 450),
-                new DataPoint(3, 650),
-                new DataPoint(4, 730),
-                new DataPoint(5, 890),
-                new DataPoint(6, 1010)
-        });
+        double runningOthersTotal = 0;
+
+        HashMap<Integer, Double> hashtestFour = new HashMap<>();
+        hashtestFour.put(1, 129.0);
+        hashtestFour.put(2, 33.25);
+        hashtestFour.put(3, 523.23);
+
+        account.setOthersTransactions(hashtestFour);
+
+        account.setOtherExpense(1000);
+
+        List<DataPoint> listOfOthersDatapoints = new ArrayList<>();
+        listOfOthersDatapoints.add(new DataPoint(0, 0));
+
+        for(int i = 1; i <= account.getOthersTransactions().size(); i++) {
+            runningOthersTotal += account.getOthersTransactions().get(i);
+            listOfOthersDatapoints.add(new DataPoint(i, runningOthersTotal));
+        }
+
+        LineGraphSeries<DataPoint> othersSeries = new
+                LineGraphSeries<>(listOfOthersDatapoints.toArray(new DataPoint[0]));
 
         othersGraph.addSeries(othersSeries);
         othersGraph.getViewport().setMinX(0);
         othersGraph.getViewport().setMinY(0);
-        othersGraph.getViewport().setMaxX(account.getOtherExpense());   //set this to amt of others bought so far
-        othersGraph.getViewport().setMaxY(account.getOtherBudget()); //set this to whatever totalothers is
+        othersGraph.getViewport().setMaxX(account.getOthersTransactions().size());
+        othersGraph.getViewport().setMaxY(account.getOtherExpense());
         othersGraph.getViewport().setXAxisBoundsManual(true);
         othersGraph.getViewport().setYAxisBoundsManual(true);
 
