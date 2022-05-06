@@ -40,10 +40,10 @@ public class LoginTest {
     // Rationale: Testing the activity and editText
     @Test
     public void loginBtnTest(){
-        onView(withId(R.id.edt_usernameLogin)).perform(typeText(username));
-        onView(withId(R.id.edt_passwordLogin)).perform(typeText(password));
+        onView(withId(R.id.edt_username_login)).perform(typeText(username));
+        onView(withId(R.id.edt_password_login)).perform(typeText(password));
 
-        onView(withId(R.id.btn_loginLogin)).perform(click());
+        onView(withId(R.id.btn_login_login)).perform(click());
 
         assertEquals(1, am.getHits());
     }
@@ -54,10 +54,10 @@ public class LoginTest {
     @Test
     public void loginBtnTest2(){
 
-        onView(withId(R.id.btn_loginLogin)).perform(click());
+        onView(withId(R.id.btn_login_login)).perform(click());
 
-        onView(withId(R.id.edt_usernameLogin)).check(matches(hasErrorText(error1)));
-        onView(withId(R.id.edt_passwordLogin)).check(matches(hasErrorText(error2)));
+        onView(withId(R.id.edt_username_login)).check(matches(hasErrorText(error1)));
+        onView(withId(R.id.edt_password_login)).check(matches(hasErrorText(error2)));
     }
 
 }

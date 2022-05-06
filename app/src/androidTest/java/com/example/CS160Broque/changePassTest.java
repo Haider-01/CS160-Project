@@ -39,11 +39,11 @@ public class changePassTest {
     // Rationale: Testing the activity
     @Test
     public void changePassBtnTest(){
-        onView(withId(R.id.currPass)).perform(typeText(currPass));
-        onView(withId(R.id.newPass)).perform(typeText(newPass));
-        onView(withId(R.id.confirmPass)).perform(typeText(confPass));
+        onView(withId(R.id.edt_currPass_changepass)).perform(typeText(currPass));
+        onView(withId(R.id.edt_newPass_changepass)).perform(typeText(newPass));
+        onView(withId(R.id.edt_confirmPass_changepass)).perform(typeText(confPass));
         closeSoftKeyboard();
-        onView(withId(R.id.chgPassButton)).perform(click());
+        onView(withId(R.id.btn_changePass_changepass)).perform(click());
 
         assertEquals(1, am.getHits());
     }

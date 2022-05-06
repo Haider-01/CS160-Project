@@ -34,7 +34,7 @@ public class GraphViewablesTest {
     // Rationale: Testing the activity
     @Test
     public void GraphViewablesBtnTest(){
-        onView(withId(R.id.dashboardFromGraph)).perform(click());
+        onView(withId(R.id.btn_dashboard_graphscreen)).perform(click());
 
         assertEquals(1, am.getHits());
     }

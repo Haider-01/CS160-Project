@@ -34,7 +34,7 @@ public class changeNameTest {
     // Rationale: Testing the activity
     @Test
     public void changeNameBtnTest(){
-        onView(withId(R.id.chgNameButton)).perform(click());
+        onView(withId(R.id.btn_changeName_changename)).perform(click());
 
         assertEquals(1, am.getHits());
     }

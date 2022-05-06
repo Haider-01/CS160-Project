@@ -34,7 +34,7 @@ public class forgetPassTest {
     // Rationale: Testing the activity
     @Test
     public void forgetPassBtnTest(){
-        onView(withId(R.id.sendPassButton)).perform(click());
+        onView(withId(R.id.btn_sendPass_forgetpass)).perform(click());
 
         assertEquals(1, am.getHits());
     }

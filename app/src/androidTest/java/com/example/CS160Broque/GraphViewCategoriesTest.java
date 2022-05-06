@@ -35,7 +35,7 @@ public class GraphViewCategoriesTest {
     // Rationale: Testing the activity
     @Test
     public void GraphViewCategoriesBtnTest(){
-        onView(withId(R.id.dashboardFromgraphViewScreen)).perform(click());
+        onView(withId(R.id.btn_dashboard_graphviewscreen)).perform(click());
 
         assertEquals(1, am.getHits());
     }

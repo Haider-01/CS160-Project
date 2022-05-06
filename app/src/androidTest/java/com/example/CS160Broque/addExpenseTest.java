@@ -8,11 +8,17 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withSpinnerText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+
+import static org.hamcrest.Matchers.anything;
+import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.*;
 
 import android.app.Instrumentation;
@@ -38,8 +44,13 @@ public class addExpenseTest {
     @Test
     public void addExpenseBtnTest(){
 
-        onView(withId(R.id.editTextNumber2)).perform(typeText(amount));
-        onView(withId(R.id.addExpense)).perform(click());
+        onView(withId(R.id.edt_expense_expense)).perform(typeText(amount));
+
+        onView(withId(R.id.spinner)).perform(click());
+        onData(anything()).atPosition(1).perform(click());
+        onView(withId(R.id.spinner)).check(matches(withSpinnerText(containsString("Food"))));
+
+        onView(withId(R.id.btn_addExpense_expense)).perform(click());
 
         assertEquals(1, am.getHits());
     }

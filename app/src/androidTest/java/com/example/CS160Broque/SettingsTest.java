@@ -33,7 +33,7 @@ public class SettingsTest {
     // Rationale: Test the activity
     @Test
     public void SettingsBtnTest(){
-        onView(withId(R.id.btn_finish_settings)).perform(click());
+        onView(withId(R.id.edt_update_budget)).perform(click());
 
         assertEquals(1, am.getHits());
     }
