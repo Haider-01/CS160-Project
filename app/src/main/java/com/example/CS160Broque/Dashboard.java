@@ -176,7 +176,7 @@ public class Dashboard extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_logout) {
-            Intent logOut = new Intent(changePass.this, Login.class);
+            Intent logOut = new Intent(Dashboard.this, Login.class);
             logOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(logOut);
             return true;
