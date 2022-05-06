@@ -414,9 +414,9 @@ public class BroqueDB {
         return sb.toString();
     }
 
-    public String insertTransaction(String username, String date, String totalSpent) throws IOException, URISyntaxException {
+    public String insertTransaction(String username, String date, String totalSpent, String expense_type) throws IOException, URISyntaxException {
         // Link to DB
-        String link = "https://broke-test.herokuapp.com/insertTransaction.php?username=%22" + username + "%22&date=%22" + date + "%22&totalSpent=%22" + totalSpent + "%22";
+        String link = "https://broke-test.herokuapp.com/insertTransaction.php?username=%22" + username + "%22&date=%22" + date + "%22&totalSpent=%22" + totalSpent + "%22&expense_type=%22" + expense_type + "%22";
         System.out.println(link);
 
         URL url = new URL(link);
@@ -462,8 +462,8 @@ public class BroqueDB {
         return sb.toString();
     }
 
-    public String[] getTransaction(String username) throws IOException, URISyntaxException {
-        String link = "http://broke-test.herokuapp.com/getTransaction.php?username=%22" + username + "%22";
+    public String[] getTransaction(String username, String expense_type) throws IOException, URISyntaxException {
+        String link = "http://broke-test.herokuapp.com/getTransaction.php?username=%22" + username + "%22&expense=%22" + expense_type + "%22";
 
         URL url = new URL(link);
         HttpClient client = new DefaultHttpClient();
