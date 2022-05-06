@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -95,6 +96,8 @@ public class Login extends AppCompatActivity {
                     account.insertExpenses(arrExpense[1], arrExpense[2], arrExpense[3], arrExpense[4]);
                     dashboardIntent.putExtra("Account", new Gson().toJson(account));
                     startActivity(dashboardIntent);
+                } else {
+                  return "Incorrect password";
                 }
                 System.out.println("login end");
             } catch (IOException e) {
@@ -106,5 +109,15 @@ public class Login extends AppCompatActivity {
             }
             return s;
         }// doInBackground
+
+        public void onPostExecute(String result) {
+            if (result.equals("Incorrect password")) {
+                Toast.makeText(getApplicationContext(), result,
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Login successful",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }// onPostExecute
     }// LoginTask
 }// Login
