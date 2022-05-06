@@ -14,6 +14,10 @@ import android.widget.Button;
 
 import com.example.CS160Broque.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class GraphViewables extends AppCompatActivity {
     Button dashboard;
     Button spending;
@@ -36,27 +40,25 @@ public class GraphViewables extends AppCompatActivity {
 
         graphview = findViewById(R.id.gv_totalBudgetGraph_graphscreen);
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
-                // on below line we are adding
-                // each point on our x and y axis.
-                //use loop here to insert datapoints
-                //in here for each datapoint, x will be the transaction index, y will be the amount spent at that index
-                new DataPoint(10, 0),
-                new DataPoint(20, 1000),
-                new DataPoint(30, 1500),
-                new DataPoint(40, 1550),
-                new DataPoint(50, 1625),
-                new DataPoint(60, 2765),
-                new DataPoint(70, 3000),
-                new DataPoint(80, 3224),
-                new DataPoint(90, 3500)
-        });
+        double runningTotal = 0;
+
+//        account.setTotalExpense(account.getBillsExpense()+account.getFoodExpense()+account.getOtherExpense()+account.getEntertainmentExpense());
+
+        List<DataPoint> listOfDatapoints = new ArrayList<>();
+        listOfDatapoints.add(new DataPoint(0, 0));
+
+        for(int i = 1; i <= account.getTotalTransactions().size(); i++) {
+            runningTotal += account.getTotalTransactions().get(i);
+            listOfDatapoints.add(new DataPoint(i, runningTotal));
+        }
+
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(listOfDatapoints.toArray(new DataPoint[0]));
 
         graphview.addSeries(series);
         graphview.getViewport().setMinX(0);
         graphview.getViewport().setMinY(0);
-        graphview.getViewport().setMaxX(account.getTotalExpense());   //set this to amt of all purchases so far, every purchase increment by 1
-        graphview.getViewport().setMaxY(10); //set this to the amount of transactions so far in the specified category
+        graphview.getViewport().setMaxX(account.getTotalTransactions().size());
+        graphview.getViewport().setMaxY(account.getTotalBudget());
         graphview.getViewport().setXAxisBoundsManual(true);
         graphview.getViewport().setYAxisBoundsManual(true);
 
