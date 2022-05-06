@@ -42,14 +42,7 @@ public class GraphViewables extends AppCompatActivity {
 
         double runningTotal = 0;
 
-        HashMap<Integer, Double> hashtest = new HashMap<>();
-        hashtest.put(1, 290.0);
-        hashtest.put(2, 72.25);
-        hashtest.put(3, 192.23);
-
-        account.setTotalTransactions(hashtest);
-
-        account.setTotalExpense(1000);
+//        account.setTotalExpense(account.getBillsExpense()+account.getFoodExpense()+account.getOtherExpense()+account.getEntertainmentExpense());
 
         List<DataPoint> listOfDatapoints = new ArrayList<>();
         listOfDatapoints.add(new DataPoint(0, 0));
@@ -65,7 +58,7 @@ public class GraphViewables extends AppCompatActivity {
         graphview.getViewport().setMinX(0);
         graphview.getViewport().setMinY(0);
         graphview.getViewport().setMaxX(account.getTotalTransactions().size());
-        graphview.getViewport().setMaxY(account.getTotalExpense());
+        graphview.getViewport().setMaxY(account.getTotalBudget());
         graphview.getViewport().setXAxisBoundsManual(true);
         graphview.getViewport().setYAxisBoundsManual(true);
 

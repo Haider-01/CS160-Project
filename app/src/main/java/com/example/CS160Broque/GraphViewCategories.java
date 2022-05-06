@@ -47,15 +47,6 @@ public class GraphViewCategories extends AppCompatActivity {
 
         double runningBillsTotal = 0;
 
-        HashMap<Integer, Double> hashtestOne = new HashMap<>();
-        hashtestOne.put(1, 290.0);
-        hashtestOne.put(2, 72.25);
-        hashtestOne.put(3, 192.23);
-
-        account.setBillsTransactions(hashtestOne);
-
-        account.setBillsExpense(1000);
-
         List<DataPoint> listOfBillsDatapoints = new ArrayList<>();
         listOfBillsDatapoints.add(new DataPoint(0, 0));
 
@@ -70,20 +61,12 @@ public class GraphViewCategories extends AppCompatActivity {
         billsGraph.getViewport().setMinX(0);
         billsGraph.getViewport().setMinY(0);
         billsGraph.getViewport().setMaxX(account.getBillsTransactions().size());
-        billsGraph.getViewport().setMaxY(account.getBillsExpense());
+        billsGraph.getViewport().setMaxY(account.getBillsBudget());
         billsGraph.getViewport().setXAxisBoundsManual(true);
         billsGraph.getViewport().setYAxisBoundsManual(true);
 
         double runningFoodTotal = 0;
 
-        HashMap<Integer, Double> hashtestTwo = new HashMap<>();
-        hashtestTwo.put(1, 55.0);
-        hashtestTwo.put(2, 342.2);
-        hashtestTwo.put(3, 123.21);
-
-        account.setFoodTransactions(hashtestTwo);
-
-        account.setFoodExpense(1000);
 
         List<DataPoint> listOfFoodDatapoints = new ArrayList<>();
         listOfFoodDatapoints.add(new DataPoint(0, 0));
@@ -99,20 +82,11 @@ public class GraphViewCategories extends AppCompatActivity {
         foodGraph.getViewport().setMinX(0);
         foodGraph.getViewport().setMinY(0);
         foodGraph.getViewport().setMaxX(account.getFoodTransactions().size());
-        foodGraph.getViewport().setMaxY(account.getFoodExpense());
+        foodGraph.getViewport().setMaxY(account.getFoodBudget());
         foodGraph.getViewport().setXAxisBoundsManual(true);
         foodGraph.getViewport().setYAxisBoundsManual(true);
 
         double runningEntertainmentTotal = 0;
-
-        HashMap<Integer, Double> hashtestThree = new HashMap<>();
-        hashtestThree.put(1, 22.0);
-        hashtestThree.put(2, 222.25);
-        hashtestThree.put(3, 94.23);
-
-        account.setEntertainmentTransactions(hashtestThree);
-
-        account.setEntertainmentExpense(1000);
 
         List<DataPoint> listOfEntertainmentDatapoints = new ArrayList<>();
         listOfEntertainmentDatapoints.add(new DataPoint(0, 0));
@@ -129,20 +103,11 @@ public class GraphViewCategories extends AppCompatActivity {
         entertainmentGraph.getViewport().setMinX(0);
         entertainmentGraph.getViewport().setMinY(0);
         entertainmentGraph.getViewport().setMaxX(account.getEntertainmentTransactions().size());
-        entertainmentGraph.getViewport().setMaxY(account.getEntertainmentExpense());
+        entertainmentGraph.getViewport().setMaxY(account.getEntertainmentBudget());
         entertainmentGraph.getViewport().setXAxisBoundsManual(true);
         entertainmentGraph.getViewport().setYAxisBoundsManual(true);
 
         double runningOthersTotal = 0;
-
-        HashMap<Integer, Double> hashtestFour = new HashMap<>();
-        hashtestFour.put(1, 129.0);
-        hashtestFour.put(2, 33.25);
-        hashtestFour.put(3, 523.23);
-
-        account.setOthersTransactions(hashtestFour);
-
-        account.setOtherExpense(1000);
 
         List<DataPoint> listOfOthersDatapoints = new ArrayList<>();
         listOfOthersDatapoints.add(new DataPoint(0, 0));
@@ -159,7 +124,7 @@ public class GraphViewCategories extends AppCompatActivity {
         othersGraph.getViewport().setMinX(0);
         othersGraph.getViewport().setMinY(0);
         othersGraph.getViewport().setMaxX(account.getOthersTransactions().size());
-        othersGraph.getViewport().setMaxY(account.getOtherExpense());
+        othersGraph.getViewport().setMaxY(account.getOtherBudget());
         othersGraph.getViewport().setXAxisBoundsManual(true);
         othersGraph.getViewport().setYAxisBoundsManual(true);
 
