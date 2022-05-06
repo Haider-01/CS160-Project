@@ -52,20 +52,20 @@ public class Dashboard extends AppCompatActivity {
         account = new Gson().fromJson(jsonMyAccount, Account.class);
         System.out.println(account);
 
-//        Date date = new Date();
-//        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-//        String dateString = formatter.format(date);
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+        String dateString = formatter.format(date);
 
-//        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
 
-        // Can change to reset in account class
-//        if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
-//            totalBudgetSpent = 0;
-//            billsSpent = 0;
-//            foodSpent = 0;
-//            entertainmentSpent = 0;
-//            othersSpent = 0;
-//        }
+         //Can change to reset in account class
+        if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
+            account.setTotalBudget(0);
+            account.setBillsBudget(0);
+            account.setFoodBudget(0);
+            account.setEntertainmentBudget(0);
+            account.setOtherBudget(0);
+        }
 
         //TextView budgetHint = (TextView) findViewById(R.id.edt_total_userfields);
         String budgetString = "Total Budget: " + account.getTotalExpense()
