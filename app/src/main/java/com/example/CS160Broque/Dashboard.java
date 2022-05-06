@@ -5,8 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -56,7 +54,6 @@ public class Dashboard extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
         String dateString = formatter.format(date);
 
-        Toast.makeText(getApplicationContext(), , Toast.LENGTH_SHORT).show();
 
          //Can change to reset in account class
         if(dateString.substring(0, 2).equals("01")){    //reset budget every month on dashboard
