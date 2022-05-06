@@ -42,7 +42,12 @@ public class GraphViewables extends AppCompatActivity {
 
         double runningTotal = 0;
 
-//        account.setTotalExpense(account.getBillsExpense()+account.getFoodExpense()+account.getOtherExpense()+account.getEntertainmentExpense());
+        HashMap<Integer, Double> hashtest = new HashMap<>();
+        hashtest.put(1, 222.0);
+        hashtest.put(2, 12.4);
+        hashtest.put(3, 84.2);
+
+        account.setTotalTransactions(hashtest);
 
         List<DataPoint> listOfDatapoints = new ArrayList<>();
         listOfDatapoints.add(new DataPoint(0, 0));

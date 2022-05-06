@@ -50,6 +50,13 @@ public class GraphViewCategories extends AppCompatActivity {
         List<DataPoint> listOfBillsDatapoints = new ArrayList<>();
         listOfBillsDatapoints.add(new DataPoint(0, 0));
 
+        HashMap<Integer, Double> hashtestOne = new HashMap<>();
+        hashtestOne.put(1, 32.0);
+        hashtestOne.put(2, 563.4);
+        hashtestOne.put(3, 222.2);
+
+        account.setBillsTransactions(hashtestOne);
+
         for(int i = 1; i <= account.getBillsTransactions().size(); i++) {
             runningBillsTotal += account.getBillsTransactions().get(i);
             listOfBillsDatapoints.add(new DataPoint(i, runningBillsTotal));
@@ -67,6 +74,12 @@ public class GraphViewCategories extends AppCompatActivity {
 
         double runningFoodTotal = 0;
 
+        HashMap<Integer, Double> hashtestTwo = new HashMap<>();
+        hashtestTwo.put(1, 143.0);
+        hashtestTwo.put(2, 109.4);
+        hashtestTwo.put(3, 94.2);
+
+        account.setFoodTransactions(hashtestTwo);
 
         List<DataPoint> listOfFoodDatapoints = new ArrayList<>();
         listOfFoodDatapoints.add(new DataPoint(0, 0));
@@ -88,6 +101,13 @@ public class GraphViewCategories extends AppCompatActivity {
 
         double runningEntertainmentTotal = 0;
 
+        HashMap<Integer, Double> hashtestThree = new HashMap<>();
+        hashtestThree.put(1, 121.0);
+        hashtestThree.put(2, 19.4);
+        hashtestThree.put(3, 43.2);
+
+        account.setEntertainmentTransactions(hashtestThree);
+
         List<DataPoint> listOfEntertainmentDatapoints = new ArrayList<>();
         listOfEntertainmentDatapoints.add(new DataPoint(0, 0));
 
@@ -108,6 +128,13 @@ public class GraphViewCategories extends AppCompatActivity {
         entertainmentGraph.getViewport().setYAxisBoundsManual(true);
 
         double runningOthersTotal = 0;
+
+        HashMap<Integer, Double> hashtestFour = new HashMap<>();
+        hashtestFour.put(1, 201.0);
+        hashtestFour.put(2, 66.4);
+        hashtestFour.put(3, 123.2);
+
+        account.setOthersTransactions(hashtestFour);
 
         List<DataPoint> listOfOthersDatapoints = new ArrayList<>();
         listOfOthersDatapoints.add(new DataPoint(0, 0));
