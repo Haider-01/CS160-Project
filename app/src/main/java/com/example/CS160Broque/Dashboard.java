@@ -163,13 +163,15 @@ public class Dashboard extends AppCompatActivity {
         entries.add(new PieEntry(13, "Remaining Other"));
 
         ArrayList<Integer> colors = new ArrayList<>();
-        for (int color: ColorTemplate.MATERIAL_COLORS) {
-            colors.add(color);
-        }
 
-        for (int color : ColorTemplate.VORDIPLOM_COLORS){
-            colors.add(color);
-        }
+        colors.add(ColorTemplate.VORDIPLOM_COLORS[0]);
+        colors.add(ColorTemplate.MATERIAL_COLORS[0]);
+        colors.add(ColorTemplate.VORDIPLOM_COLORS[1]);
+        colors.add(ColorTemplate.MATERIAL_COLORS[1]);
+        colors.add(ColorTemplate.VORDIPLOM_COLORS[4]);
+        colors.add(ColorTemplate.MATERIAL_COLORS[2]);
+        colors.add(ColorTemplate.VORDIPLOM_COLORS[3]);
+        colors.add(ColorTemplate.MATERIAL_COLORS[3]);
 
 
 
